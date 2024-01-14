@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype');
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining color values */
+        :root {
+            --main-color: rgba(0, 7, 26, 1); /* Define a variable for the main color */
+            --secondary-color: rgba(217, 217, 217, 1); /* Define a variable for the secondary color */
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        html{
+            scroll-behavior: smooth;
+        }
+        
+
+        body {
+            margin: 0;
+            font-family: montserrat_regular;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+        }
+
+
+        /* Navbar */
+        nav {
+            background-color: var(--secondary-color);
+            height: 10vh; /* 10% of the vertical height */
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+            align-items: center;
+            padding: 0 20px;
+            font-family: montserrat_medium;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--main-color); /* Specify the color and style of the bottom border */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--main-color);
+            margin-right: 50px; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Card */
+        
+
+        /* Container for banner and card */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            background-image: url("./static/images/Banner.png");
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: contain;
+        }
+        
+
+        .card-container {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px var(--main-color);
+        }
+
+        .card {
+            width: 30vw;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            /* transform: translate(-50%, -50%) scale(1.1); */
+            transform: scale(1.02);
+        }
+        /* /////////////////////////////////////////////////////////////////////////////// */
+
+
+        /* Introduction Section */
+        .introContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 0vh 9vw 4vh 9vw;
+        }
+
+        .left-section {
+            width: 55%; /* Adjust the width as needed, leaving some space for margins */
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: justify;
+        }
+
+        .right-section {
+            width: 44%; /* Adjust the width as needed, leaving some space for margins */
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: small;
+            text-align: center;
+        }
+
+
+        /* Dataset */
+        .datasetContainer {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--secondary-color);
+            color: var(--main-color);
+
+            height: 100vh;
+        }
+
+
+        .table-container {
+            width: 80%;
+            margin: 10px auto;
+            /* background-color: #fff; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-container div div{
+            text-align: center;
+        }
+
+        .table-header {
+            background-color: var(--main-color);
+            color: white;
+            display: flex;
+        }
+
+        .table-header div {
+            flex: 1;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: flex;
+        }
+
+        .table-cell {
+            flex: 1;
+            padding: 12px;
+            /* border: 1px solid var(--main-color); */
+            text-align: left;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        /* /////////////////////////////////////////////////////////////////////////// */
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="#Introduction">Introduction</a>
+            <a href="#Dataset">Dataset</a>
+            <a href="#">Publications</a>
+            <a href="#" style="margin-right: 100px;">Challenge</a>
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+    
+
+    <!-- Card -->
+    <div class="container">
+        <div class="card-container">
+            <div class="card" style="color: black;">
+                <h1 style="font-family: montserrat_bold;">MAV-CELEB</h1>
+                <h3 style="font-family: montserrat_lightItalic;">A Multi-lingual Audio Visual dataset of Celebrities.</h3>
+            </div>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- Introduction -->
+    <h1 id="Introduction" style="font-family: montserrat_bold; text-align: center;">Introduction</h1>
+    <div class="introContainer">
+        <div class="left-section">
+            <p>
+                Machines achieving human-like face-voice association ability is expected to significantly enhance 
+                the efficacy of multimodal biometrics, particularly amid the rising tide of disinformation fueled by the 
+                powerful weapon of audio-vision deepfakes. Prior works adopt metric learning methods to learn an embedding 
+                space that is amenable to associated matching and verification tasks. 
+            </p>
+            <p>
+                Albeit showing some progress, such formulations are, however, restrictive due to dependency on 
+                distance-dependent margin parameter, poor runtime training complexity, and reliance on carefully crafted 
+                negative mining procedures. In this work,we hypothesize that an enriched representation coupled with 
+                effective yet efficient supervision is important towards realizing a discriminative joint embedding space 
+                for face-voice association tasks. To this end, we propose a light-weight, plug-and-play mechanism that 
+                exploits the complementary cues in both modalities to form enriched fused embeddings and clusters them 
+                based on their identity labels via orthogonality constraints.
+            </p>
+            <p>
+                We coin our proposed mechanism as fusion and orthogonal projection (FOP) and instantiate in a two-stream 
+                network. The overall resulting framework is evaluated on VoxCeleb1 and MAV-Celeb datasets with a multitude 
+                of tasks, including cross-modal verification and matching. Results reveal that our method performs favourably 
+                against the current state-of-the-art methods and our proposed formulation of supervision is more effective and 
+                efficient than the ones employed by the contemporary methods. Lastly, we leverage cross-modal verification and 
+                matching tasks to analyze the impact of multiple languages on face-voice association.
+            </p>
+        </div>
+
+        <div class="right-section">
+            <img src="./static/images/Workflow.png" style="width: 100%;">
+            <p>Figure 1: Diagram showing cross-modal verification and matching task on Face-Voice Association with 
+                multiple languages.
+            </p>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- Dataset Section -->
+    <div class="datasetContainer">
+        <h1 id="Dataset" style="font-family: montserrat_bold; text-align: center; padding-top: 4vh;">Dataset</h1>
+
+        <div class="table-container">
+            <div class="table-header">
+                <div style="text-align: center;"></div>
+                <div>MAV-CELEB v1</div>
+                <div>MAV-CELEB v2</div>
+            </div>
+            <div class="table-body">
+                <div class="table-row">
+                    <div class="table-cell">Languages</div>
+                    <div class="table-cell">E / U / EU</div>
+                    <div class="table-cell">E / H / EH</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of celebs</div>
+                    <div class="table-cell">70</div>
+                    <div class="table-cell">84</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of male celebs</div>
+                    <div class="table-cell">43</div>
+                    <div class="table-cell">56</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of female celebs</div>
+                    <div class="table-cell">27</div>
+                    <div class="table-cell">28</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of videos</div>
+                    <div class="table-cell">402 / 555 / 957</div>
+                    <div class="table-cell">646 / 484 1130</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of hours</div>
+                    <div class="table-cell">30 / 54 / 84</div>
+                    <div class="table-cell">51 / 33 / 84</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of utterances</div>
+                    <div class="table-cell">6850 / 12706 / 19556</div>
+                    <div class="table-cell">12579 / 8136 / 20715</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg# of videos per celebrity</div>
+                    <div class="table-cell">6 / 8 / 14</div>
+                    <div class="table-cell">8 / 6 / 14</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg# of utterances per celebrity</div>
+                    <div class="table-cell">98 / 182 / 280</div>
+                    <div class="table-cell">150 / 97 / 247</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg length of utterance(s)</div>
+                    <div class="table-cell">15.8 / 15.3 / 15.6</div>
+                    <div class="table-cell">14.6 / 14.6 / 14.6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
