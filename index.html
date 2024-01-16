@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype');
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining base properties */
+        :root {
+            --main-color: rgba(35, 35, 37, 1);
+            --secondary-color: rgba(249, 249, 249, 1);
+            /* --secondary-color: rgba(35, 35, 37, 1);
+            --main-color: rgba(249, 249, 249, 1); */
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: montserrat_regular;
+            color: black;
+            font-size: 16px;
+            font-family: montserrat_regular;
+            text-align: justify;
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Navbar */
+        nav {
+            background-color: var(--main-color);
+            height: 10vh; /* 10% of the vertical height */
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly; /* Align items to the right */
+            align-items: center;
+            /* padding: 0 20px; */
+            font-family: montserrat_medium;
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-right: 2vw; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Body container */
+        .body-container{
+            width: 60%;
+            background-color: var(--secondary-color);
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+
+        /* Banner */
+        .banner-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 45vh;
+            background-image: url(./static/images/Banner2.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+
+
+        .card-container{
+            display: flex;
+            width: 350px;
+            background-color: var(--secondary-color);
+            opacity: 0.85; /* Set the desired opacity value */
+            height: 100px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 26px;
+            font-family: montserrat_medium;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6); /* Set the box shadow */
+            transition: transform 0.3s;
+
+            /* background-color: #e74c3c; */
+        }
+
+        .card-container:hover{
+            transform: scale(1.02);
+        }
+        /* ///////////////////////////////////////////////////////////////////// */
+
+
+        /* Description data */
+        .descriptions{
+            padding: 0 40px;
+        }
+
+        .description-headings{
+            font-family: montserrat_medium;
+            font-size: 24px;
+            margin-top: 8vh;
+            text-align: center;
+        }
+
+        .figures{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: montserrat_lightItalic;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .figures img{
+            width: 80%;
+        }
+
+        .figures p{
+            width: 80%;
+        }
+        /* ////////////////////////////////////////////////////////////////////// */
+
+
+        /* Table */
+        .table-container {
+            width: 80%;
+            margin: 10px auto;
+            /* background-color: #fff; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-container div div{
+            text-align: center;
+        }
+
+        .table-header {
+            background-color: var(--main-color);
+            color: white;
+            display: flex;
+        }
+
+        .table-header div {
+            flex: 1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: flex;
+        }
+
+        .table-cell {
+            flex: 1;
+            padding: 10px;
+            /* border: 1px solid var(--main-color); */
+            text-align: left;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: rgb(175, 175, 175);
+        }
+        /* ////////////////////////////////////////////////////////////////// */
+
+        /* Challenge button */
+        .challenge-button-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .challenge-button{
+            border-radius: 50px;
+            /* height: 7vh; */
+            padding: 10px;
+            width: 40%;
+            background-color: #e74c3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .challenge-button:hover{
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+        .footer{
+            margin-top: 10vh;
+            width: 100%;
+            height: 5vh;
+            background-color: var(--main-color);
+        }
+        
+        @media (max-width: 900px) {
+            .body-container{
+                width: 100%;
+            }
+
+            .banner-container{
+                height: 30vh;
+            }
+
+            .challenge-button{
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#publications">Publications</a>
+            <a href="#challenge">Challenge</a>
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+    
+    <div class="body-container">
+        <!-- banner -->
+        <div class="banner-container">
+            <div class="card-container">
+                <p>
+                    <span style="font-family: montserrat_medium;"> MAV-CELEB </span><br> 
+                    <span style="font-size: 14px;"> Multi-lingual Audio Visual dataset of Celebrities </span>
+                </p>
+                <p></p>
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Introduction -->
+        <div class="descriptions" id="introduction">
+            <p class="description-headings">INTRODUCTION</p>
+            <p>
+                Machines achieving human-like face-voice association ability is expected to significantly enhance 
+                the efficacy of multimodal biometrics, particularly amid the rising tide of disinformation fueled 
+                by the powerful weapon of audio-vision deepfakes. Prior works adopt metric learning methods to 
+                learn an embedding space that is amenable to associated matching and verification tasks. 
+                <br> <br>
+                Albeit showing some progress, such formulations are, however, restrictive due to dependency on distance-dependent 
+                margin parameter, poor runtime training complexity, and reliance on carefully crafted negative mining 
+                procedures. In this work,we hypothesize that an enriched representation coupled with effective yet 
+                efficient supervision is important towards realizing a discriminative joint embedding space for 
+                face-voice association tasks. To this end, we propose a light-weight, plug-and-play mechanism that 
+                exploits the complementary cues in both modalities to form enriched fused embeddings and clusters 
+                them based on their identity labels via orthogonality constraints.
+                <br> <br>
+                We coin our proposed mechanism as fusion and orthogonal projection (FOP) and instantiate in a 
+                two-stream network. The overall resulting framework is evaluated on VoxCeleb1 and MAV-Celeb datasets 
+                with a multitude of tasks, including cross-modal verification and matching. Results reveal that our 
+                method performs favourably against the current state-of-the-art methods and our proposed formulation of 
+                supervision is more effective and efficient than the ones employed by the contemporary methods. 
+                Lastly, we leverage cross-modal verification and matching tasks to analyze the impact of multiple 
+                languages on face-voice association.
+            </p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/Workflow.png">
+            <p>
+                Figure 1: Diagram showing cross-modal verification and matching task on Face-Voice Association with multiple languages.
+            </p>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Dataset -->
+        <div class="descriptions" id="dataset">
+            <p class="description-headings">DATASET</p>
+            <p>The dataset is available on the following links:</p>
+            <ul>
+                <li>MAV-CELEB v1</li>
+                <ul>
+                    <li>Raw files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                    <li>CSV files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                </ul>
+                <li>MAV-CELEB v2</li>
+                <ul>
+                    <li>Raw files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                    <li>CSV files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                </ul>
+            </ul>
+            <p>on both seen-heard and unseen-unheard cases.</p>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">
+                <div style="text-align: center;"></div>
+                <div>MAV-CELEB v1</div>
+                <div>MAV-CELEB v2</div>
+            </div>
+            <div class="table-body">
+                <div class="table-row">
+                    <div class="table-cell">Languages</div>
+                    <div class="table-cell">E / U / EU</div>
+                    <div class="table-cell">E / H / EH</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of celebs</div>
+                    <div class="table-cell">70</div>
+                    <div class="table-cell">84</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of male celebs</div>
+                    <div class="table-cell">43</div>
+                    <div class="table-cell">56</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of female celebs</div>
+                    <div class="table-cell">27</div>
+                    <div class="table-cell">28</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of videos</div>
+                    <div class="table-cell">402 / 555 / 957</div>
+                    <div class="table-cell">646 / 484 1130</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of hours</div>
+                    <div class="table-cell">30 / 54 / 84</div>
+                    <div class="table-cell">51 / 33 / 84</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell"># of utterances</div>
+                    <div class="table-cell">6850 / 12706 / 19556</div>
+                    <div class="table-cell">12579 / 8136 / 20715</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg# of videos per celebrity</div>
+                    <div class="table-cell">6 / 8 / 14</div>
+                    <div class="table-cell">8 / 6 / 14</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg# of utterances per celebrity</div>
+                    <div class="table-cell">98 / 182 / 280</div>
+                    <div class="table-cell">150 / 97 / 247</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Avg length of utterance(s)</div>
+                    <div class="table-cell">15.8 / 15.3 / 15.6</div>
+                    <div class="table-cell">14.6 / 14.6 / 14.6</div>
+                </div>
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Publications -->
+        <div class="descriptions" id="publications">
+            <p class="description-headings">Publications</p>
+            <div style="height: 300px;"></div>
+        </div>
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Challenge -->
+        <div class="descriptions" id="challenge">
+            <p class="description-headings">Challenge</p>
+            <p>The FAME Challenge focuses on Speaker Recognition in a multi-modal (face and voice) perspective. 
+                The complexity of the task increases further when we consider multiple spoken languages for the 
+                vocal data. This introduces a domain gap as the predictive models fail to establish a strong 
+                relationship across different languages for the speakers. The aim of the challenge is to develop 
+                techniques that tackle this domain gap and improve results on the Speaker Recognition task using 
+                multi-modal and cross-language techniques.</p>
+                <br>
+                <p style="text-align: center;">Click to see more details!</p>
+        </div>
+        <a href="./competition.html" style="all: initial;">
+            <div class="challenge-button-div">
+                <div class="challenge-button">
+                    <p class="description-headings" style="margin: 0%; color: white;">FAME Challenge 2024</p>
+                </div>
+            </div>
+        </a>
+        <!-- ///////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Footer -->
+        <div class="footer">
+
+        </div>
+    </div>
+    
+
+</body>
+</html>

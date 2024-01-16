@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype');
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining base properties */
+        :root {
+            --main-color: rgba(35, 35, 37, 1); /* Define a variable for the main color */
+            --secondary-color: rgba(249, 249, 249, 1); /* Define a variable for the secondary color */
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: montserrat_regular;
+            color: black;
+            font-size: 16px;
+            font-family: montserrat_regular;
+            text-align: justify;
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Navbar */
+        nav {
+            background-color: var(--main-color);
+            height: 10vh; /* 10% of the vertical height */
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly; /* Align items to the right */
+            align-items: center;
+            /* padding: 0 20px; */
+            font-family: montserrat_medium;
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-right: 2vw; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Body container */
+        .body-container{
+            width: 60%;
+            background-color: var(--secondary-color);
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+
+        /* Banner */
+        .banner-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 45vh;
+            background-image: url(./static/images/Banner2.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+
+
+        .card-container{
+            display: flex;
+            width: 350px;
+            background-color: var(--secondary-color);
+            opacity: 0.85; /* Set the desired opacity value */
+            height: 80px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 26px;
+            font-family: montserrat_medium;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6); /* Set the box shadow */
+            transition: transform 0.3s;
+        }
+
+        .card-container:hover{
+            transform: scale(1.02);
+        }
+        /* ///////////////////////////////////////////////////////////////////// */
+
+
+        /* Description data */
+        .descriptions{
+            padding: 0 40px;
+        }
+
+        .description-headings{
+            font-family: montserrat_medium;
+            font-size: 24px;
+            margin-top: 8vh;
+        }
+
+        .figures{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: montserrat_lightItalic;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .figures img{
+            width: 80%;
+        }
+        /* ////////////////////////////////////////////////////////////////////// */
+
+        
+        @media (max-width: 900px) {
+            .body-container{
+                width: 100%;
+            }
+
+            .banner-container{
+                height: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#baseline">Baseline</a>
+            <a href="#evaluation">Evaluation</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#registration">Registration</a>
+            <a href="#organizers">Organizers</a>
+            
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+    <!-- banner -->
+    <div class="body-container">
+        <div class="banner-container">
+            <div class="card-container">
+                FAME Challenge 2024
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Introduction -->
+        <div class="descriptions">
+            <p>
+                The FAME Challenge focuses on Speaker Recognition in a multi-modal (face and voice) perspective. 
+                The complexity of the task increases further when we consider multiple spoken languages for the vocal data. 
+                This introduces a domain gap as the predictive models fail to establish a strong relationship 
+                across different languages for the speakers. The aim of the challenge is to develop techniques 
+                that tackle this domain gap and improve results on the Speaker Recognition task using multi-modal 
+                and cross-language techniques.
+            </p>
+        </div>
+
+        <!-- About Dataset -->
+        <div class="descriptions" id="about">
+            <p class="description-headings">ABOUT DATASET</p>
+            <p>
+                Our dataset comprises of two versions, MAV-CELEB v1 and MAV-CELEB v2 both containing 
+                different (non-inclusive) speaker identities. The v1 contains audio visual data of speakers
+                 with Urdu and English languages while the v2 contains speakers with Hindi and English languages.
+            </p>
+            <ul>
+                <li>Facial images</li>
+                <li>Voice recordings</li>
+                <ul>
+                    <li>Urdu (v1 only)</li>
+                    <li>English (v1 and v2)</li>
+                    <li>Hindi (v2 only)</li>
+                </ul>
+            </ul>
+            <p>The data is available in two formats:</p>
+            <ul>
+                <li>Raw Images and audio file.</li>
+                <li>CSV files of image and audio features extracted through a pretrained
+                     feature extraction model (utterance level aggregator for voice and vggface for images).</li>
+            </ul>
+        </div>
+
+        <!-- Baseline Model -->
+        <div class="descriptions" id="baseline">
+            <p class="description-headings">BASELINE MODEL</p>
+            <p>
+                We provide a baseline model that has been trained on extracted features for facial and 
+                audio data (vggface for images and utterance level aggregator for voices). Our two branch network 
+                learn a fusion embedding and compares the affect of different loss formulations on the test set.
+            </p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/methodology.png">
+            <p>Figure 1: Diagram showing our methodology.</p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/results.png" style="width: 50%;">
+            <p style="width: 50%;">Figure 2: Cross-modal verification results for our loss and other losses under two configurations 
+                and two error metrics.</p>
+        </div>
+
+        <!-- Evaluation Metrics -->
+        <div class="descriptions" id="evaluation">
+            <p class="description-headings">EVALUATION METRICS</p>
+            <p>We measure the results on metrics:</p>
+            <ul>
+                <li>AUC (Area under the ROC Curve)</li>
+                <li>EER (Equal Error Rate)</li>
+            </ul>
+            <p>on both seen-heard and unseen-unheard cases.</p>
+        </div>
+
+        <!-- Dataset -->
+        <div class="descriptions" id="dataset">
+            <p class="description-headings">DATASET</p>
+            <p>The dataset is available on the following links:</p>
+            <ul>
+                <li>MAV-CELEB v1</li>
+                <ul>
+                    <li>Raw files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                    <li>CSV files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                </ul>
+                <li>MAV-CELEB v2</li>
+                <ul>
+                    <li>Raw files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                    <li>CSV files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
+                </ul>
+            </ul>
+            <p>on both seen-heard and unseen-unheard cases.</p>
+        </div>
+
+        <!-- Registration -->
+        <div class="descriptions" id="registration">
+            <p class="description-headings">REGISTRATION</p>
+            <p>We welcome participants to apply for the “FAME Challenge 2023” by expressing their interest via email at 
+                <span><a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a></span> 
+                through their institutional emails with the subject “REGISTRATION FOR FAME CHALLENGE 2023”.</p>
+        </div>
+
+        <!-- Organizers -->
+        <div class="descriptions" id="organizers">
+            <p class="description-headings">ORGANIZERS</p>
+            <p>
+                Shah Nawaz - <span  style="font-size: 12px;">Johannes Kepler University Linz</span> <br>
+                Muhammad Haris Khan - <span  style="font-size: 12px;">Mohamed Bin Zayed University of Artificial Intelligence</span> <br>
+                Sajid Javed - <span  style="font-size: 12px;">Pattern Analysis & Computer Vision (PAVIS) - Istituto Italiano di Tecnologia (IIT)</span> <br>
+                Muhammad Haroon Yousaf - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                Muhammad Saad Saeed - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                Muhammad Salman Tahir - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+            </p>
+        </div>
+
+    </div>
+    
+
+</body>
+</html>
