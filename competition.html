@@ -54,6 +54,8 @@
 
         /* Navbar */
         nav {
+            position: fixed;
+            z-index: 100;
             background-color: var(--main-color);
             height: 10vh; /* 10% of the vertical height */
             width: 100%;
@@ -97,6 +99,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-position: top;
+            margin-top: 10vh;
         }
 
 
@@ -148,7 +151,15 @@
         }
         /* ////////////////////////////////////////////////////////////////////// */
 
-        
+
+        .footer{
+            margin-top: 10vh;
+            width: 100%;
+            height: 5vh;
+            background-color: var(--main-color);
+        }
+
+
         @media (max-width: 900px) {
             .body-container{
                 width: 100%;
@@ -189,12 +200,15 @@
         <!-- Introduction -->
         <div class="descriptions">
             <p>
-                The FAME Challenge focuses on Speaker Recognition in a multi-modal (face and voice) perspective. 
-                The complexity of the task increases further when we consider multiple spoken languages for the vocal data. 
-                This introduces a domain gap as the predictive models fail to establish a strong relationship 
-                across different languages for the speakers. The aim of the challenge is to develop techniques 
-                that tackle this domain gap and improve results on the Speaker Recognition task using multi-modal 
-                and cross-language techniques.
+                The face and voice of a person have unique characteristics and they are well used as biometric 
+                measures for person authentication either as a unimodal or multimodal. A strong correlation has 
+                been found between face and voice of a person, which has attracted significant research interest. 
+                Though previous works have established association between faces and voices, none of these approaches 
+                investigated the effect of multiple languages on this task. As half of the population of world is 
+                bilingual and we are more often communicating in multilingual scenarios [10], therefore, it is essential 
+                to investigate the effect of language for associating faces with the voices. Thus, the goal of the 
+                <b>Face-voice Association in Multilingual Environments (FAME)</b> challenge is to analyze the impact of multiple 
+                languages on face-voice association task.
             </p>
         </div>
 
@@ -230,6 +244,11 @@
                 We provide a baseline model that has been trained on extracted features for facial and 
                 audio data (vggface for images and utterance level aggregator for voices). Our two branch network 
                 learn a fusion embedding and compares the affect of different loss formulations on the test set.
+                <br> <br>
+                Link to the paper: 
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
+                    Fusion and Orthogonal Projection for Improved Face-Voice Association
+                </a>
             </p>
         </div>
         <div class="figures">
@@ -245,6 +264,12 @@
         <!-- Evaluation Metrics -->
         <div class="descriptions" id="evaluation">
             <p class="description-headings">EVALUATION METRICS</p>
+            <p>
+                The training and validation sets will be shared to the participants on the first day of the progress 
+                phase, which they can use to build their systems. A pretrained model will also be shared during this 
+                period. The evaluation set without the keys will be shared on the first day of the evaluation phase, 
+                which the participants can use to test using their trained models that they developed during the progress phase.
+            </p>
             <p>We measure the results on metrics:</p>
             <ul>
                 <li>AUC (Area under the ROC Curve)</li>
@@ -284,15 +309,25 @@
         <div class="descriptions" id="organizers">
             <p class="description-headings">ORGANIZERS</p>
             <p>
-                Shah Nawaz - <span  style="font-size: 12px;">Johannes Kepler University Linz</span> <br>
-                Muhammad Haris Khan - <span  style="font-size: 12px;">Mohamed Bin Zayed University of Artificial Intelligence</span> <br>
-                Sajid Javed - <span  style="font-size: 12px;">Pattern Analysis & Computer Vision (PAVIS) - Istituto Italiano di Tecnologia (IIT)</span> <br>
-                Muhammad Haroon Yousaf - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
                 Muhammad Saad Saeed - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                Shah Nawaz - <span  style="font-size: 12px;">Johannes Kepler University Linz</span> <br>
                 Muhammad Salman Tahir - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
-            </p>
+                Rohan Kumar Das - <span  style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
+                Muhammad Zaigham Zaheer - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                Marta Moscati - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+                Markus Schedl - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
+                Muhammad Haris Khan - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                Karthik Nandakumar - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                Muhammad Haroon Yousaf - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                </p>
         </div>
 
+
+
+        <!-- footer -->
+        <div class="footer">
+
+        </div>
     </div>
     
 

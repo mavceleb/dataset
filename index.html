@@ -56,6 +56,8 @@
 
         /* Navbar */
         nav {
+            position: fixed;
+            z-index: 100;
             background-color: var(--main-color);
             height: 10vh; /* 10% of the vertical height */
             width: 100%;
@@ -99,6 +101,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-position: top;
+            margin-top: 10vh;
         }
 
 
@@ -205,6 +208,17 @@
             background-color: rgb(175, 175, 175);
         }
         /* ////////////////////////////////////////////////////////////////// */
+
+        
+        /* Publications */
+        .publications-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
 
         /* Challenge button */
         .challenge-button-div{
@@ -318,6 +332,13 @@
         <!-- Dataset -->
         <div class="descriptions" id="dataset">
             <p class="description-headings">DATASET</p>
+            <p>
+                The data is obtained from YouTube videos, consisting of celebrity interviews along with talk shows, 
+                and television debates. The visual data spans over a vast range of variations including poses, 
+                motion blur, background clutter, video quality, occlusions and lighting conditions. Moreover, most videos 
+                contain real-world noise like background chatter, music, over-lapping speech, and compression artifacts, 
+                resulting into a challenging dataset to evaluate multimedia systems.
+            </p>
             <p>The dataset is available on the following links:</p>
             <ul>
                 <li>MAV-CELEB v1</li>
@@ -396,14 +417,32 @@
 
         <!-- Publications -->
         <div class="descriptions" id="publications">
-            <p class="description-headings">Publications</p>
-            <div style="height: 300px;"></div>
+            <p class="description-headings">PUBLICATIONS</p>
+            <div class="publications-container">
+                <p>
+                    <b>Dataset Paper</b>
+                </p>
+                <a href="https://openaccess.thecvf.com/content/CVPR2021W/MULA/papers/Nawaz_Cross-Modal_Speaker_Verification_and_Recognition_A_Multilingual_Perspective_CVPRW_2021_paper.pdf"
+                style="font-size: 14px; margin-bottom: 5px;">
+                    Link to the paper
+                </a>
+                <img src="./static/images/dataset_paper.png" 
+                style="width: 60%; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); margin-bottom: 20px;">
+
+                <p><b>Baseline Paper</b></p>
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/"
+                style="font-size: 14px; margin-bottom: 5px;">
+                    Link to the paper
+                </a>
+                <img src="./static/images/dataset_paper.png" 
+                style="width: 60%; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); margin-bottom: 5px;">
+            </div>
         </div>
         <!-- /////////////////////////////////////////////////////////////////////// -->
 
         <!-- Challenge -->
         <div class="descriptions" id="challenge">
-            <p class="description-headings">Challenge</p>
+            <p class="description-headings">CHALLENGE</p>
             <p>The FAME Challenge focuses on Speaker Recognition in a multi-modal (face and voice) perspective. 
                 The complexity of the task increases further when we consider multiple spoken languages for the 
                 vocal data. This introduces a domain gap as the predictive models fail to establish a strong 
@@ -421,7 +460,7 @@
             </div>
         </a>
         <!-- ///////////////////////////////////////////////////////////////////////// -->
-
+        
         <!-- Footer -->
         <div class="footer">
 
