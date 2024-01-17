@@ -32,6 +32,7 @@
         :root {
             --main-color: rgba(35, 35, 37, 1);
             --secondary-color: rgba(249, 249, 249, 1);
+            --tertiary-color: rgba(230, 230, 230, 1);
             /* --secondary-color: rgba(35, 35, 37, 1);
             --main-color: rgba(249, 249, 249, 1); */
         }
@@ -85,6 +86,7 @@
         .body-container{
             width: 60%;
             background-color: var(--secondary-color);
+            margin: 0;
         }
         /* /////////////////////////////////////////////////////////////////// */
 
@@ -138,8 +140,10 @@
         .description-headings{
             font-family: montserrat_medium;
             font-size: 24px;
-            margin-top: 8vh;
+            padding-top: 8vh;
+            padding-bottom: 2vh;
             text-align: center;
+            margin: 0;
         }
 
         .figures{
@@ -160,54 +164,6 @@
             width: 80%;
         }
         /* ////////////////////////////////////////////////////////////////////// */
-
-
-        /* Table */
-        .table-container {
-            width: 80%;
-            margin: 10px auto;
-            /* background-color: #fff; */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .table-container div div{
-            text-align: center;
-        }
-
-        .table-header {
-            background-color: var(--main-color);
-            color: white;
-            display: flex;
-        }
-
-        .table-header div {
-            flex: 1;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .table-body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .table-row {
-            display: flex;
-        }
-
-        .table-cell {
-            flex: 1;
-            padding: 10px;
-            /* border: 1px solid var(--main-color); */
-            text-align: left;
-        }
-
-        .table-row:nth-child(even) {
-            background-color: rgb(175, 175, 175);
-        }
-        /* ////////////////////////////////////////////////////////////////// */
 
         
         /* Publications */
@@ -353,89 +309,54 @@
                 </ul>
             </ul>
         </div>
-
-        <div class="table-container">
-            <div class="table-header">
-                <div style="text-align: center;"></div>
-                <div>MAV-CELEB v1</div>
-                <div>MAV-CELEB v2</div>
-            </div>
-            <div class="table-body">
-                <div class="table-row">
-                    <div class="table-cell">Languages</div>
-                    <div class="table-cell">E / U / EU</div>
-                    <div class="table-cell">E / H / EH</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of celebs</div>
-                    <div class="table-cell">70</div>
-                    <div class="table-cell">84</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of male celebs</div>
-                    <div class="table-cell">43</div>
-                    <div class="table-cell">56</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of female celebs</div>
-                    <div class="table-cell">27</div>
-                    <div class="table-cell">28</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of videos</div>
-                    <div class="table-cell">402 / 555 / 957</div>
-                    <div class="table-cell">646 / 484 1130</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of hours</div>
-                    <div class="table-cell">30 / 54 / 84</div>
-                    <div class="table-cell">51 / 33 / 84</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell"># of utterances</div>
-                    <div class="table-cell">6850 / 12706 / 19556</div>
-                    <div class="table-cell">12579 / 8136 / 20715</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Avg# of videos per celebrity</div>
-                    <div class="table-cell">6 / 8 / 14</div>
-                    <div class="table-cell">8 / 6 / 14</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Avg# of utterances per celebrity</div>
-                    <div class="table-cell">98 / 182 / 280</div>
-                    <div class="table-cell">150 / 97 / 247</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Avg length of utterance(s)</div>
-                    <div class="table-cell">15.8 / 15.3 / 15.6</div>
-                    <div class="table-cell">14.6 / 14.6 / 14.6</div>
-                </div>
-            </div>
-        </div>
         <!-- //////////////////////////////////////////////////////////////////////// -->
 
         <!-- Publications -->
-        <div class="descriptions" id="publications">
+        <div class="descriptions" id="publications" style="background-color: var(--tertiary-color);">
             <p class="description-headings">PUBLICATIONS</p>
             <div class="publications-container">
+                
                 <p>
                     <b>Dataset Paper</b>
                 </p>
                 <a href="https://openaccess.thecvf.com/content/CVPR2021W/MULA/papers/Nawaz_Cross-Modal_Speaker_Verification_and_Recognition_A_Multilingual_Perspective_CVPRW_2021_paper.pdf"
-                style="font-size: 14px; margin-bottom: 5px;">
+                style="font-size: 14px; margin-bottom: 15px;">
                     Link to the paper
                 </a>
-                <img src="./static/images/dataset_paper.png" 
-                style="width: 60%; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); margin-bottom: 20px;">
-
-                <p><b>Baseline Paper</b></p>
+                <div style="width: 60%; display: flex; flex-direction: column; font-size: 14px;">
+                    <span>
+                        @inproceedings{nawaz2021cross,
+                    </span>
+                    <span style="padding-left: 50px;">
+                            title={Cross-modal speaker verification and recognition: A multilingual perspective}, <br>
+                            author={Nawaz, Shah and Saeed, Muhammad Saad and Morerio, Pietro and Mahmood, Arif and Gallo, Ignazio and Yousaf, Muhammad Haroon and Del Bue, Alessio}, <br>
+                            booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, <br>
+                            pages={1682--1691},<br>
+                            year={2021}
+                    </span>
+                    <span>}</span>
+                </div>
+                <p>
+                    <b>Baseline Paper</b>
+                </p>
                 <a href="https://ieeexplore.ieee.org/abstract/document/9747704/"
-                style="font-size: 14px; margin-bottom: 5px;">
+                style="font-size: 14px; margin-bottom: 15px;">
                     Link to the paper
                 </a>
-                <img src="./static/images/dataset_paper.png" 
-                style="width: 60%; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); margin-bottom: 5px;">
+                <div style="width: 60%; display: flex; flex-direction: column; font-size: 14px;">
+                    <span>
+                        @inproceedings{saeed2022fusion,
+                    </span>
+                    <span style="padding-left: 50px;">
+                        title={Fusion and orthogonal projection for improved face-voice association}, <br>
+                        author={Saeed, Muhammad Saad and Khan, Muhammad Haris and Nawaz, Shah and Yousaf, Muhammad Haroon and Del Bue, Alessio}, <br>
+                        booktitle={ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, <br>
+                        pages={7057--7061}, <br>
+                        year={2022}, <br>
+                        organization={IEEE} <br>
+                    </span>
+                    <span style="padding-bottom: 2vh;">}</span>
+                </div>
             </div>
         </div>
         <!-- /////////////////////////////////////////////////////////////////////// -->
@@ -455,7 +376,7 @@
         <a href="./competition.html" style="all: initial;">
             <div class="challenge-button-div">
                 <div class="challenge-button">
-                    <p class="description-headings" style="margin: 0%; color: white;">FAME Challenge 2024</p>
+                    <p class="description-headings" style="padding: 0; margin: 0%; color: white;">FAME Challenge 2024</p>
                 </div>
             </div>
         </a>

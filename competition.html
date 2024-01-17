@@ -32,6 +32,7 @@
         :root {
             --main-color: rgba(35, 35, 37, 1); /* Define a variable for the main color */
             --secondary-color: rgba(249, 249, 249, 1); /* Define a variable for the secondary color */
+            --tertiary-color: rgba(230, 230, 230, 1);
         }
 
         html{
@@ -133,7 +134,9 @@
         .description-headings{
             font-family: montserrat_medium;
             font-size: 24px;
-            margin-top: 8vh;
+            margin: 0;
+            padding-top: 8vh;
+            padding-bottom: 2vh;
         }
 
         .figures{
@@ -151,6 +154,52 @@
         }
         /* ////////////////////////////////////////////////////////////////////// */
 
+        /* Dataset Table */
+        .table-container {
+            width: 80%;
+            margin: 10px auto;
+            /* background-color: #fff; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-container div div{
+            text-align: center;
+        }
+
+        .table-header {
+            background-color: var(--main-color);
+            color: white;
+            display: flex;
+        }
+
+        .table-header div {
+            flex: 1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: flex;
+        }
+
+        .table-cell {
+            flex: 1;
+            padding: 10px;
+            /* border: 1px solid var(--main-color); */
+            text-align: left;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: rgb(175, 175, 175);
+        }
+        /* ////////////////////////////////////////////////////////////////// */
 
         .footer{
             margin-top: 10vh;
@@ -177,10 +226,10 @@
     <nav>
         <div>
             <a href="./index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#baseline">Baseline</a>
-            <a href="#evaluation">Evaluation</a>
             <a href="#dataset">Dataset</a>
+            <a href="#baseline">Baseline</a>
+            <a href="#task">Task</a>
+            <a href="#evaluation">Evaluation</a>
             <a href="#registration">Registration</a>
             <a href="#organizers">Organizers</a>
             
@@ -212,9 +261,9 @@
             </p>
         </div>
 
-        <!-- About Dataset -->
-        <div class="descriptions" id="about">
-            <p class="description-headings">ABOUT DATASET</p>
+        <!-- Dataset -->
+        <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
+            <p class="description-headings">DATASET</p>
             <p>
                 Our dataset comprises of two versions, MAV-CELEB v1 and MAV-CELEB v2 both containing 
                 different (non-inclusive) speaker identities. The v1 contains audio visual data of speakers
@@ -235,52 +284,7 @@
                 <li>CSV files of image and audio features extracted through a pretrained
                      feature extraction model (utterance level aggregator for voice and vggface for images).</li>
             </ul>
-        </div>
-
-        <!-- Baseline Model -->
-        <div class="descriptions" id="baseline">
-            <p class="description-headings">BASELINE MODEL</p>
-            <p>
-                We provide a baseline model that has been trained on extracted features for facial and 
-                audio data (vggface for images and utterance level aggregator for voices). Our two branch network 
-                learn a fusion embedding and compares the affect of different loss formulations on the test set.
-                <br> <br>
-                Link to the paper: 
-                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
-                    Fusion and Orthogonal Projection for Improved Face-Voice Association
-                </a>
-            </p>
-        </div>
-        <div class="figures">
-            <img src="./static/images/methodology.png">
-            <p>Figure 1: Diagram showing our methodology.</p>
-        </div>
-        <div class="figures">
-            <img src="./static/images/results.png" style="width: 50%;">
-            <p style="width: 50%;">Figure 2: Cross-modal verification results for our loss and other losses under two configurations 
-                and two error metrics.</p>
-        </div>
-
-        <!-- Evaluation Metrics -->
-        <div class="descriptions" id="evaluation">
-            <p class="description-headings">EVALUATION METRICS</p>
-            <p>
-                The training and validation sets will be shared to the participants on the first day of the progress 
-                phase, which they can use to build their systems. A pretrained model will also be shared during this 
-                period. The evaluation set without the keys will be shared on the first day of the evaluation phase, 
-                which the participants can use to test using their trained models that they developed during the progress phase.
-            </p>
-            <p>We measure the results on metrics:</p>
-            <ul>
-                <li>AUC (Area under the ROC Curve)</li>
-                <li>EER (Equal Error Rate)</li>
-            </ul>
-            <p>on both seen-heard and unseen-unheard cases.</p>
-        </div>
-
-        <!-- Dataset -->
-        <div class="descriptions" id="dataset">
-            <p class="description-headings">DATASET</p>
+            
             <p>The dataset is available on the following links:</p>
             <ul>
                 <li>MAV-CELEB v1</li>
@@ -294,35 +298,153 @@
                     <li>CSV files: <span><a href="https://github.com/mavceleb/dataset">https://github.com/mavceleb/dataset</a></span></li>
                 </ul>
             </ul>
+
+            <div class="table-container" style="padding-bottom: 2vh;">
+                <div class="table-header">
+                    <div style="text-align: center;"></div>
+                    <div>MAV-CELEB v1</div>
+                    <div>MAV-CELEB v2</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-cell">Languages</div>
+                        <div class="table-cell">E / U / EU</div>
+                        <div class="table-cell">E / H / EH</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of celebs</div>
+                        <div class="table-cell">70</div>
+                        <div class="table-cell">84</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of male celebs</div>
+                        <div class="table-cell">43</div>
+                        <div class="table-cell">56</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of female celebs</div>
+                        <div class="table-cell">27</div>
+                        <div class="table-cell">28</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of videos</div>
+                        <div class="table-cell">402 / 555 / 957</div>
+                        <div class="table-cell">646 / 484 1130</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of hours</div>
+                        <div class="table-cell">30 / 54 / 84</div>
+                        <div class="table-cell">51 / 33 / 84</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of utterances</div>
+                        <div class="table-cell">6850 / 12706 / 19556</div>
+                        <div class="table-cell">12579 / 8136 / 20715</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg# of videos per celebrity</div>
+                        <div class="table-cell">6 / 8 / 14</div>
+                        <div class="table-cell">8 / 6 / 14</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg# of utterances per celebrity</div>
+                        <div class="table-cell">98 / 182 / 280</div>
+                        <div class="table-cell">150 / 97 / 247</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg length of utterance(s)</div>
+                        <div class="table-cell">15.8 / 15.3 / 15.6</div>
+                        <div class="table-cell">14.6 / 14.6 / 14.6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Baseline Model -->
+        <div class="descriptions" id="baseline">
+            <p class="description-headings">BASELINE MODEL</p>
+            <p>
+                We provide a baseline model that has been trained on extracted features for facial and 
+                audio data (vggface for images and utterance level aggregator for voices). To learn a discriminative 
+                joint face-voice embedding for F-V association tasks, we develop a new framework for crossmodal face-voice 
+                association (See Fig. 1) that is fundamentally a two-stream pipeline and features a light-weight 
+                module that exploits complementary cues from both face and voice embeddings and facilitates discriminative identity
+                mapping via orthogonality constraints
+                <br> <br>
+                Link to the paper: 
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
+                    Fusion and Orthogonal Projection for Improved Face-Voice Association
+                </a>
+                <br>
+                Link to the code: 
+                <a href="https://github.com/msaadsaeed/FOP">
+                    https://github.com/msaadsaeed/FOP
+                </a>
+            </p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/methodology.png">
+            <p>Figure 1: Diagram showing our methodology.</p>
+        </div>
+
+        <!-- Task -->
+        <div class="descriptions" id="task">
+            <p class="description-headings">TASK</p>
+            <p><b>Cross-modal Verification and Matching</b></p>
+            <p>
+                Face-voice association is established in cross-modal verification and matching tasks. The 
+                goal of the cross-modal verification task is to verify if, in a given single sample with both a face 
+                and voice, both belong to the same identity. In a cross-modal matching task, Voice-Face(V-F): given a 
+                clip of a voice  and two or more face images, select the face image that belongs to the voice. 
+                (Face-Voice) F-V: given an image of a face, determine the respective voice. In addition, we analyze 
+                the impact of multiple of languages on cross-modal verification and matching tasks.
+            </p>
+            <div class="figures">
+                <img src="./static/images/Workflow.png">
+                <p>Figure 1: Diagram explaining cross-modal verification and matching task in face-voice association.</p>
+            </div>
+        </div>
+
+        <!-- Evaluation Metrics -->
+        <div class="descriptions" id="evaluation" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
+            <p class="description-headings">EVALUATION METRICS</p>
+            <p>
+                The training and validation sets will be shared to the participants on the first day of the progress 
+                phase, which they can use to build their systems. A pretrained model will also be shared during this 
+                period. The evaluation set without the keys will be shared on the first day of the evaluation phase, 
+                which the participants can use to test using their trained models that they developed during the progress phase.
+            </p>
+            <p>We measure the results on metrics:</p>
+            <ul>
+                <li>Area under the ROC Curve (AUC)</li>
+                <li>Equal Error Rate (EER)</li>
+            </ul>
             <p>on both seen-heard and unseen-unheard cases.</p>
         </div>
 
         <!-- Registration -->
         <div class="descriptions" id="registration">
             <p class="description-headings">REGISTRATION</p>
-            <p>We welcome participants to apply for the “FAME Challenge 2023” by expressing their interest via email at 
-                <span><a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a></span> 
-                through their institutional emails with the subject “REGISTRATION FOR FAME CHALLENGE 2023”.</p>
+            <p>We welcome participants to apply for the “FAME Challenge 2023” by expressing their interest via google forms at 
+                <span><a href="https://docs.google.com/forms/d/e/1FAIpQLScBPcRr_ReZHpGE1mxE1Zajjyg5chwOzQtqhV3KCmKBSoOKBA/viewform?gxid=-8203366">this link</a></span>.</p>
         </div>
 
         <!-- Organizers -->
         <div class="descriptions" id="organizers">
             <p class="description-headings">ORGANIZERS</p>
             <p>
-                Muhammad Saad Saeed - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
-                Shah Nawaz - <span  style="font-size: 12px;">Johannes Kepler University Linz</span> <br>
-                Muhammad Salman Tahir - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
-                Rohan Kumar Das - <span  style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
-                Muhammad Zaigham Zaheer - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
-                Marta Moscati - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
-                Markus Schedl - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
-                Muhammad Haris Khan - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
-                Karthik Nandakumar - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
-                Muhammad Haroon Yousaf - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                <a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&hl=en">Muhammad Saad Saeed</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                <a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a> - <span  style="font-size: 12px;">Johannes Kepler University Linz</span> <br>
+                <a href="#">Muhammad Salman Tahir</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                <a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a> - <span  style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
+                <a href="https://scholar.google.com/citations?user=nFxWrXEAAAAJ&hl=en">Muhammad Zaigham Zaheer</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                <a href="https://hcai.at/persons/moscati/">Marta Moscati</a> - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+                <a href="http://www.mschedl.eu/">Markus Schedl</a> - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
+                <a href="https://mbzuai.ac.ae/study/faculty/muhammad-haris-khan/">Muhammad Haris Khan</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                <a href="https://mbzuai.ac.ae/study/faculty/karthik-nandakumar/">Karthik Nandakumar</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                <a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
                 </p>
         </div>
-
-
 
         <!-- footer -->
         <div class="footer">
