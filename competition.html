@@ -165,7 +165,7 @@
         .dataset-item{
             display: flex;
             flex-direction: column;
-            width: 32%;
+            width: 48%;
             text-align: left;
             height: 40vh;
         }
@@ -225,11 +225,13 @@
         }
 
 
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             .body-container{
                 width: 100%;
             }
+        }
 
+        @media (max-width: 900px) {
             .banner-container{
                 height: 30vh;
             }
@@ -289,9 +291,9 @@
         <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
             <p class="description-headings">DATASET</p>
             <p>
-                MAV-Celeb dataset consists of two splits containing different (non-inclusive) speaker identities. 
-                The v1 contains audio visual data of speakers  with Urdu and English languages while the v2 
-                contains speakers with Hindi and English languages.
+                Our dataset comprises of two versions, MAV-CELEB v1 and MAV-CELEB v2 both containing 
+                different (non-inclusive) speaker identities. The v1 contains audio visual data of speakers
+                 with Urdu and English languages while the v2 contains speakers with Hindi and English languages.
             </p>
             <ul>
                 <li>Facial images</li>
@@ -317,15 +319,17 @@
                             <li><a href="https://github.com/mavceleb/dataset">CSV files link</a></li>
                         </ul>
                     </ul>
+                    <p>
+                        To view the meta-data for the dataset, you can view the PDFs attached below:
+                        <ul>
+                            <li><a href="./static/docs/meta_v2.pdf">v1 meta-data file</a></li>
+                            <li><a href="./static/docs/meta_v2.pdf">v2 meta-data file</a></li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="dataset-item" style="overflow-y: scroll;">
                     <p>The file structure is like:</p>
-                    <img src="./static/images/dataset_structure.png">
-                </div>
-
-                <div class="dataset-item" style="overflow-y: scroll;">
-                    <p>The dataset meta-data:</p>
                     <img src="./static/images/dataset_structure.png">
                 </div>
 

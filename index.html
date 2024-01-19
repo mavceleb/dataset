@@ -176,7 +176,7 @@
         .dataset-item{
             display: flex;
             flex-direction: column;
-            width: 32%;
+            width: 48%;
             text-align: left;
             height: 40vh;
         }
@@ -223,11 +223,13 @@
             background-color: var(--main-color);
         }
         
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             .body-container{
                 width: 100%;
             }
+        }
 
+        @media (max-width: 900px) {
             .banner-container{
                 height: 30vh;
             }
@@ -325,18 +327,19 @@
                             <li><a href="https://github.com/mavceleb/dataset">CSV files link</a></li>
                         </ul>
                     </ul>
+                    <p>
+                        To view the meta-data for the dataset, you can view the PDFs attached below:
+                        <ul>
+                            <li><a href="./static/docs/meta_v2.pdf">v1 meta-data file</a></li>
+                            <li><a href="./static/docs/meta_v2.pdf">v2 meta-data file</a></li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="dataset-item" style="overflow-y: scroll;">
                     <p>The file structure is like:</p>
                     <img src="./static/images/dataset_structure.png">
                 </div>
-
-                <div class="dataset-item" style="overflow-y: scroll;">
-                    <p>The dataset meta-data:</p>
-                    <img src="./static/images/dataset_structure.png">
-                </div>
-
             </div>
         </div>
         <!-- //////////////////////////////////////////////////////////////////////// -->
