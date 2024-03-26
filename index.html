@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            /* src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype'); */
+            src: url('./static/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            /* src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype'); */
+            src: url('./static/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            /* src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype'); */
+            src: url('./static/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            /* src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype'); */
+            src: url('./static/fonts/roboto/Roboto-LightItalic.ttf') format('truetype');
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining base properties */
+        :root {
+            --main-color: rgba(35, 35, 37, 1);
+            --secondary-color: rgba(249, 249, 249, 1);
+            --tertiary-color: rgba(230, 230, 230, 1);
+            /* --secondary-color: rgba(35, 35, 37, 1);
+            --main-color: rgba(249, 249, 249, 1); */
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: montserrat_regular;
+            color: black;
+            font-size: 16px;
+            font-family: montserrat_regular;
+            text-align: justify;
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            z-index: 100;
+            background-color: var(--main-color);
+            height: 10vh; /* 10% of the vertical height */
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly; /* Align items to the right */
+            align-items: center;
+            /* padding: 0 20px; */
+            font-family: montserrat_medium;
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-right: 2vw; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Body container */
+        .body-container{
+            width: 60%;
+            background-color: var(--secondary-color);
+            margin: 0;
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+
+        /* Banner */
+        .banner-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40vh;
+            background-image: url(./static/images/Banner2.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: top;
+            margin-top: 10vh;
+        }
+
+
+        .card-container{
+            display: flex;
+            width: 350px;
+            background-color: var(--secondary-color);
+            opacity: 0.85; /* Set the desired opacity value */
+            height: 100px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 26px;
+            font-family: montserrat_medium;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6); /* Set the box shadow */
+            transition: transform 0.3s;
+
+            /* background-color: #e74c3c; */
+        }
+
+        .card-container:hover{
+            transform: scale(1.02);
+        }
+        /* ///////////////////////////////////////////////////////////////////// */
+
+
+        /* Description data */
+        .descriptions{
+            padding: 0 40px;
+        }
+
+        .description-headings{
+            font-family: montserrat_medium;
+            font-size: 24px;
+            padding-top: 8vh;
+            padding-bottom: 2vh;
+            text-align: center;
+            margin: 0;
+        }
+
+        .figures{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: montserrat_lightItalic;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .figures img{
+            width: 80%;
+        }
+
+        .figures p{
+            width: 80%;
+        }
+        /* ////////////////////////////////////////////////////////////////////// */
+
+        /* Dataset */
+        .dataset-container{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .dataset-item{
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            text-align: left;
+            height: 45vh;
+        }
+
+        /* Publications */
+        .publications-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+
+        /* Challenge button */
+        .challenge-button-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .challenge-button{
+            border-radius: 50px;
+            /* height: 7vh; */
+            padding: 10px;
+            width: 40%;
+            background-color: #e74c3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .challenge-button:hover{
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+        .footer{
+            margin-top: 10vh;
+            width: 100%;
+            height: 5vh;
+            background-color: var(--main-color);
+        }
+        
+        @media (max-width: 1200px) {
+            .body-container{
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .banner-container{
+                height: 30vh;
+            }
+
+            .challenge-button{
+                width: 80%;
+            }
+
+            .dataset-container{
+                flex-direction: column;
+            }
+
+            .dataset-item{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#publications">Publications</a>
+            <a href="#challenge">Challenge</a>
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+    
+    <div class="body-container">
+        <!-- banner -->
+        <div class="banner-container">
+            <div class="card-container">
+                <p>
+                    <span style="font-family: montserrat_medium;"> MAV-CELEB </span><br> 
+                    <span style="font-size: 14px;"> Multi-lingual Audio Visual dataset of Celebrities </span>
+                </p>
+                <p></p>
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Introduction -->
+        <div class="descriptions" id="introduction">
+            <p class="description-headings">INTRODUCTION</p>
+            <p>
+                Recent years have seen a surge in finding association between faces and voices within a cross-modal 
+                biometric application along with speaker recognition. Inspired from this, we introduce a challenging 
+                task in establishing association between faces and voices across multiple languages spoken by the same 
+                set of persons. The aim of this paper is to answer two closely related questions: “Is face-voice 
+                association language independent?” and “Can a speaker be recognized irrespective of the spoken language?”. 
+                <br><br>
+                These two questions are important to understand effectiveness and to boost development of multilingual biometric 
+                systems. To answer these, we collected a Multilingual Audio-Visual dataset, containing human speech clips of 154 
+                identities with 3 language annotations extracted from various videos uploaded online. Extensive experiments 
+                on the two splits of the proposed dataset have been performed to investigate and answer these novel research 
+                questions that clearly point out the relevance of the multilingual problem.
+            </p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/homepage_task_diag.jpg">
+            <p>
+                Figure 1: Diagram showing cross-modal verification and matching task on Face-Voice Association with multiple languages.
+            </p>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Dataset -->
+        <div class="descriptions" id="dataset">
+            <p class="description-headings">DATASET</p>
+            <p>
+                The data is obtained from YouTube videos, consisting of celebrity interviews along with talk shows, 
+                and television debates. The visual data spans over a vast range of variations including poses, 
+                motion blur, background clutter, video quality, occlusions and lighting conditions. Moreover, most videos 
+                contain real-world noise like background chatter, music, over-lapping speech, and compression artifacts, 
+                resulting into a challenging dataset to evaluate multimedia systems.
+            </p>
+            
+            <div class="dataset-container">
+                <div class="dataset-item">
+                    <p>The dataset is available on the following links:</p>
+                    <ul>
+                        <li>MAV-CELEB v1</li>
+                        <ul>
+                            <li><a href="https://github.com/mavceleb/dataset">Raw files link</a></li>
+                            <li><a href="https://github.com/mavceleb/dataset">CSV files link</a></li>
+                        </ul>
+                        <li>MAV-CELEB v2</li>
+                        <ul>
+                            <li><a href="https://github.com/mavceleb/dataset">Raw files link</a></li>
+                            <li><a href="https://github.com/mavceleb/dataset">CSV files link</a></li>
+                        </ul>
+                    </ul>
+                    <p>
+                        To view the meta-data for the dataset, you can view the PDFs attached below:
+                        <ul>
+                            <li><a href="./static/docs/meta_v2.pdf">v1 meta-data file</a></li>
+                            <li><a href="./static/docs/meta_v2.pdf">v2 meta-data file</a></li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="dataset-item" style="overflow-y: scroll;">
+                    <p>The file structure is like:</p>
+                    <img src="./static/images/dataset_structure.png">
+                </div>
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Publications -->
+        <div class="descriptions" id="publications" style="background-color: var(--tertiary-color);">
+            <p class="description-headings">PUBLICATIONS</p>
+            <div class="publications-container">
+                
+                <p>
+                    <b>Dataset Paper</b>
+                </p>
+                <a href="https://openaccess.thecvf.com/content/CVPR2021W/MULA/papers/Nawaz_Cross-Modal_Speaker_Verification_and_Recognition_A_Multilingual_Perspective_CVPRW_2021_paper.pdf"
+                style="font-size: 14px;">
+                    Cross-modal Speaker Verification and Recognition: A Multilingual Perspective
+                </a>
+                <p style="font-size: 14px; margin-bottom: 15px; width: 60%; text-align: center;">
+                    <b>Authors:</b> Nawaz, Shah and Saeed, Muhammad Saad and Morerio, Pietro and Mahmood, Arif and Gallo, Ignazio and Yousaf, 
+                    Muhammad Haroon and Del Bue, Alessio
+                </p>
+
+                <p>
+                    <b>Baseline Paper</b>
+                </p>
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/"
+                style="font-size: 14px;">
+                    Fusion and Orthogonal Projection for Improved Face-Voice Association
+                </a>
+                <p style="font-size: 14px; margin-bottom: 20px; width: 60%; text-align: center;">
+                    <b>Authors:</b> Saeed, Muhammad Saad and Khan, Muhammad Haris and Nawaz, Shah and Yousaf, Muhammad Haroon and Del Bue, Alessio
+                </p>
+
+            </div>
+        </div>
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Challenge -->
+        <div class="descriptions" id="challenge">
+            <p class="description-headings">CHALLENGE</p>
+            <p>The FAME Challenge 2024 focuses on Speaker Recognition in a multi-modal (face and voice) perspective. 
+                The complexity of the task increases further when we consider multiple spoken languages for the 
+                vocal data. This introduces a domain gap as the predictive models fail to establish a strong 
+                relationship across different languages for the speakers. The aim of the challenge is to develop 
+                techniques that tackle this domain gap and improve results on the Speaker Recognition task using 
+                multi-modal and cross-language techniques.</p>
+                <br>
+                <p style="text-align: center;">Click to see more details!</p>
+        </div>
+        <a href="./competition.html" style="all: initial;">
+            <div class="challenge-button-div">
+                <div class="challenge-button">
+                    <p class="description-headings" style="padding: 0; margin: 0%; color: white;">FAME Challenge 2024</p>
+                </div>
+            </div>
+        </a>
+        <!-- ///////////////////////////////////////////////////////////////////////// -->
+        
+        <!-- Footer -->
+        <div class="footer">
+
+        </div>
+    </div>
+    
+
+</body>
+</html>
