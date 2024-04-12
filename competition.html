@@ -269,6 +269,7 @@
             <a href="#baseline">Baseline</a>
             <a href="#task">Task</a>
             <a href="#evaluation">Evaluation</a>
+            <a href="#submission">Submission</a>
             <a href="#registration">Registration</a>
             <a href="#organizers">Organizers</a>
             
@@ -467,6 +468,53 @@
                 FAR and FRR are equal. Therefore, EER becomes suitable to evaluate the performance of systems than the 
                 conventional accuracy since it independent of the threshold. Finally, the lower the EER it can characterize 
                 a better system.
+            </p>
+        </div>
+
+        <!-- Submission -->
+        <div class="descriptions" id="submission">
+            <p class="description-headings">SUBMISSION</p>
+            <p>
+                Within the directory containing the submission files, use
+                zip archive.zip *.txt and do not zip the folder. Files should be
+                named as:
+                <ul>
+                <b>
+                    <li>sub score English heard.txt</li>
+                    <li>sub score English unheard.txt</li>
+                    <li>sub score Urdu heard.txt</li>
+                    <li>sub score Urdu unheard.txt</li>
+                </b>
+                </ul>
+                Files are submitted through Codalab in the evaluation phase
+                3 times per day.
+            </p>
+
+            <p>
+                We provide both train and test splits with ground truth for v2 of MAV-Celeb dataset. 
+                Participants can use this split for fine-tuning their method. However, for v1 the test files 
+                are in format as below:
+                <ul>
+                <b>
+                    <li>ysuvkz41 voices/English/00000.wav faces/English/00000.jpg</li>
+                    <li>tog3zj45 voices/English/00001.wav faces/English/00001.jpg</li>
+                    <li>ky5xfj1d voices/English/00002.wav faces/English/00002.jpg</li>
+                    <li>yx4nfa35 voices/English/01062.wav faces/English/01062.jpg</li>
+                    <li>bowsaf5e voices/English/01063.wav faces/English/01063.jpg</li>
+                </b>
+                </ul>
+                We have kept the ground truth for fair evaluation during FAME challenge. Participants are expected 
+                to compute and submit a text file including the id and L2 Scores in the following format:
+                <ul>
+                <b>
+                    <li>ysuvkz41 0.9988</li>
+                    <li>tog3zj45 0.1146</li>
+                    <li>ky5xfj1d 0.6514</li>
+                    <li>yx4nfa35 1.5321</li>
+                    <li>bowsaf5e 1.6578</li>
+                </b>
+                </ul>
+            </p>
         </div>
 
         <!-- Registration -->
@@ -477,12 +525,17 @@
             <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
         </div>
 
-        <!-- Registration -->
-        <div class="descriptions" id="registration">
+        <!-- Timeline -->
+        <div class="descriptions" id="registration" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
             <p class="description-headings">TIMELINE</p>
-            <p>We welcome participants to apply for the “FAME Challenge 2024” by expressing their interest via google forms at 
-                <span><a href="https://docs.google.com/forms/d/e/1FAIpQLScBPcRr_ReZHpGE1mxE1Zajjyg5chwOzQtqhV3KCmKBSoOKBA/viewform?gxid=-8203366">this link</a></span>.</p>
-            <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
+            <ul>
+                <li>Registration Period: 15 April-1 June 2024</li>
+                <li>Progress Phase: 15 April- 14 June 2024</li>
+                <li>Evaluation Phase: 15 June- 21 June 2024</li>
+                <li>Challenge Results: 27 June 2024</li>
+                <li>Submission of System Descriptions: 30 June 2024</li>
+                <li>ACM Grand Challenge Paper Submission: <b>TBA</b></li>
+            </ul>
         </div>
 
         <!-- Organizers -->
