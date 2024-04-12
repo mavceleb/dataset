@@ -426,9 +426,14 @@
                     Fusion and Orthogonal Projection for Improved Face-Voice Association
                 </a>
                 <br>
-                Link to the code: 
+                Link to the Paper's code: 
                 <a href="https://github.com/msaadsaeed/FOP">
                     https://github.com/msaadsaeed/FOP
+                </a>
+                <br>
+                Link to the Baseline code: 
+                <a href="https://github.com/mavceleb/mavceleb_baseline">
+                    https://github.com/mavceleb/mavceleb_baseline
                 </a>
             </p>
         </div>
@@ -479,41 +484,45 @@
                 zip archive.zip *.txt and do not zip the folder. Files should be
                 named as:
                 <ul>
-                <b>
+                <code>
                     <li>sub score English heard.txt</li>
                     <li>sub score English unheard.txt</li>
                     <li>sub score Urdu heard.txt</li>
                     <li>sub score Urdu unheard.txt</li>
-                </b>
+                </code>
                 </ul>
                 Files are submitted through Codalab in the evaluation phase
                 3 times per day.
             </p>
 
             <p>
-                We provide both train and test splits with ground truth for v2 of MAV-Celeb dataset. 
+                We provide both train and test splits for v2 of MAV-Celeb dataset. 
                 Participants can use this split for fine-tuning their method. However, for v1 the test files 
                 are in format as below:
                 <ul>
-                <b>
+                <code>
                     <li>ysuvkz41 voices/English/00000.wav faces/English/00000.jpg</li>
                     <li>tog3zj45 voices/English/00001.wav faces/English/00001.jpg</li>
                     <li>ky5xfj1d voices/English/00002.wav faces/English/00002.jpg</li>
                     <li>yx4nfa35 voices/English/01062.wav faces/English/01062.jpg</li>
                     <li>bowsaf5e voices/English/01063.wav faces/English/01063.jpg</li>
-                </b>
+                </code>
                 </ul>
                 We have kept the ground truth for fair evaluation during FAME challenge. Participants are expected 
                 to compute and submit a text file including the id and L2 Scores in the following format:
                 <ul>
-                <b>
+                <code>
                     <li>ysuvkz41 0.9988</li>
                     <li>tog3zj45 0.1146</li>
                     <li>ky5xfj1d 0.6514</li>
                     <li>yx4nfa35 1.5321</li>
                     <li>bowsaf5e 1.6578</li>
-                </b>
+                </code>
                 </ul>
+                The overall score will be computed as:<br>
+                <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
+                <br>
+                Link to Codalab: <a href="#">Codalab</a>
             </p>
         </div>
 
