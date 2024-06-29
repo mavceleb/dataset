@@ -166,6 +166,46 @@
         }
         /* ////////////////////////////////////////////////////////////////////// */
 
+        /* Challenge winners table */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 5px 10px #e1e1e1;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+
+        table thead tr {
+            background-color: var(--main-color);
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--main-color);
+        }
+
+        table tbody tr.active-row {
+            font-weight: bold;
+            color: var(--main-color);
+        }
+        /* -------------------------------- */
+
         
         /* Dataset */
         .dataset-container{
@@ -299,6 +339,48 @@
                 <b>Face-voice Association in Multilingual Environments (FAME) 2024</b> challenge is to analyze the impact of multiple 
                 languages on face-voice association task. For more information on challenge please see <a href="https://arxiv.org/abs/2404.09342">evaluation plan.</a>
             </p>
+        </div>
+
+        <!-- Challenge Winners -->
+        <div class="descriptions" id="winners">
+            <p class="description-headings">CHALLENGE WINNERS</p>
+            <p style="margin-bottom: 20px;">
+                Results are now announced. Congratulations to the winners!
+            </p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Primary Contact</th>
+                        <th>Affiliation</th>
+                        <th>Score (EER)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>HLT</td>
+                        <td>Tao Ruijie</td>
+                        <td>National University of Singapore</td>
+                        <td>19.91</td>
+                    </tr>
+                    <tr class="active-row">
+                        <td>2</td>
+                        <td>Audio_Visual</td>
+                        <td>Wuyang Chen</td>
+                        <td>National University of Defense Technology</td>
+                        <td>20.51</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Xaiofei</td>
+                        <td>Tang Jie Hui</td>
+                        <td>Hefei University of Technology</td>
+                        <td>21.76</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Dataset -->
