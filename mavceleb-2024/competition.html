@@ -106,7 +106,7 @@
             width: 100%;
             height: 40vh;
             /* background-image: url(./static/images/Banner2.png); */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./static/images/image_new.png");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./static/images/Banner2.png");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -321,7 +321,7 @@
     <div class="body-container">
         <div class="banner-container">
             <div class="card-container">
-                FAME Challenge 2026
+                FAME Challenge 2024
             </div>
         </div>
         <!-- //////////////////////////////////////////////////////////////////////// -->
@@ -336,92 +336,162 @@
                 investigated the effect of multiple languages on this task. As half of the population of world is 
                 bilingual and we are more often communicating in multilingual scenarios, therefore, it is essential 
                 to investigate the effect of language for associating faces with the voices. Thus, the goal of the 
-                <b>Face-voice Association in Multilingual Environments (FAME) 2026</b> challenge is to analyze the impact of multiple 
+                <b>Face-voice Association in Multilingual Environments (FAME) 2024</b> challenge is to analyze the impact of multiple 
                 languages on face-voice association task. For more information on challenge please see <a href="https://arxiv.org/abs/2404.09342">evaluation plan.</a>
             </p>
+        </div>
+
+        <!-- Challenge Winners -->
+        <div class="descriptions" id="winners">
+            <p class="description-headings">CHALLENGE WINNERS</p>
+            <p style="margin-bottom: 20px;">
+                Results are now announced. Congratulations to the winners!
+            </p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Primary Contact</th>
+                        <th>Affiliation</th>
+                        <th>Score (EER)</th>
+                        <th>Sytem Description Report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>HLT</td>
+                        <td>Tao Ruijie</td>
+                        <td>National University of Singapore</td>
+                        <td>19.91</td>
+                        <td><a href="https://github.com/mavceleb/mavceleb_baseline/blob/main/description_files/1hlt.pdf">Click Here!</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Audio_Visual</td>
+                        <td>Wuyang Chen</td>
+                        <td>National University of Defense Technology</td>
+                        <td>20.51</td>
+                        <td><a href="https://github.com/mavceleb/mavceleb_baseline/blob/main/description_files/2audioVisual.pdf">Click Here!</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Xaiofei</td>
+                        <td>Tang Jie Hui</td>
+                        <td>Hefei University of Technology</td>
+                        <td>21.76</td>
+                        <td><a href="https://github.com/mavceleb/mavceleb_baseline/blob/main/description_files/3xaiofei.pdf">Click Here!</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Dataset -->
         <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
             <p class="description-headings">DATASET</p>
             <p>
-                Our dataset comprises three versions: MAV-Celeb v1, v2, and v3, each containing distinct (non-overlapping) speaker identities. 
-                MAV-Celeb v1 includes audiovisual data of speakers using English and Urdu, v2 includes English and Hindi speakers, 
-                and v3 extends the dataset with English and German speakers.
+                Our dataset comprises of two versions, MAV-CELEB v1 and MAV-CELEB v2 both containing 
+                different (non-inclusive) speaker identities. The v1 contains audio visual data of speakers
+                 with Urdu and English languages while the v2 contains speakers with Hindi and English languages.
             </p>
             <ul>
                 <li>Facial images</li>
-                <li>Voice recordings
-                    <ul>
-                        <li>Urdu (v1 only)</li>
-                        <li>Hindi (v2 only)</li>
-                        <li>German (v3 only)</li>
-                        <li>English (v1, v2, and v3)</li>
-                    </ul>
-                </li>
+                <li>Voice recordings</li>
+                <ul>
+                    <li>Urdu (v1 only)</li>
+                    <li>English (v1 and v2)</li>
+                    <li>Hindi (v2 only)</li>
+                </ul>
             </ul>
-
             <div class="dataset-container">
                 <div class="dataset-item">
-                    <p>The dataset is available at the following links:</p>
+                    <p>The dataset is available on the following links:</p>
                     <ul>
-                        <li>MAV-Celeb v1
-                            <ul>
-                                <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
-                                <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
-                            </ul>
-                        </li>
-                        <li>MAV-Celeb v2
-                            <ul>
-                                <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
-                                <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
-                            </ul>
-                        </li>
-                        <li>MAV-Celeb v3
+                        <li>MAV-CELEB v1</li>
                         <ul>
-                            <li><a href="">Raw files link</a></li>
-                            <li><a href="">Train/Test Split</a></li>
+                            <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
+                            <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
                         </ul>
-                    </li>
+                        <li>MAV-CELEB v2</li>
+                        <ul>
+                            <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
+                            <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
+                        </ul>
                     </ul>
-                    <p>To view the meta-data for the dataset, see the files below:</p>
-                    <ul>
-                        <li><a href="./static/docs/v1_meta.pdf">v1 meta-data file</a></li>
-                        <li><a href="./static/docs/v2_meta.pdf">v2 meta-data file</a></li>
-                        <li><a href="./static/docs/v3_meta.txt">v3 meta-data file</a></li>
-                    </ul>
+                    <p>
+                        To view the meta-data for the dataset, you can view the PDFs attached below:
+                        <ul>
+                            <li><a href="./static/docs/v1_meta.pdf">v1 meta-data file</a></li>
+                            <li><a href="./static/docs/v2_meta.pdf">v2 meta-data file</a></li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="dataset-item" style="overflow-y: scroll;">
-                    <p>The file structure is as follows:</p>
-                    <img src="./static/images/dataset_structure_2.png" alt="Dataset Structure">
+                    <p>The file structure is like:</p>
+                    <img src="./static/images/dataset_structure_2.png">
                 </div>
+
             </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
 
             <div class="table-container" style="padding-bottom: 2vh;">
                 <div class="table-header">
                     <div style="text-align: center;"></div>
-                    <div>English-Urdu</div>
-                    <div>English-Hindi</div>
-                    <div>English-German</div>
+                    <div>MAV-CELEB v1</div>
+                    <div>MAV-CELEB v2</div>
                 </div>
                 <div class="table-body">
-                    <div class="table-row"><div class="table-cell">Languages</div><div class="table-cell">E/U/EU</div><div class="table-cell">E/H/EH</div><div class="table-cell">E/G/EG</div></div>
-                    <div class="table-row"><div class="table-cell"># of celebrities</div><div class="table-cell">70</div><div class="table-cell">84</div><div class="table-cell">58</div></div>
-                    <div class="table-row"><div class="table-cell"># of male celebrities</div><div class="table-cell">43</div><div class="table-cell">56</div><div class="table-cell">40</div></div>
-                    <div class="table-row"><div class="table-cell"># of female celebrities</div><div class="table-cell">27</div><div class="table-cell">28</div><div class="table-cell">18</div></div>
-                    <div class="table-row"><div class="table-cell"># of videos</div><div class="table-cell">560 / 406 / 966</div><div class="table-cell">546 / 668 / 1214</div><div class="table-cell">212 / 216 / 428</div></div>
-                    <div class="table-row"><div class="table-cell"># of hours</div><div class="table-cell">59 / 32 / 91</div><div class="table-cell">48 / 60 / 109</div><div class="table-cell">8.2 / 6.6 / 14.8</div></div>
-                    <div class="table-row"><div class="table-cell"># of utterances</div><div class="table-cell">11835 / 6550 / 18385</div><div class="table-cell">9974 / 13313 / 23287</div><div class="table-cell">2043 / 1769 / 3812</div></div>
-                    <div class="table-row"><div class="table-cell">Avg # of videos per celebrity</div><div class="table-cell">8 / 6 / 14</div><div class="table-cell">6 / 8 / 14</div><div class="table-cell">3.7 / 3 / 7.7</div></div>
-                    <div class="table-row"><div class="table-cell">Avg # of utterances per celebrity</div><div class="table-cell">169 / 94 / 263</div><div class="table-cell">119 / 158 / 277</div><div class="table-cell">35 / 31 / 66</div></div>
-                    <div class="table-row"><div class="table-cell">Avg length of utterances (in s)</div><div class="table-cell">17.9 / 17.8 / 17.8</div><div class="table-cell">17.4 / 16.5 / 16.9</div><div class="table-cell">14.5 / 13.5 / 14.0</div></div>
+                    <div class="table-row">
+                        <div class="table-cell">Languages</div>
+                        <div class="table-cell">E / U / EU</div>
+                        <div class="table-cell">E / H / EH</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of celebs</div>
+                        <div class="table-cell">70</div>
+                        <div class="table-cell">84</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of male celebs</div>
+                        <div class="table-cell">43</div>
+                        <div class="table-cell">56</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of female celebs</div>
+                        <div class="table-cell">27</div>
+                        <div class="table-cell">28</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of videos</div>
+                        <div class="table-cell">402 / 555 / 957</div>
+                        <div class="table-cell">646 / 484 1130</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of hours</div>
+                        <div class="table-cell">30 / 54 / 84</div>
+                        <div class="table-cell">51 / 33 / 84</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell"># of utterances</div>
+                        <div class="table-cell">6850 / 12706 / 19556</div>
+                        <div class="table-cell">12579 / 8136 / 20715</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg# of videos per celebrity</div>
+                        <div class="table-cell">6 / 8 / 14</div>
+                        <div class="table-cell">8 / 6 / 14</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg# of utterances per celebrity</div>
+                        <div class="table-cell">98 / 182 / 280</div>
+                        <div class="table-cell">150 / 97 / 247</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Avg length of utterance(s)</div>
+                        <div class="table-cell">15.8 / 15.3 / 15.6</div>
+                        <div class="table-cell">14.6 / 14.6 / 14.6</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -469,9 +539,8 @@
                 the impact of multiple of languages on cross-modal verification task.
             </p>
             <div class="figures">
-                <img src="./static/images/fame_2026.jpg">
-                <p>Figure 2: (Left) F-V association is established with a cross-modal verification task. (Right) The FAME 2026 Challenge extends
-the task to analyze the impact of multiple languages.</p>
+                <img src="./static/images/challenge_task_diag.jpg">
+                <p>Figure 2: Diagram explaining cross-modal verification and matching task in face-voice association.</p>
             </div>
         </div>
 
@@ -540,15 +609,15 @@ the task to analyze the impact of multiple languages.</p>
                 The overall score will be computed as:<br>
                 <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
                 <br>
-                Link to Codalab: <a href="https://www.codabench.org/competitions/9467/">Codalab/Codabench</a>
+                Link to Codalab: <a href="https://codalab.lisn.upsaclay.fr/competitions/18534">Codalab</a>
             </p>
         </div>
 
         <!-- Registration -->
         <div class="descriptions" id="registration">
             <p class="description-headings">REGISTRATION</p>
-            <p>We welcome participants to apply for the “FAME Challenge 2026” by expressing their interest via google forms at 
-                <span><a href="https://docs.google.com/forms/d/e/1FAIpQLScBPcRr_ReZHpGE1mxE1Zajjyg5chwOzQtqhV3KCmKBSoOKBA/viewform?gxid=-8203366">this link</a></span>.</p>
+            <p>We welcome participants to apply for the “FAME Challenge 2024” by expressing their interest via google forms at 
+                <span><a href="">this link</a></span>.</p>
             <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
         </div>
 
@@ -556,50 +625,31 @@ the task to analyze the impact of multiple languages.</p>
         <div class="descriptions" id="registration" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
             <p class="description-headings">TIMELINE</p>
             <ul>
-                <li>Registration Period: 15 August – 1 September 2025</li>
-                <li>Progress Phase: 1 September – 15 October 2025</li>
-                <li>Evaluation Phase: 15 October – 21 October 2025</li>
-                <li>Challenge Results: 27 October 2025</li>
-                <li>Submission of System Descriptions: 30 October 2025</li>
-                <li>ICASSP Grand Challenge Paper Submission: 07 December 2025</li>
+                <li>Registration Period: 15 April-1 June 2024</li>
+                <li>Progress Phase: 15 April- 14 June 2024</li>
+                <li>Evaluation Phase: 15 June- 21 June 2024</li>
+                <li>Challenge Results: 27 June 2024</li>
+                <li>Submission of System Descriptions: 30 June 2024</li>
+                <li>ACM Grand Challenge Paper Submission: <b>TBA</b></li>
             </ul>
         </div>
 
-        <!-- Organizers, copied from Proposal -->
+        <!-- Organizers -->
         <div class="descriptions" id="organizers">
             <p class="description-headings">ORGANIZERS</p>
-                        <p>
-            <a href="https://hcai.at/persons/moscati/">Marta Moscati</a> - 
-            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
-
-            <a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&hl=en">Muhammad Saad Saeed</a> - 
-            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
-
-            <a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a> - 
-            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
-
-            <a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a> - 
-            <span style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
-
-            <a href="https://scholar.google.com/citations?user=nFxWrXEAAAAJ&hl=en">Muhammad Zaigham Zaheer</a> - 
-            <span style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</span> <br>
-
-            <a href="#">Junaid Mir</a> - 
-            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
-
-            <a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a> - 
-            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
-
-            <a href="#">Khalid Malik</a> - 
-            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
-
-            <a href="http://www.mschedl.eu/">Markus Schedl</a> - 
-            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
-            
-            <a href="https://ahmedembeddedxx.github.io/">Ahmed Abdullah</a> - 
-            <span style="font-size: 12px;">National University of Computer and Emerging Sciences, Pakistan</span> <br>
-        </p>
-
+            <p>
+                <a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&hl=en">Muhammad Saad Saeed</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                <a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a> - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+                <a href="https://hcai.at/persons/moscati/">Marta Moscati</a> - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+                <a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a> - <span  style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
+                <a href="#">Muhammad Salman Tahir</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                <a href="https://scholar.google.com/citations?user=nFxWrXEAAAAJ&hl=en">Muhammad Zaigham Zaheer</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                 <a href="https://www.imtlucca.it/en/irzam.liaqat">Muhammad Irzam Liaqat</a> - <span  style="font-size: 12px;">Institute for Advanced Studies Lucca</span> <br>
+                <a href="http://www.mschedl.eu/">Markus Schedl</a> - <span  style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
+                <a href="https://mbzuai.ac.ae/study/faculty/muhammad-haris-khan/">Muhammad Haris Khan</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                <a href="https://mbzuai.ac.ae/study/faculty/karthik-nandakumar/">Karthik Nandakumar</a> - <span  style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence</span> <br>
+                <a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a> - <span  style="font-size: 12px;">Swarm Robotics Lab (SRL)-NCRA, University of Engineering and Technology Taxila</span> <br>
+                </p>
         </div>
 
         <!-- footer -->
