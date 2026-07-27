@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+            /* src: url('./static/fonts/roboto/Roboto-Regular.ttf') format('truetype'); */
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+            /* src: url('./static/fonts/roboto/Roboto-Medium.ttf') format('truetype'); */
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+            /* src: url('./static/fonts/roboto/Roboto-Bold.ttf') format('truetype'); */
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype');
+            /* src: url('./static/fonts/roboto/Roboto-LightItalic.ttf') format('truetype'); */
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining base properties */
+        :root {
+            /* --main-color: rgba(35, 35, 37, 1); */
+            --main-color: #0d0c1d;
+            --secondary-color: rgba(249, 249, 249, 1);
+            --tertiary-color: rgba(230, 230, 230, 1);
+            /* --tertiary-color: #d5e3f1; */
+            /* --secondary-color: rgba(35, 35, 37, 1);
+            --main-color: rgba(249, 249, 249, 1); */
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: montserrat_regular;
+            color: black;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("static/images/bg_image.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            font-size: 16px;
+            font-family: montserrat_regular;
+            text-align: justify;
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            z-index: 100;
+            background-color: var(--main-color);
+            height: 10vh;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-family: montserrat_medium;
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-right: 2vw; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Body container */
+        .body-container{
+            width: 60%;
+            background-color: var(--secondary-color);
+        }
+        /* /////////////////////////////////////////////////////////////////// */
+
+
+        /* Banner */
+        .banner-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40vh;
+            /* background-image: url(./static/images/Banner2.png); */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./static/images/image_new.png");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: top;
+            margin-top: 10vh;
+        }
+
+
+        .card-container{
+            display: flex;
+            width: 350px;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            opacity: 0.85; /* Set the desired opacity value */
+            height: 80px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 28px;
+            font-family: montserrat_bold;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6); /* Set the box shadow */
+            transition: transform 0.3s;
+        }
+
+        .card-container:hover{
+            transform: scale(1.02);
+        }
+        /* ///////////////////////////////////////////////////////////////////// */
+
+
+        /* Description data */
+        .descriptions{
+            padding: 0 40px;
+        }
+
+        .description-headings{
+            font-family: montserrat_bold;
+            font-size: 28px;
+            margin: 0;
+            padding-top: 8vh;
+            padding-bottom: 2vh;
+        }
+
+        .figures{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: montserrat_lightItalic;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .figures img{
+            width: 80%;
+        }
+        /* ////////////////////////////////////////////////////////////////////// */
+
+        /* Challenge winners table */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 5px 10px #e1e1e1;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+
+        table thead tr {
+            background-color: var(--main-color);
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--main-color);
+        }
+
+        table tbody tr.active-row {
+            font-weight: bold;
+            color: var(--main-color);
+        }
+        /* -------------------------------- */
+
+        
+        /* Dataset */
+        .dataset-container{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .dataset-item{
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            text-align: left;
+            height: 45vh;
+        }
+
+        /* Dataset Table */
+        .table-container {
+            width: 80%;
+            margin: 10px auto;
+            /* background-color: #fff; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-container div div{
+            text-align: center;
+        }
+
+        .table-header {
+            background-color: var(--main-color);
+            color: white;
+            display: flex;
+        }
+
+        .table-header div {
+            flex: 1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: flex;
+        }
+
+        .table-cell {
+            flex: 1;
+            padding: 10px;
+            /* border: 1px solid var(--main-color); */
+            text-align: left;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: rgb(175, 175, 175);
+        }
+        /* ////////////////////////////////////////////////////////////////// */
+
+        .footer{
+            margin-top: 10vh;
+            width: 100%;
+            height: 5vh;
+            background-color: var(--main-color);
+        }
+
+
+        @media (max-width: 1200px) {
+            .body-container{
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .banner-container{
+                height: 30vh;
+            }
+
+            .dataset-container{
+                flex-direction: column;
+            }
+
+            .dataset-item{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#baseline">Baseline</a>
+            <a href="#task">Task</a>
+            <a href="#evaluation">Evaluation</a>
+            <a href="#submission">Submission</a>
+            <a href="#registration">Registration</a>
+            <a href="#organizers">Organizers</a>
+            
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+    <!-- banner -->
+    <div class="body-container">
+        <div class="banner-container">
+            <div class="card-container">
+                FAME Challenge 2026
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Archived notice -->
+        <div style="background: #e74c3c; color: #fff; text-align: center; padding: 12px 40px; font-family: montserrat_medium;">
+            This is an archived copy of the FAME 2026 Challenge site.
+            <a href="../competition.html" style="color: #fff; text-decoration: underline;">Go to the current FLAG 2027 Challenge &rarr;</a>
+        </div>
+
+        <!-- Introduction -->
+        <div class="descriptions">
+            <p style="margin-bottom: 20px;">
+                The face and voice of a person have unique characteristics and they are well used as biometric 
+                measures for person authentication either as a unimodal or multimodal. A strong correlation has 
+                been found between face and voice of a person, which has attracted significant research interest. 
+                Though previous works have established association between faces and voices, none of these approaches 
+                investigated the effect of multiple languages on this task. As half of the population of world is 
+                bilingual and we are more often communicating in multilingual scenarios, therefore, it is essential 
+                to investigate the effect of language for associating faces with the voices. Thus, the goal of the 
+                <b>Face-voice Association in Multilingual Environments (FAME) 2026</b> challenge is to analyze the impact of multiple 
+                languages on face-voice association task. For more information on challenge please see <a href="https://arxiv.org/abs/2508.04592">evaluation plan.</a>
+            </p>
+        </div>
+
+        <!-- Dataset -->
+        <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
+            <p class="description-headings">DATASET</p>
+            <p>
+                Our dataset comprises three versions: MAV-Celeb v1 and v3, each containing distinct (non-overlapping) speaker identities. 
+                MAV-Celeb v1 includes audiovisual data of speakers using English and Urdu, and v3 extends the dataset with English and German speakers.
+            </p>
+            <ul>
+                <li>Facial images</li>
+                <li>Voice recordings
+                    <ul>
+                        <li>Urdu (v1 only)</li>
+                        <li>German (v3 only)</li>
+                        <li>English (v1 and v3)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="dataset-container">
+                <div class="dataset-item">
+                    <p>The dataset is available at the following links:</p>
+                    <ul>
+                        <li>MAV-Celeb v1
+                            <ul>
+                                <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
+                                <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
+                            </ul>
+                        </li>
+                        <li>MAV-Celeb v3
+                        <ul>
+                            <li><a href="">Raw files link</a></li>
+                            <li><a href="">Train/Test Split</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                    <p>To view the meta-data for the dataset, see the files below:</p>
+                    <ul>
+                        <li><a href="./static/docs/v1_meta.pdf">v1 meta-data file</a></li>
+                        <li><a href="./static/docs/v3_meta.txt">v3 meta-data file</a></li>
+                    </ul>
+                </div>
+
+                <div class="dataset-item" style="overflow-y: scroll;">
+                    <p>The file structure is as follows:</p>
+                    <img src="./static/images/dataset_structure_2.png" alt="Dataset Structure">
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            <div class="table-container" style="padding-bottom: 2vh;">
+                <div class="table-header">
+                    <div style="text-align: center;"></div>
+                    <div>English-Urdu</div>
+                    <div>English-Hindi</div>
+                    <div>English-German</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row"><div class="table-cell">Languages</div><div class="table-cell">E/U/EU</div><div class="table-cell">E/H/EH</div><div class="table-cell">E/G/EG</div></div>
+                    <div class="table-row"><div class="table-cell"># of celebrities</div><div class="table-cell">70</div><div class="table-cell">84</div><div class="table-cell">58</div></div>
+                    <div class="table-row"><div class="table-cell"># of male celebrities</div><div class="table-cell">43</div><div class="table-cell">56</div><div class="table-cell">40</div></div>
+                    <div class="table-row"><div class="table-cell"># of female celebrities</div><div class="table-cell">27</div><div class="table-cell">28</div><div class="table-cell">18</div></div>
+                    <div class="table-row"><div class="table-cell"># of videos</div><div class="table-cell">560 / 406 / 966</div><div class="table-cell">546 / 668 / 1214</div><div class="table-cell">212 / 216 / 428</div></div>
+                    <div class="table-row"><div class="table-cell"># of hours</div><div class="table-cell">59 / 32 / 91</div><div class="table-cell">48 / 60 / 109</div><div class="table-cell">8.2 / 6.6 / 14.8</div></div>
+                    <div class="table-row"><div class="table-cell"># of utterances</div><div class="table-cell">11835 / 6550 / 18385</div><div class="table-cell">9974 / 13313 / 23287</div><div class="table-cell">2043 / 1769 / 3812</div></div>
+                    <div class="table-row"><div class="table-cell">Avg # of videos per celebrity</div><div class="table-cell">8 / 6 / 14</div><div class="table-cell">6 / 8 / 14</div><div class="table-cell">3.7 / 3 / 7.7</div></div>
+                    <div class="table-row"><div class="table-cell">Avg # of utterances per celebrity</div><div class="table-cell">169 / 94 / 263</div><div class="table-cell">119 / 158 / 277</div><div class="table-cell">35 / 31 / 66</div></div>
+                    <div class="table-row"><div class="table-cell">Avg length of utterances (in s)</div><div class="table-cell">17.9 / 17.8 / 17.8</div><div class="table-cell">17.4 / 16.5 / 16.9</div><div class="table-cell">14.5 / 13.5 / 14.0</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Baseline Model -->
+        <div class="descriptions" id="baseline">
+            <p class="description-headings">BASELINE MODEL</p>
+            <p>
+                We provide a baseline model that has been trained on extracted features for facial and 
+                audio data (vggface for images and utterance level aggregator for voices). To learn a discriminative 
+                joint face-voice embedding for F-V association tasks, we develop a new framework for crossmodal face-voice 
+                association (See Fig. 1) that is fundamentally a two-stream pipeline and features a light-weight 
+                module that exploits complementary cues from both face and voice embeddings and facilitates discriminative identity
+                mapping via orthogonality constraints
+                <br> <br>
+                Link to the paper: 
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
+                    Fusion and Orthogonal Projection for Improved Face-Voice Association
+                </a>
+                <br>
+                Link to the Paper's code: 
+                <a href="https://github.com/msaadsaeed/FOP">
+                    https://github.com/msaadsaeed/FOP
+                </a>
+                <br>
+                Link to the Baseline code: 
+                <a href="https://github.com/mavceleb/mavceleb_baseline">
+                    https://github.com/mavceleb/mavceleb_baseline
+                </a>
+            </p>
+        </div>
+        <div class="figures">
+            <img src="./static/images/methodology.png">
+            <p>Figure 1: Diagram showing our methodology.</p>
+        </div>
+
+        <!-- Task -->
+        <div class="descriptions" id="task">
+            <p class="description-headings">TASK</p>
+            <p><b>Cross-modal Verification</b></p>
+            <p>
+                Face-voice association is established in cross-modal verification task. The 
+                goal of the cross-modal verification task is to verify if, in a given single sample with both a face 
+                and voice, both belong to the same identity. In addition, we analyze 
+                the impact of multiple of languages on cross-modal verification task.
+            </p>
+            <div class="figures">
+                <img src="./static/images/fame_2026.jpg">
+                <p>Figure 2: (Left) F-V association is established with a cross-modal verification task. (Right) The FAME 2026 Challenge extends
+the task to analyze the impact of multiple languages.</p>
+            </div>
+        </div>
+
+        <!-- Evaluation Metrics -->
+        <div class="descriptions" id="evaluation" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
+            <p class="description-headings">EVALUATION METRICS</p>
+            <p>
+                We are considering <b>Equal Error Rate (EER)</b> as the metric for 
+                evaluating the challenge performance. We expect the challenge participants to submit a output score 
+                file for every test pairs to indicate how confident the system believes to have a match between the 
+                face and voice or in other words, the face and voice belongs to the same person. The higher the 
+                score is, the larger is the confidence of being the face and voice from the same person. In real-world 
+                applications, people may set a threshold to determine the if the pair belongs to same or different 
+                person as binary output. With the threshold higher, the false acceptance rate (FAR) will become lower, 
+                and the false rejection rate (FRR) will become higher. The EER is that optial point when both the errors 
+                FAR and FRR are equal. Therefore, EER becomes suitable to evaluate the performance of systems than the 
+                conventional accuracy since it independent of the threshold. Finally, the lower the EER it can characterize 
+                a better system.
+                For more information please see <a href="https://arxiv.org/abs/2508.04592">evaluation plan.</a>
+            </p>
+        </div>
+
+        <!-- Submission -->
+        <div class="descriptions" id="submission">
+            <p class="description-headings">SUBMISSION</p>
+            <p>
+                Within the directory containing the submission files, use
+                zip archive.zip *.txt and do not zip the folder. Files should be
+                named as:
+                <ul>
+                <code>
+                    <li>sub score English heard.txt</li>
+                    <li>sub score English unheard.txt</li>
+                    <li>sub score Urdu heard.txt</li>
+                    <li>sub score Urdu unheard.txt</li>
+                </code>
+                </ul>
+                Files are submitted through Codalab in the evaluation phase
+                3 times per day.
+            </p>
+
+            <p>
+                We provide both train and test splits for v3 of MAV-Celeb dataset. 
+                Participants can use this split for fine-tuning their method. However, for v1 the test files 
+                are in format as below:
+                <ul>
+                <code>
+                    <li>ysuvkz41 voices/English/00000.wav faces/English/00000.jpg</li>
+                    <li>tog3zj45 voices/English/00001.wav faces/English/00001.jpg</li>
+                    <li>ky5xfj1d voices/English/00002.wav faces/English/00002.jpg</li>
+                    <li>yx4nfa35 voices/English/01062.wav faces/English/01062.jpg</li>
+                    <li>bowsaf5e voices/English/01063.wav faces/English/01063.jpg</li>
+                </code>
+                </ul>
+                We have kept the ground truth for fair evaluation during FAME challenge. Participants are expected 
+                to compute and submit a text file including the id and L2 Scores in the following format:
+                <ul>
+                <code>
+                    <li>ysuvkz41 0.9988</li>
+                    <li>tog3zj45 0.1146</li>
+                    <li>ky5xfj1d 0.6514</li>
+                    <li>yx4nfa35 1.5321</li>
+                    <li>bowsaf5e 1.6578</li>
+                </code>
+                </ul>
+                The overall score will be computed as:<br>
+                <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
+                <br>
+                Link to Codalab: <a href="https://www.codabench.org/competitions/9467/">Codalab/Codabench</a>
+            </p>
+        </div>
+
+        <!-- Registration -->
+        <div class="descriptions" id="registration">
+            <p class="description-headings">REGISTRATION</p>
+            <p>We welcome participants to apply for the “FAME Challenge 2026” by expressing their interest via google forms at 
+                <span><a href="https://docs.google.com/forms/d/e/1FAIpQLScV5FOZnt6F5BOnryYTl-MFsIa0P1ssCNHJ5lEywBCyz3VVNg/viewform">this link</a></span>.</p>
+            <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="descriptions" id="registration" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
+            <p class="description-headings">TIMELINE</p>
+            <ul>
+                <li>Registration Period: 15 August – 15 October 2025</li>
+                <li>Progress Phase: 1 September – 31 October 2025</li>
+                <li>Evaluation Phase: 1 November – 15 November 2025</li>
+                <li>Challenge Results: 16 November 2025</li>
+                <li>Submission of System Descriptions: 25 November 2025</li>
+                <li>ICASSP Grand Challenge Paper Submission: 07 December 2025</li>
+            </ul>
+        </div>
+
+        <!-- Organizers, copied from Proposal -->
+                 <!-- Organizers, copied from Proposal -->
+        <div class="descriptions" id="organizers">
+            <p class="description-headings">ORGANIZERS</p>
+            <p>
+                <a href="https://hcai.at/persons/moscati/">Marta Moscati</a> - 
+                <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+                
+            <a href="https://ahmedembeddedxx.github.io/">Ahmed Abdullah</a> - 
+            <span style="font-size: 12px;">National University of Computer and Emerging Sciences, Pakistan</span> <br>
+            
+            <a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&hl=en">Muhammad Saad Saeed</a> - 
+            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
+
+            <a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a> - 
+            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
+
+            <a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a> - 
+            <span style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
+
+            <a href="https://scholar.google.com/citations?user=nFxWrXEAAAAJ&hl=en">Muhammad Zaigham Zaheer</a> - 
+            <span style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</span> <br>
+
+            <a href="#">Junaid Mir</a> - 
+            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
+
+            <a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a> - 
+            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
+
+            <a href="https://scholar.google.com/citations?user=MZGQT2wAAAAJ&hl=en">Khalid Malik</a> - 
+            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
+
+            <a href="http://www.mschedl.eu/">Markus Schedl</a> - 
+            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
+            
+        </p>
+
+        </div>
+    
+
+        <!-- footer -->
+        <div class="footer">
+
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+
+
+
