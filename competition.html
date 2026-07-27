@@ -206,67 +206,63 @@
         }
         /* -------------------------------- */
 
-        
+
         /* Dataset */
-        .dataset-container{
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
+        #dataset ul{
+            text-align: left;
             margin-bottom: 20px;
         }
 
-        .dataset-item{
+        /* Organizers */
+        .organizers-grid{
             display: flex;
-            flex-direction: column;
-            width: 48%;
-            text-align: left;
-            height: 45vh;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px 20px;
+            padding: 10px 0 2vh 0;
         }
 
-        /* Dataset Table */
-        .table-container {
-            width: 80%;
-            margin: 10px auto;
-            /* background-color: #fff; */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        .organizer{
+            width: 150px;
             display: flex;
             flex-direction: column;
-        }
-
-        .table-container div div{
+            align-items: center;
             text-align: center;
         }
 
-        .table-header {
-            background-color: var(--main-color);
-            color: white;
-            display: flex;
+        .organizer img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s;
         }
 
-        .table-header div {
-            flex: 1;
-            padding: 10px;
-            text-align: left;
+        .organizer:hover img{
+            transform: scale(1.05);
         }
 
-        .table-body {
-            display: flex;
-            flex-direction: column;
+        .organizer .name{
+            font-family: montserrat_medium;
+            font-size: 14px;
+            margin: 10px 0 4px 0;
         }
 
-        .table-row {
-            display: flex;
+        .organizer .name a{
+            color: var(--main-color);
+            text-decoration: none;
         }
 
-        .table-cell {
-            flex: 1;
-            padding: 10px;
-            /* border: 1px solid var(--main-color); */
-            text-align: left;
+        .organizer .name a:hover{
+            color: #e74c3c;
         }
 
-        .table-row:nth-child(even) {
-            background-color: rgb(175, 175, 175);
+        .organizer .affiliation{
+            font-size: 11px;
+            line-height: 1.35;
+            text-align: center;
+            margin: 0;
         }
         /* ////////////////////////////////////////////////////////////////// */
 
@@ -288,14 +284,6 @@
             .banner-container{
                 height: 30vh;
             }
-
-            .dataset-container{
-                flex-direction: column;
-            }
-
-            .dataset-item{
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -305,11 +293,12 @@
     <nav>
         <div>
             <a href="./index.html">Home</a>
+            <a href="#tracks">Tracks</a>
             <a href="#dataset">Dataset</a>
             <a href="#baseline">Baseline</a>
-            <a href="#task">Task</a>
             <a href="#evaluation">Evaluation</a>
             <a href="#submission">Submission</a>
+            <a href="#rules">Rules</a>
             <a href="#registration">Registration</a>
             <a href="#organizers">Organizers</a>
             
@@ -321,7 +310,7 @@
     <div class="body-container">
         <div class="banner-container">
             <div class="card-container">
-                FAME Challenge 2026
+                FLAG Challenge 2027
             </div>
         </div>
         <!-- //////////////////////////////////////////////////////////////////////// -->
@@ -329,104 +318,115 @@
         <!-- Introduction -->
         <div class="descriptions">
             <p style="margin-bottom: 20px;">
-                The face and voice of a person have unique characteristics and they are well used as biometric 
-                measures for person authentication either as a unimodal or multimodal. A strong correlation has 
-                been found between face and voice of a person, which has attracted significant research interest. 
-                Though previous works have established association between faces and voices, none of these approaches 
-                investigated the effect of multiple languages on this task. As half of the population of world is 
-                bilingual and we are more often communicating in multilingual scenarios, therefore, it is essential 
-                to investigate the effect of language for associating faces with the voices. Thus, the goal of the 
-                <b>Face-voice Association in Multilingual Environments (FAME) 2026</b> challenge is to analyze the impact of multiple 
-                languages on face-voice association task. For more information on challenge please see <a href="https://arxiv.org/abs/2508.04592">evaluation plan.</a>
+                The face and voice of a person have distinctive characteristics and are widely used as biometric cues
+                for person authentication, either independently or jointly in multimodal systems. The strong perceptual
+                correspondence humans establish between faces and voices has motivated a large body of work on automated
+                face-voice association. Most of these approaches, however, are evaluated under controlled experimental
+                settings that neglect the varying conditions of real-world scenarios. Two important sources of this
+                variation are the language spoken by the speakers and the distribution of demographic traits across
+                speakers. Since a substantial proportion of the global population is bilingual or multilingual, it
+                matters whether face-voice association models remain reliable when the same speaker communicates in
+                different languages. At the same time, gender-controlled evaluation is necessary to determine whether
+                models rely on speaker-specific cross-modal cues rather than simply exploiting demographic differences
+                between the speakers forming the positive and negative pairs.
+                <br><br>
+                The goal of the <b>Face-voice Association across LAnguages and Gender (FLAG) 2027</b> Challenge is
+                therefore two-fold: to evaluate face-voice association methods in multilingual conditions while
+                preventing models from using gender as a proxy for identity, and to foster the development of
+                multilingual and gender-aware methods that learn identity-specific associations. FLAG 2027 builds on
+                the prior <a href="./fame-2026/competition.html">FAME 2026</a> and
+                <a href="./mavceleb-2024/competition.html">FAME 2024</a> Grand Challenges hosted at IEEE ICASSP and ACM
+                Multimedia, and has been accepted for support under the
+                <a href="https://signalprocessingsociety.org/newsletter/2026/05/call-proposals-sps-challenge-program">IEEE
+                Signal Processing Society Challenge Program</a>.
             </p>
+        </div>
+
+        <!-- Tracks -->
+        <div class="descriptions" id="tracks">
+            <p class="description-headings">EVALUATION TRACKS</p>
+            <p><b>Language impact</b></p>
+            <p>
+                Face-voice association is established through a cross-modal verification task: given a face and a voice,
+                the system decides whether both belong to the same identity. The dataset is split following the
+                <i>unseen-unheard</i> configuration, in which train and test splits consist of disjoint speakers. Each
+                video shows a speaker using one language only, while every speaker appears in videos of at least two
+                distinct languages. Evaluation is carried out on both a <i>heard</i> language, available during training,
+                and an <i>unheard</i> language, not available during training. This track measures whether a voice
+                recorded in a different language can still be associated with the corresponding speaker's face.
+            </p>
+            <p><b>Gender impact</b></p>
+            <p>
+                This track evaluates gender-controlled verification. Negative samples are restricted to speakers of the
+                same gender as the speaker of the positive sample, so a model can no longer infer identity from
+                demographic differences alone. This yields a more rigorous assessment of whether models learn genuinely
+                identity-specific face-voice associations rather than using gender as a shortcut.
+            </p>
+            <div class="figures">
+                <img src="./static/images/flag_2027.jpg" alt="FLAG 2027 Challenge overview">
+                <p>Figure 1: Overview of the FLAG 2027 Challenge. The "language impact" track focuses on whether a voice
+                recorded in different languages can be correctly associated with the corresponding speaker's face. The
+                "gender impact" track evaluates gender-controlled verification, where negative samples are restricted to
+                speakers of the same gender as the positive sample speaker.</p>
+            </div>
         </div>
 
         <!-- Dataset -->
         <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
             <p class="description-headings">DATASET</p>
             <p>
-                Our dataset comprises three versions: MAV-Celeb v1 and v3, each containing distinct (non-overlapping) speaker identities. 
-                MAV-Celeb v1 includes audiovisual data of speakers using English and Urdu, and v3 extends the dataset with English and German speakers.
+                Building on the prior FAME 2024 and 2026 Grand Challenges, we extended the MAV-Celeb dataset with one
+                additional language, curating a new split of <b>100 English-Bengali speakers</b> (MAV-Celeb v4). The new
+                split provides both language and gender annotations, which is what makes the two FLAG tracks possible.
+                Alongside it, the earlier splits remain available: MAV-Celeb v1 covers English and Urdu speakers, and v3
+                covers English and German speakers, each with distinct (non-overlapping) speaker identities.
             </p>
+            <p>
+                As in previous releases, the audio-visual samples are obtained from YouTube videos of celebrities
+                appearing in interviews, talk shows, and television debates. The visual data spans a vast range of
+                setups, including different poses, motion blur, background clutter, video quality, occlusions and
+                lighting conditions. Because the videos originate from real-world situations, they reproduce the same
+                difficulties encountered when deploying face-voice association tools in practice: noise, background
+                chatter or music, overlapping voices, and compression artifacts.
+            </p>
+            <p>
+                The training and validation sets are shared with participants on the first day of the progress phase.
+                The input data for the final evaluation phase is released on the first day of the evaluation phase,
+                without ground-truth labels, so that the final evaluation tests the generalization capability of models
+                developed during the progress phase.
+            </p>
+
+            <div class="figures">
+                <img src="./static/images/flag_2027_samples.jpg" alt="Audio-visual samples from the English-Bengali split">
+                <p>Figure 2: Audio-visual samples selected from the dataset. The visual data contains variations such as
+                pose, lighting condition, and motion. The left part shows celebrities speaking English; the right block
+                presents data of the same celebrity in Bengali.</p>
+            </div>
+
+            <p style="text-align: left;">The dataset is available at the following links:</p>
             <ul>
-                <li>Facial images</li>
-                <li>Voice recordings
+                <li>MAV-Celeb v4 (English-Bengali, FLAG 2027)
                     <ul>
-                        <li>Urdu (v1 only)</li>
-                        <li>German (v3 only)</li>
-                        <li>English (v1 and v3)</li>
+                        <li>Raw files link &mdash; released on the first day of the progress phase</li>
+                        <li>Train/Test Split &mdash; released on the first day of the progress phase</li>
                     </ul>
                 </li>
             </ul>
-
-            <div class="dataset-container">
-                <div class="dataset-item">
-                    <p>The dataset is available at the following links:</p>
-                    <ul>
-                        <li>MAV-Celeb v1
-                            <ul>
-                                <li><a href="https://drive.google.com/drive/folders/1OJyjXJULErvrvzLQmpJn5v8rRo0n_fod?usp=sharing">Raw files link</a></li>
-                                <li><a href="https://drive.google.com/drive/folders/1MEHtEVh9lSa9hNZxjEfNJnE3qrpm_PKw?usp=sharing">Train/Test Split</a></li>
-                            </ul>
-                        </li>
-                        <li>MAV-Celeb v3
-                        <ul>
-                            <li><a href="">Raw files link</a></li>
-                            <li><a href="">Train/Test Split</a></li>
-                        </ul>
-                    </li>
-                    </ul>
-                    <p>To view the meta-data for the dataset, see the files below:</p>
-                    <ul>
-                        <li><a href="./static/docs/v1_meta.pdf">v1 meta-data file</a></li>
-                        <li><a href="./static/docs/v3_meta.txt">v3 meta-data file</a></li>
-                    </ul>
-                </div>
-
-                <div class="dataset-item" style="overflow-y: scroll;">
-                    <p>The file structure is as follows:</p>
-                    <img src="./static/images/dataset_structure_2.png" alt="Dataset Structure">
-                </div>
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-            <div class="table-container" style="padding-bottom: 2vh;">
-                <div class="table-header">
-                    <div style="text-align: center;"></div>
-                    <div>English-Urdu</div>
-                    <div>English-Hindi</div>
-                    <div>English-German</div>
-                </div>
-                <div class="table-body">
-                    <div class="table-row"><div class="table-cell">Languages</div><div class="table-cell">E/U/EU</div><div class="table-cell">E/H/EH</div><div class="table-cell">E/G/EG</div></div>
-                    <div class="table-row"><div class="table-cell"># of celebrities</div><div class="table-cell">70</div><div class="table-cell">84</div><div class="table-cell">58</div></div>
-                    <div class="table-row"><div class="table-cell"># of male celebrities</div><div class="table-cell">43</div><div class="table-cell">56</div><div class="table-cell">40</div></div>
-                    <div class="table-row"><div class="table-cell"># of female celebrities</div><div class="table-cell">27</div><div class="table-cell">28</div><div class="table-cell">18</div></div>
-                    <div class="table-row"><div class="table-cell"># of videos</div><div class="table-cell">560 / 406 / 966</div><div class="table-cell">546 / 668 / 1214</div><div class="table-cell">212 / 216 / 428</div></div>
-                    <div class="table-row"><div class="table-cell"># of hours</div><div class="table-cell">59 / 32 / 91</div><div class="table-cell">48 / 60 / 109</div><div class="table-cell">8.2 / 6.6 / 14.8</div></div>
-                    <div class="table-row"><div class="table-cell"># of utterances</div><div class="table-cell">11835 / 6550 / 18385</div><div class="table-cell">9974 / 13313 / 23287</div><div class="table-cell">2043 / 1769 / 3812</div></div>
-                    <div class="table-row"><div class="table-cell">Avg # of videos per celebrity</div><div class="table-cell">8 / 6 / 14</div><div class="table-cell">6 / 8 / 14</div><div class="table-cell">3.7 / 3 / 7.7</div></div>
-                    <div class="table-row"><div class="table-cell">Avg # of utterances per celebrity</div><div class="table-cell">169 / 94 / 263</div><div class="table-cell">119 / 158 / 277</div><div class="table-cell">35 / 31 / 66</div></div>
-                    <div class="table-row"><div class="table-cell">Avg length of utterances (in s)</div><div class="table-cell">17.9 / 17.8 / 17.8</div><div class="table-cell">17.4 / 16.5 / 16.9</div><div class="table-cell">14.5 / 13.5 / 14.0</div></div>
-                </div>
-            </div>
         </div>
 
         <!-- Baseline Model -->
         <div class="descriptions" id="baseline">
-            <p class="description-headings">BASELINE MODEL</p>
+            <p class="description-headings">BASELINE MODEL &amp; STARTER KIT</p>
             <p>
-                We provide a baseline model that has been trained on extracted features for facial and 
-                audio data (vggface for images and utterance level aggregator for voices). To learn a discriminative 
-                joint face-voice embedding for F-V association tasks, we develop a new framework for crossmodal face-voice 
-                association (See Fig. 1) that is fundamentally a two-stream pipeline and features a light-weight 
-                module that exploits complementary cues from both face and voice embeddings and facilitates discriminative identity
-                mapping via orthogonality constraints
+                To allow participants to benchmark their results, we release a pretrained instance of a competitive
+                multimodal method for the face-voice association task, together with a leaderboard on CodaBench where
+                teams can compare their performance during the progress phase. The model is a two-branch network taking
+                face and voice embeddings as input (see Fig. 3). Face embeddings are obtained with a popular
+                convolutional network pretrained on a large-scale facial recognition dataset; voice embeddings are
+                obtained with an audio encoding network for speaker recognition, trained on the language available in
+                the training set (i.e. the heard language). The multimodal model then combines the face and voice
+                embeddings and is optimized with a loss function that imposes orthogonality constraints on the
+                multimodal embeddings of different speakers.
                 <br> <br>
                 Link to the paper: 
                 <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
@@ -446,68 +446,41 @@
         </div>
         <div class="figures">
             <img src="./static/images/methodology.png">
-            <p>Figure 1: Diagram showing our methodology.</p>
-        </div>
-
-        <!-- Task -->
-        <div class="descriptions" id="task">
-            <p class="description-headings">TASK</p>
-            <p><b>Cross-modal Verification</b></p>
-            <p>
-                Face-voice association is established in cross-modal verification task. The 
-                goal of the cross-modal verification task is to verify if, in a given single sample with both a face 
-                and voice, both belong to the same identity. In addition, we analyze 
-                the impact of multiple of languages on cross-modal verification task.
-            </p>
-            <div class="figures">
-                <img src="./static/images/fame_2026.jpg">
-                <p>Figure 2: (Left) F-V association is established with a cross-modal verification task. (Right) The FAME 2026 Challenge extends
-the task to analyze the impact of multiple languages.</p>
-            </div>
+            <p>Figure 3: Diagram showing the baseline methodology.</p>
         </div>
 
         <!-- Evaluation Metrics -->
         <div class="descriptions" id="evaluation" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
             <p class="description-headings">EVALUATION METRICS</p>
             <p>
-                We are considering <b>Equal Error Rate (EER)</b> as the metric for 
-                evaluating the challenge performance. We expect the challenge participants to submit a output score 
-                file for every test pairs to indicate how confident the system believes to have a match between the 
-                face and voice or in other words, the face and voice belongs to the same person. The higher the 
-                score is, the larger is the confidence of being the face and voice from the same person. In real-world 
-                applications, people may set a threshold to determine the if the pair belongs to same or different 
-                person as binary output. With the threshold higher, the false acceptance rate (FAR) will become lower, 
-                and the false rejection rate (FRR) will become higher. The EER is that optial point when both the errors 
-                FAR and FRR are equal. Therefore, EER becomes suitable to evaluate the performance of systems than the 
-                conventional accuracy since it independent of the threshold. Finally, the lower the EER it can characterize 
-                a better system.
-                For more information please see <a href="https://arxiv.org/abs/2508.04592">evaluation plan.</a>
+                As commonly done for face-voice association tasks, submissions are evaluated with the
+                <b>Equal Error Rate (EER)</b>: the value at which the false acceptance rate (FAR) and the false
+                rejection rate (FRR) are equal. As for FAR and FRR, a low EER indicates good performance. Participants
+                submit a <code>.txt</code> file containing output scores for every pair in the test set, indicating the
+                system's confidence that the face and voice belong to the same person. Within a submission file, a pair
+                with a higher score is interpreted as one the model is more confident about.
             </p>
+            <p>
+                This setup is consistent with the evaluation of the earlier FAME 2024 and FAME 2026 Grand Challenges.
+                Technically, EER does not require confidence scores of different models to span the same range, and it
+                does not depend on a fixed threshold, unlike metrics such as precision or accuracy. In real deployments
+                a system developer would tune that threshold to their own needs &mdash; a high threshold gives a low FAR
+                and a high FRR &mdash; which is precisely why a threshold-independent metric is the fairer basis for
+                comparing systems.
+            </p>
+            <p>
+                Since models are evaluated on different tasks, each model yields several EERs. The overall score used to
+                decide the challenge winners is computed as:
+            </p>
+            <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 2</b></code></p>
         </div>
 
         <!-- Submission -->
         <div class="descriptions" id="submission">
             <p class="description-headings">SUBMISSION</p>
             <p>
-                Within the directory containing the submission files, use
-                zip archive.zip *.txt and do not zip the folder. Files should be
-                named as:
-                <ul>
-                <code>
-                    <li>sub score English heard.txt</li>
-                    <li>sub score English unheard.txt</li>
-                    <li>sub score Urdu heard.txt</li>
-                    <li>sub score Urdu unheard.txt</li>
-                </code>
-                </ul>
-                Files are submitted through Codalab in the evaluation phase
-                3 times per day.
-            </p>
-
-            <p>
-                We provide both train and test splits for v3 of MAV-Celeb dataset. 
-                Participants can use this split for fine-tuning their method. However, for v1 the test files 
-                are in format as below:
+                Alongside the audio (<code>.wav</code>) and image (<code>.jpg</code>) files, the dataset includes
+                <code>.txt</code> files of the face-voice test pairs, where each line has the following format:
                 <ul>
                 <code>
                     <li>ysuvkz41 voices/English/00000.wav faces/English/00000.jpg</li>
@@ -517,8 +490,14 @@ the task to analyze the impact of multiple languages.</p>
                     <li>bowsaf5e voices/English/01063.wav faces/English/01063.jpg</li>
                 </code>
                 </ul>
-                We have kept the ground truth for fair evaluation during FAME challenge. Participants are expected 
-                to compute and submit a text file including the id and L2 Scores in the following format:
+                The first entry of each line is the ID of the pair; the remaining two are the local paths of the
+                corresponding audio and of a visual frame extracted from the video. The ground-truth files contain the
+                ID of the pair and a 1 or a 0, depending on whether the face and voice correspond to the same speaker.
+                Ground truth is withheld for fair evaluation during the challenge.
+            </p>
+            <p>
+                Participants are expected to compute and submit text files including the ID and the confidence score, in
+                the following format:
                 <ul>
                 <code>
                     <li>ysuvkz41 0.9988</li>
@@ -528,71 +507,115 @@ the task to analyze the impact of multiple languages.</p>
                     <li>bowsaf5e 1.6578</li>
                 </code>
                 </ul>
-                The overall score will be computed as:<br>
-                <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
-                <br>
-                Link to Codalab: <a href="https://www.codabench.org/competitions/9467/">Codalab/Codabench</a>
+                Within the directory containing the submission files, use <code>zip archive.zip *.txt</code> and do not
+                zip the folder. The exact file names expected for each evaluation condition are announced on the
+                CodaBench page at the start of each phase.
             </p>
+            <p>
+                In the <b>progress phase</b>, each team may make a maximum of 150 submissions, with at most 15 per day.
+                In the <b>evaluation phase</b>, the total number of submissions is limited to 15.
+                <br><br>
+                Link to CodaBench: <b>to be announced</b> &mdash; the FLAG 2027 competition page will be linked here
+                before the progress phase opens.
+            </p>
+        </div>
+
+        <!-- Rules -->
+        <div class="descriptions" id="rules">
+            <p class="description-headings">RULES FOR SYSTEM DEVELOPMENT</p>
+            <p>
+                Since FLAG 2027 aims at analyzing whether face-voice association capabilities translate across language
+                and gender constraints, the following rules apply:
+            </p>
+            <ul>
+                <li>A pretrained encoder for faces or voices is allowed.</li>
+                <li>Participants are required to submit a 2-page system description in the ICASSP template to the
+                    challenge organizers. Teams without a system description will be disqualified from the challenge.
+                    Teams describing a setup that violates one of these rules will be disqualified.</li>
+                <li>Participants are required to submit a link to a working version of their setup, e.g. on a platform
+                    for open-source development such as GitHub. Teams without a code submission, or with a setup that
+                    violates one of these rules, will be disqualified.</li>
+            </ul>
         </div>
 
         <!-- Registration -->
         <div class="descriptions" id="registration">
             <p class="description-headings">REGISTRATION</p>
-            <p>We welcome participants to apply for the “FAME Challenge 2026” by expressing their interest via google forms at 
-                <span><a href="https://docs.google.com/forms/d/e/1FAIpQLScV5FOZnt6F5BOnryYTl-MFsIa0P1ssCNHJ5lEywBCyz3VVNg/viewform">this link</a></span>.</p>
+            <p>We welcome participants to apply for the &ldquo;FLAG Challenge 2027&rdquo; by expressing their interest
+                via google forms at <span><b>to be announced</b></span> &mdash; the registration form will be linked here
+                at the start of the registration period.</p>
             <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
         </div>
 
         <!-- Timeline -->
-        <div class="descriptions" id="registration" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
+        <div class="descriptions" id="timeline" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
             <p class="description-headings">TIMELINE</p>
+            <p style="font-size: 14px; font-style: italic;">Tentative &mdash; dates may be updated.</p>
             <ul>
-                <li>Registration Period: 15 August – 15 October 2025</li>
-                <li>Progress Phase: 1 September – 31 October 2025</li>
-                <li>Evaluation Phase: 1 November – 15 November 2025</li>
-                <li>Challenge Results: 16 November 2025</li>
-                <li>Submission of System Descriptions: 25 November 2025</li>
-                <li>ICASSP Grand Challenge Paper Submission: 07 December 2025</li>
+                <li>Registration Period: 24 August – 7 September 2026</li>
+                <li>Progress Phase: 1 September – 15 October 2026</li>
+                <li>Evaluation Phase: 15 October – 21 October 2026</li>
+                <li>Challenge Results: 27 October 2026</li>
+                <li>Submission of System Descriptions: 30 October 2026</li>
+                <li>Challenge Paper Submission: 07 December 2026</li>
             </ul>
         </div>
 
-        <!-- Organizers, copied from Proposal -->
-                 <!-- Organizers, copied from Proposal -->
+        <!-- Organizers -->
         <div class="descriptions" id="organizers">
             <p class="description-headings">ORGANIZERS</p>
-            <p>
-                <a href="https://hcai.at/persons/moscati/">Marta Moscati</a> - 
-                <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
-                
-            <a href="https://ahmedembeddedxx.github.io/">Ahmed Abdullah</a> - 
-            <span style="font-size: 12px;">National University of Computer and Emerging Sciences, Pakistan</span> <br>
-            
-            <a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&hl=en">Muhammad Saad Saeed</a> - 
-            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
-
-            <a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a> - 
-            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria</span> <br>
-
-            <a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a> - 
-            <span style="font-size: 12px;">Fortemedia Singapore, Singapore</span> <br>
-
-            <a href="https://scholar.google.com/citations?user=nFxWrXEAAAAJ&hl=en">Muhammad Zaigham Zaheer</a> - 
-            <span style="font-size: 12px;">Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</span> <br>
-
-            <a href="#">Junaid Mir</a> - 
-            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
-
-            <a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a> - 
-            <span style="font-size: 12px;">University of Engineering and Technology Taxila, Pakistan</span> <br>
-
-            <a href="https://scholar.google.com/citations?user=MZGQT2wAAAAJ&hl=en">Khalid Malik</a> - 
-            <span style="font-size: 12px;">University of Michigan, USA</span> <br>
-
-            <a href="http://www.mschedl.eu/">Markus Schedl</a> - 
-            <span style="font-size: 12px;">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</span> <br>
-            
-        </p>
-
+            <div class="organizers-grid">
+                <div class="organizer">
+                    <img src="./static/images/organizers/marta_moscati.jpg" alt="Marta Moscati">
+                    <p class="name"><a href="https://hcai.at/persons/moscati/">Marta Moscati</a></p>
+                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/swapnil_khandoker.jpg" alt="Swapnil Khandoker">
+                    <p class="name">Swapnil Khandoker</p>
+                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/saad_saeed.jpg" alt="Muhammad Saad Saeed">
+                    <p class="name"><a href="https://scholar.google.com/citations?user=uyhEJ5IAAAAJ&amp;hl=en">Muhammad Saad Saeed</a></p>
+                    <p class="affiliation">University of Michigan, USA</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/shah_nawaz.jpg" alt="Shah Nawaz">
+                    <p class="name"><a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a></p>
+                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/rohan_kumar.jpg" alt="Rohan Kumar Das">
+                    <p class="name"><a href="https://sites.google.com/view/rohankumardas">Rohan Kumar Das</a></p>
+                    <p class="affiliation">Fortemedia Singapore, Singapore</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/mubashir_noman.jpg" alt="Mubashir Noman">
+                    <p class="name">Mubashir Noman</p>
+                    <p class="affiliation">Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/junaid_mir.jpg" alt="Junaid Mir">
+                    <p class="name">Junaid Mir</p>
+                    <p class="affiliation">University of Engineering and Technology Taxila, Pakistan</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/haroon_yousaf.jpg" alt="Muhammad Haroon Yousaf">
+                    <p class="name"><a href="https://fms.uettaxila.edu.pk/Profile/haroon.yousaf">Muhammad Haroon Yousaf</a></p>
+                    <p class="affiliation">University of Engineering and Technology Taxila, Pakistan</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/khalid_malik.jpg" alt="Khalid Malik">
+                    <p class="name"><a href="https://scholar.google.com/citations?user=MZGQT2wAAAAJ&amp;hl=en">Khalid Malik</a></p>
+                    <p class="affiliation">University of Michigan, USA</p>
+                </div>
+                <div class="organizer">
+                    <img src="./static/images/organizers/markus_schedl.jpg" alt="Markus Schedl">
+                    <p class="name"><a href="http://www.mschedl.eu/">Markus Schedl</a></p>
+                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</p>
+                </div>
+            </div>
         </div>
     
 
