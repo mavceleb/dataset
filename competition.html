@@ -223,6 +223,506 @@
             overflow-x: auto;
         }
 
+        /* Timeline */
+        .tl-note{
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        .tl-countdown{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 18px 24px;
+            margin: 10px 0 24px 0;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .tl-countdown[hidden], .tl-progress[hidden]{
+            display: none;
+        }
+
+        .tl-countdown-label{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .tl-countdown-kicker{
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e74c3c;
+        }
+
+        .tl-countdown-title{
+            font-family: montserrat_medium;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+
+        .tl-countdown-clock{
+            display: flex;
+            gap: 10px;
+        }
+
+        .tl-countdown-clock div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 58px;
+            padding: 8px 6px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .tl-countdown-clock span{
+            font-family: montserrat_bold;
+            font-size: 24px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .tl-countdown-clock small{
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .tl-progress{
+            margin: 0 0 30px 0;
+        }
+
+        .tl-progress-track{
+            position: relative;
+            height: 8px;
+            border-radius: 4px;
+            background-color: #c9c9ce;
+            margin-top: 28px;
+        }
+
+        .tl-progress-fill{
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--main-color), #e74c3c);
+        }
+
+        .tl-progress-today{
+            position: absolute;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 0 0 1px #e74c3c;
+            transform: translate(-50%, -50%);
+        }
+
+        .tl-progress-today span{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-family: montserrat_medium;
+            color: #e74c3c;
+            white-space: nowrap;
+        }
+
+        .tl-progress-ends{
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
+        .tl{
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 8px;
+            position: relative;
+        }
+
+        .tl::before{
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            bottom: 18px;
+            width: 2px;
+            background-color: #b9b9bf;
+        }
+
+        .tl-item{
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .tl-head{
+            all: unset;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 16px 150px 1fr auto;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            text-align: left;
+            padding: 12px 14px 12px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .tl-head:hover, .tl-head:focus-visible{
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .tl-head:focus-visible{
+            outline: 2px solid #e74c3c;
+        }
+
+        .tl-dot{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--tertiary-color);
+            border: 2px solid #8a8a92;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-date{
+            font-size: 13px;
+            font-family: montserrat_medium;
+            color: #55555c;
+        }
+
+        .tl-title{
+            font-family: montserrat_bold;
+            font-size: 16px;
+        }
+
+        .tl-status{
+            font-size: 11px;
+            font-family: montserrat_medium;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .tl-status:empty{
+            display: none;
+        }
+
+        .tl-body{
+            display: none;
+            margin: 0 0 6px 38px;
+            padding: 12px 16px;
+            background-color: var(--secondary-color);
+            border-left: 3px solid var(--main-color);
+            border-radius: 0 6px 6px 0;
+            font-size: 14px;
+        }
+
+        .tl-body p{
+            margin: 0 0 8px 0;
+        }
+
+        .tl-item.open .tl-body{
+            display: block;
+        }
+
+        .tl-cal{
+            font-size: 12px;
+            font-family: montserrat_medium;
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .tl-cal:not([href]){
+            display: none;
+        }
+
+        .tl-cal:hover{
+            text-decoration: underline;
+        }
+
+        /* Timeline states */
+        .tl-item.done .tl-dot{
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .tl-item.done .tl-title, .tl-item.done .tl-date{
+            opacity: 0.55;
+        }
+
+        .tl-item.done .tl-status{
+            background-color: #d6d6db;
+            color: #45454c;
+        }
+
+        .tl-item.ongoing .tl-dot{
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+            animation: tl-pulse 1.8s infinite;
+        }
+
+        .tl-item.ongoing .tl-status{
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .tl-item.upcoming .tl-status{
+            background-color: transparent;
+            color: var(--main-color);
+            box-shadow: inset 0 0 0 1px var(--main-color);
+        }
+
+        @keyframes tl-pulse{
+            0%   { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.55); }
+            70%  { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .tl-item.ongoing .tl-dot{ animation: none; }
+        }
+
+        @media (max-width: 700px){
+            .tl-head{
+                grid-template-columns: 16px 1fr auto;
+                row-gap: 2px;
+            }
+            .tl-date{
+                grid-column: 2;
+                grid-row: 2;
+            }
+            .tl-title{
+                grid-column: 2;
+                grid-row: 1;
+            }
+            .tl-status{
+                grid-column: 3;
+                grid-row: 1 / span 2;
+            }
+            .tl-countdown-clock div{
+                min-width: 48px;
+            }
+        }
+
+        /* Prizes */
+        .prize-pool{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin: 10px auto 40px auto;
+            padding: 18px 28px;
+            max-width: 360px;
+            border-radius: 12px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .trophy{
+            width: 56px;
+            height: 56px;
+            fill: #f2c14e;
+            stroke: #f2c14e;
+            flex-shrink: 0;
+        }
+
+        .prize-pool-amount{
+            display: block;
+            font-family: montserrat_bold;
+            font-size: 34px;
+            line-height: 1.1;
+        }
+
+        .prize-pool-label{
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #f2c14e;
+        }
+
+        .podium{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 10px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .podium-step{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .podium-step:hover{
+            transform: translateY(-6px);
+        }
+
+        .medal{
+            width: 64px;
+            height: 80px;
+            margin-bottom: -6px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .podium-step.first .medal{
+            width: 80px;
+            height: 100px;
+        }
+
+        .medal .ribbon-l{ fill: #1f3c88; }
+        .medal .ribbon-r{ fill: #e74c3c; }
+        .medal text{
+            font-family: montserrat_bold;
+            font-size: 20px;
+            fill: rgba(0, 0, 0, 0.55);
+        }
+
+        .medal.gold .rim{ fill: #d4a017; }
+        .medal.gold .face{ fill: #f5cf57; }
+        .medal.silver .rim{ fill: #9ea3a8; }
+        .medal.silver .face{ fill: #d9dde1; }
+        .medal.bronze .rim{ fill: #a8642c; }
+        .medal.bronze .face{ fill: #d99a5f; }
+
+        .podium-block{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 8px 8px 0 0;
+            color: var(--secondary-color);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .podium-step.first .podium-block{
+            height: 170px;
+            background: linear-gradient(180deg, #2a2850, var(--main-color));
+            border-top: 5px solid #f5cf57;
+        }
+
+        .podium-step.second .podium-block{
+            height: 130px;
+            background: linear-gradient(180deg, #34324f, #1b1a30);
+            border-top: 5px solid #d9dde1;
+        }
+
+        .podium-step.third .podium-block{
+            height: 100px;
+            background: linear-gradient(180deg, #3b3952, #232238);
+            border-top: 5px solid #d99a5f;
+        }
+
+        .podium-amount{
+            font-family: montserrat_bold;
+            font-size: 26px;
+        }
+
+        .podium-step.first .podium-amount{
+            font-size: 32px;
+            color: #f5cf57;
+        }
+
+        .podium-rank{
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .runners-up{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            max-width: 560px;
+            margin: 24px auto 4vh auto;
+        }
+
+        .runner-up{
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background-color: var(--tertiary-color);
+            border-left: 4px solid var(--main-color);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .runner-up:hover{
+            transform: translateY(-4px);
+        }
+
+        .rosette{
+            width: 36px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        .rosette path{ fill: #e74c3c; }
+        .rosette circle{ fill: var(--main-color); }
+        .rosette text{
+            font-family: montserrat_bold;
+            font-size: 16px;
+            fill: var(--secondary-color);
+        }
+
+        .runner-up-amount{
+            display: block;
+            font-family: montserrat_bold;
+            font-size: 22px;
+        }
+
+        .runner-up-rank{
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px){
+            .podium-amount{ font-size: 18px; }
+            .podium-step.first .podium-amount{ font-size: 22px; }
+            .podium-rank{ font-size: 10px; }
+            .medal{ width: 48px; height: 60px; }
+            .podium-step.first .medal{ width: 60px; height: 75px; }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .podium-step, .runner-up{ transition: none; }
+        }
+
         /* Organizers */
         .organizers-grid{
             display: flex;
@@ -563,7 +1063,12 @@
                 <a href="https://github.com/msaadsaeed/FOP">
                     https://github.com/msaadsaeed/FOP
                 </a>
-                <br> <br>
+                <br>
+                Link to the Baseline code:
+                <a href="https://github.com/mavceleb/mavceleb_baseline">
+                    https://github.com/mavceleb/mavceleb_baseline
+                </a>
+                <br>
                 Link to the FLAG 2027 repository:
                 <a href="https://github.com/SwapnilKhandoker101/FLAG_2027">
                     https://github.com/SwapnilKhandoker101/FLAG_2027
@@ -690,6 +1195,24 @@
                     for open-source development such as GitHub. Teams without a code submission, or with a setup that
                     violates one of these rules, will be disqualified.</li>
             </ul>
+
+            <p><b>Research ethics and responsible use</b></p>
+            <p>Participants agree to the following:</p>
+            <ul>
+                <li><b>Research use only.</b> Use the data only for research within this challenge. Don't use it for
+                    commercial purposes, surveillance or identifying people in the real world.</li>
+                <li><b>No redistribution.</b> Don't share, publish or re-host the raw data or the pre-extracted
+                    features. Anyone who wants the data should get it through the official challenge channels.</li>
+                <li><b>Respect for privacy.</b> Don't try to find extra personal information about the people in the
+                    dataset, and don't link them to other data sources.</li>
+                <li><b>Fairness.</b> Teams are encouraged to report how their systems perform across languages and
+                    genders, and to discuss the limitations and possible biases of their approach in their system
+                    description.</li>
+                <li><b>Honest reporting.</b> Results must come from your own models without manual labelling of the
+                    test data. Any use of extra data or pretrained models must be declared in the system
+                    description.</li>
+            </ul>
+            <p>Teams that break these rules will be disqualified.</p>
         </div>
 
         <!-- Registration -->
@@ -703,34 +1226,305 @@
         <!-- Timeline -->
         <div class="descriptions" id="timeline" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
             <p class="description-headings">TIMELINE</p>
-            <p style="font-size: 14px; font-style: italic;">Tentative &mdash; dates may be updated.</p>
-            <ul>
-                <li>Registration Period: 15 September – 15 October 2026</li>
-                <li>Progress Phase: 15 September – 10 November 2026</li>
-                <li>Evaluation Phase: 11 November – 18 November 2026</li>
-                <li>Challenge Results: 23 November 2026</li>
-                <li>Submission of System Descriptions: 27 November 2026</li>
-                <li>Challenge Paper Submission: 10 December 2026</li>
-            </ul>
+            <p class="tl-note">Tentative &mdash; dates may be updated.</p>
+
+            <!-- Countdown to the next milestone (filled in by script) -->
+            <div class="tl-countdown" id="tl-countdown" hidden>
+                <div class="tl-countdown-label">
+                    <span class="tl-countdown-kicker" id="tl-countdown-kicker">Next milestone</span>
+                    <span class="tl-countdown-title" id="tl-countdown-title"></span>
+                </div>
+                <div class="tl-countdown-clock" aria-live="polite">
+                    <div><span id="tl-d">0</span><small>days</small></div>
+                    <div><span id="tl-h">00</span><small>hours</small></div>
+                    <div><span id="tl-m">00</span><small>min</small></div>
+                    <div><span id="tl-s">00</span><small>sec</small></div>
+                </div>
+            </div>
+
+            <!-- Overall progress (filled in by script) -->
+            <div class="tl-progress" id="tl-progress" hidden>
+                <div class="tl-progress-track">
+                    <div class="tl-progress-fill" id="tl-progress-fill"></div>
+                    <div class="tl-progress-today" id="tl-progress-today"><span>Today</span></div>
+                </div>
+                <div class="tl-progress-ends">
+                    <span>15 Sep 2026</span>
+                    <span>10 Dec 2026</span>
+                </div>
+            </div>
+
+            <ol class="tl">
+                <li class="tl-item" data-start="2026-09-15" data-end="2026-10-15">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">15 Sep – 15 Oct 2026</span>
+                        <span class="tl-title">Registration Period</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Teams register for the challenge via the
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer">registration form</a>.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-09-15" data-end="2026-11-10">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">15 Sep – 10 Nov 2026</span>
+                        <span class="tl-title">Progress Phase</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Training and development sets, pre-extracted features and the baseline model are available.
+                            Teams compare results on the <a href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">CodaBench</a>
+                            leaderboard &mdash; up to 150 submissions, at most 15 per day.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-11" data-end="2026-11-18">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">11 Nov – 18 Nov 2026</span>
+                        <span class="tl-title">Evaluation Phase</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Evaluation inputs are released on the first day, without ground-truth labels. The total number
+                            of submissions is limited to 15.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-23" data-end="2026-11-23">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">23 Nov 2026</span>
+                        <span class="tl-title">Challenge Results</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Final rankings are announced, based on the overall score (sum of the four EERs divided by 4).</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-27" data-end="2026-11-27">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">27 Nov 2026</span>
+                        <span class="tl-title">Submission of System Descriptions</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Teams submit a 2-page system description in the ICASSP template, together with a link to a
+                            working version of their code. Teams without a system description will be disqualified.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-12-10" data-end="2026-12-10">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">10 Dec 2026</span>
+                        <span class="tl-title">Challenge Paper Submission</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Deadline for challenge paper submission.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+            </ol>
         </div>
+
+        <script>
+        (function () {
+            var DAY = 86400000;
+            var items = Array.prototype.slice.call(document.querySelectorAll('#timeline .tl-item'));
+            if (!items.length) return;
+
+            // Dates are interpreted in the viewer's local time; a milestone lasts until the end of its last day.
+            function parse(s) { var p = s.split('-'); return new Date(+p[0], p[1] - 1, +p[2]); }
+            function ymd(d) { return d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2); }
+
+            var milestones = items.map(function (el) {
+                var start = parse(el.dataset.start);
+                var end = new Date(parse(el.dataset.end).getTime() + DAY);
+                return { el: el, start: start, end: end, title: el.querySelector('.tl-title').textContent };
+            });
+
+            function status(m, now) {
+                if (now >= m.end) return 'done';
+                if (now >= m.start) return 'ongoing';
+                return 'upcoming';
+            }
+            var LABELS = { done: 'Completed', ongoing: 'Ongoing', upcoming: 'Upcoming' };
+
+            // Calendar links and expand/collapse
+            milestones.forEach(function (m) {
+                var cal = m.el.querySelector('.tl-cal');
+                if (cal) {
+                    cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+                        '&text=' + encodeURIComponent('FLAG 2027: ' + m.title) +
+                        '&dates=' + ymd(m.start) + '/' + ymd(m.end) +
+                        '&details=' + encodeURIComponent('https://mavceleb.github.io/dataset/competition.html#timeline');
+                }
+                var head = m.el.querySelector('.tl-head');
+                head.addEventListener('click', function () {
+                    var open = m.el.classList.toggle('open');
+                    head.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            });
+
+            var first = milestones[0].start;
+            var last = milestones[milestones.length - 1].end;
+            var countdown = document.getElementById('tl-countdown');
+            var progress = document.getElementById('tl-progress');
+            var initialized = false;
+
+            function pad(n) { return ('0' + n).slice(-2); }
+
+            function update() {
+                var now = new Date();
+
+                milestones.forEach(function (m) {
+                    var s = status(m, now);
+                    m.el.classList.remove('done', 'ongoing', 'upcoming');
+                    m.el.classList.add(s);
+                    m.el.querySelector('.tl-status').textContent = LABELS[s];
+                });
+
+                // Progress bar
+                var frac = Math.min(1, Math.max(0, (now - first) / (last - first)));
+                document.getElementById('tl-progress-fill').style.width = (frac * 100) + '%';
+                document.getElementById('tl-progress-today').style.left = (frac * 100) + '%';
+                progress.hidden = false;
+
+                // Next event: the nearest upcoming start or ongoing end
+                var next = null;
+                milestones.forEach(function (m) {
+                    var single = m.end - m.start <= DAY;
+                    // [moment, label, date shown]; a phase "closes" at the end of its last day
+                    var lastDay = new Date(m.end.getTime() - DAY);
+                    var cands = single ? [[m.start, m.title, m.start]] : [[m.start, m.title + ' opens', m.start], [m.end, m.title + ' closes', lastDay]];
+                    cands.forEach(function (c) {
+                        if (c[0] > now && (!next || c[0] < next[0])) next = c;
+                    });
+                });
+
+                if (next) {
+                    var diff = Math.max(0, next[0] - now);
+                    document.getElementById('tl-countdown-title').textContent = next[1] + ' — ' +
+                        next[2].toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+                    document.getElementById('tl-d').textContent = Math.floor(diff / DAY);
+                    document.getElementById('tl-h').textContent = pad(Math.floor(diff / 3600000) % 24);
+                    document.getElementById('tl-m').textContent = pad(Math.floor(diff / 60000) % 60);
+                    document.getElementById('tl-s').textContent = pad(Math.floor(diff / 1000) % 60);
+                    countdown.hidden = false;
+                } else {
+                    countdown.hidden = true;
+                }
+
+                // Open the current (or next) milestone once on load
+                if (!initialized) {
+                    initialized = true;
+                    var focus = milestones.filter(function (m) { return status(m, now) !== 'done'; })[0];
+                    if (focus) {
+                        focus.el.classList.add('open');
+                        focus.el.querySelector('.tl-head').setAttribute('aria-expanded', 'true');
+                    }
+                }
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+        </script>
 
         <!-- Prizes -->
         <div class="descriptions" id="prizes">
             <p class="description-headings">PRIZES</p>
             <p>
                 The FLAG 2027 Challenge has been accepted for support under the IEEE Signal Processing Society Challenge
-                Program. Table 3 summarizes the prize allocation for the top five ranked teams.
+                Program. The prize pool is distributed among the top five ranked teams.
             </p>
-            <table>
-                <thead>
-                    <tr><th>Rank</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Prize</td><td>$2,000</td><td>$1,200</td><td>$800</td><td>$600</td><td>$400</td></tr>
-                </tbody>
-            </table>
-            <div class="figures">
-                <p>Table 3: Prize distribution among the top five ranked teams.</p>
+
+            <div class="prize-pool">
+                <svg class="trophy" viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M18 6h28v14c0 9.4-5.6 17-14 17S18 29.4 18 20z"/>
+                    <path d="M18 10H8v5c0 7 4.6 12 11 12.6M46 10h10v5c0 7-4.6 12-11 12.6" fill="none" stroke-width="4"/>
+                    <path d="M28 36h8v10h-8z"/>
+                    <path d="M20 50h24l3 8H17z"/>
+                </svg>
+                <div>
+                    <span class="prize-pool-amount">$5,000</span>
+                    <span class="prize-pool-label">Total prize pool</span>
+                </div>
+            </div>
+
+            <div class="podium" role="list" aria-label="Prizes for the top three teams">
+                <div class="podium-step second" role="listitem">
+                    <svg class="medal silver" viewBox="0 0 64 80" aria-hidden="true">
+                            <path class="ribbon-l" d="M16 0h14l8 30H24z"/>
+                            <path class="ribbon-r" d="M48 0H34l-8 30h14z"/>
+                            <circle class="rim" cx="32" cy="50" r="24"/>
+                            <circle class="face" cx="32" cy="50" r="18"/>
+                            <text x="32" y="57" text-anchor="middle">2</text>
+                        </svg>
+                    <div class="podium-block">
+                        <span class="podium-amount">$1,200</span>
+                        <span class="podium-rank">2nd place</span>
+                    </div>
+                </div>
+                <div class="podium-step first" role="listitem">
+                    <svg class="medal gold" viewBox="0 0 64 80" aria-hidden="true">
+                            <path class="ribbon-l" d="M16 0h14l8 30H24z"/>
+                            <path class="ribbon-r" d="M48 0H34l-8 30h14z"/>
+                            <circle class="rim" cx="32" cy="50" r="24"/>
+                            <circle class="face" cx="32" cy="50" r="18"/>
+                            <text x="32" y="57" text-anchor="middle">1</text>
+                        </svg>
+                    <div class="podium-block">
+                        <span class="podium-amount">$2,000</span>
+                        <span class="podium-rank">1st place</span>
+                    </div>
+                </div>
+                <div class="podium-step third" role="listitem">
+                    <svg class="medal bronze" viewBox="0 0 64 80" aria-hidden="true">
+                            <path class="ribbon-l" d="M16 0h14l8 30H24z"/>
+                            <path class="ribbon-r" d="M48 0H34l-8 30h14z"/>
+                            <circle class="rim" cx="32" cy="50" r="24"/>
+                            <circle class="face" cx="32" cy="50" r="18"/>
+                            <text x="32" y="57" text-anchor="middle">3</text>
+                        </svg>
+                    <div class="podium-block">
+                        <span class="podium-amount">$800</span>
+                        <span class="podium-rank">3rd place</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="runners-up" role="list" aria-label="Prizes for 4th and 5th place">
+                <div class="runner-up" role="listitem">
+                    <svg class="rosette" viewBox="0 0 40 48" aria-hidden="true">
+                        <path d="M12 26l-6 20 8-4 4 6 4-18zM28 26l6 20-8-4-4 6-4-18z"/>
+                        <circle cx="20" cy="18" r="16"/>
+                        <text x="20" y="24" text-anchor="middle">4</text>
+                    </svg>
+                    <div>
+                        <span class="runner-up-amount">$600</span>
+                        <span class="runner-up-rank">4th place</span>
+                    </div>
+                </div>
+                <div class="runner-up" role="listitem">
+                    <svg class="rosette" viewBox="0 0 40 48" aria-hidden="true">
+                        <path d="M12 26l-6 20 8-4 4 6 4-18zM28 26l6 20-8-4-4 6-4-18z"/>
+                        <circle cx="20" cy="18" r="16"/>
+                        <text x="20" y="24" text-anchor="middle">5</text>
+                    </svg>
+                    <div>
+                        <span class="runner-up-amount">$400</span>
+                        <span class="runner-up-rank">5th place</span>
+                    </div>
+                </div>
             </div>
         </div>
 
