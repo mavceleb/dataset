@@ -213,6 +213,16 @@
             margin-bottom: 20px;
         }
 
+        .dir-tree{
+            text-align: left;
+            font-size: 12px;
+            line-height: 1.4;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            padding: 12px 16px;
+            overflow-x: auto;
+        }
+
         /* Organizers */
         .organizers-grid{
             display: flex;
@@ -264,6 +274,33 @@
             text-align: center;
             margin: 0;
         }
+
+        /* Collaborating institutes */
+        .logos-grid{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px 40px;
+            padding: 10px 0 4vh 0;
+        }
+
+        .logos-grid a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .logos-grid a:hover{
+            transform: scale(1.05);
+        }
+
+        .logos-grid img{
+            height: 70px;
+            max-width: 220px;
+            object-fit: contain;
+        }
         /* ////////////////////////////////////////////////////////////////// */
 
         .footer{
@@ -300,6 +337,7 @@
             <a href="#submission">Submission</a>
             <a href="#rules">Rules</a>
             <a href="#registration">Registration</a>
+            <a href="#prizes">Prizes</a>
             <a href="#organizers">Organizers</a>
             
         </div>
@@ -390,7 +428,31 @@
                 chatter or music, overlapping voices, and compression artifacts.
             </p>
             <p>
-                The training and validation sets are shared with participants on the first day of the progress phase.
+                Each speaker appears in more than one video, for a total of 557 videos. Face-voice pairs are curated by
+                sampling one video frame per second of active speaker, paired with the corresponding audio segment.
+                Table 1 summarizes the dataset characteristics.
+            </p>
+            <table>
+                <thead>
+                    <tr><th>Dataset</th><th>Bengali</th><th>English</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td># of celebrities</td><td>100</td><td>100</td></tr>
+                    <tr><td># of male celebrities</td><td>57</td><td>57</td></tr>
+                    <tr><td># of female celebrities</td><td>43</td><td>43</td></tr>
+                    <tr><td># of videos</td><td>301</td><td>256</td></tr>
+                    <tr><td># of hours</td><td>41.6</td><td>29.9</td></tr>
+                    <tr><td># of utterances</td><td>32,341</td><td>22,823</td></tr>
+                    <tr><td>Avg. # of videos per celebrity</td><td>3.0</td><td>2.6</td></tr>
+                    <tr><td>Avg. # of utterances per celebrity</td><td>323.4</td><td>228.2</td></tr>
+                    <tr><td>Avg. length of utterances (in s)</td><td>4.6</td><td>4.7</td></tr>
+                </tbody>
+            </table>
+            <div class="figures">
+                <p>Table 1: Summary of the dataset characteristics.</p>
+            </div>
+            <p>
+                The training and development sets are shared with participants on the first day of the progress phase.
                 The input data for the final evaluation phase is released on the first day of the evaluation phase,
                 without ground-truth labels, so that the final evaluation tests the generalization capability of models
                 developed during the progress phase.
@@ -403,15 +465,79 @@
                 presents data of the same celebrity in Bengali.</p>
             </div>
 
-            <p style="text-align: left;">The dataset is available at the following links:</p>
+            <p>
+                The download folder contains the training and development sets, including both the raw data files and
+                the corresponding pre-extracted audio-visual features. The meta file for the training set with gender
+                details can be downloaded separately.
+            </p>
             <ul>
                 <li>MAV-Celeb v4 (English-Bengali, FLAG 2027)
                     <ul>
-                        <li>Raw files link &mdash; released on the first day of the progress phase</li>
-                        <li>Train/Test Split &mdash; released on the first day of the progress phase</li>
+                        <li>Download folder (training &amp; development sets, raw files and pre-extracted features):
+                            <a href="https://drive.google.com/drive/folders/1YFVLHIWu0yBQYOIgjTvfK7d_M_fsfzn8?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive</a></li>
+                        <li>Meta file for the training set with gender details:
+                            <a href="https://drive.google.com/file/d/1TLaDoCW5Eh18uhPSu-BhEiGxbL6kNwWJ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive</a></li>
                     </ul>
                 </li>
             </ul>
+
+            <p style="text-align: left;">The download folder is organized as follows:</p>
+            <p style="text-align: left;"><b>Training set</b></p>
+            <pre class="dir-tree">train_set/
+├── features/
+│   ├── faces/
+│   │   └── train_English_faces.csv      # 6,485 rows × 4,097 cols (4,096-d face embedding + class label)
+│   └── voices/
+│       └── train_English_voices.csv     # 6,485 rows × 193 cols (192-d voice embedding + class label)
+└── train_set/
+    ├── train_English.txt                # 6,485 lines, file list with labels
+    ├── faces/
+    │   └── English/
+    │       ├── id001/
+    │       │   ├── 00036.jpg
+    │       │   ├── 00056.jpg
+    │       │   └── ...
+    │       ├── id002/
+    │       └── ... id070/               # 70 identities, 6,485 .jpg total
+    └── voices/
+        └── English/
+            ├── id001/
+            │   ├── 00036.wav
+            │   ├── 00056.wav
+            │   └── ...
+            ├── id002/
+            └── ... id070/               # 70 identities, 6,485 .wav total</pre>
+
+            <p style="text-align: left;"><b>Development set</b></p>
+            <pre class="dir-tree">dev_set/
+├── gender/
+│   ├── English_test.txt                 # 982 lines
+│   ├── Bangla_test.txt                  # 1,468 lines
+│   ├── features/
+│   │   ├── English_test_faces.csv       # 982 × 4,096
+│   │   ├── English_test_voices.csv      # 982 × 192
+│   │   ├── Bangla_test_faces.csv        # 1,468 × 4,096
+│   │   └── Bangla_test_voices.csv       # 1,468 × 192
+│   ├── English_test/
+│   │   ├── faces/    00000.jpg ... (982 files)
+│   │   └── voices/   00000.wav ... (982 files)
+│   └── Bangla_test/
+│       ├── faces/    00000.jpg ... (1,468 files)
+│       └── voices/   00000.wav ... (1,468 files)
+└── no_gender/
+    ├── English_test.txt                 # 1,008 lines
+    ├── Bangla_test.txt                  # 1,406 lines
+    ├── features/
+    │   ├── English_test_faces.csv       # 1,008 × 4,096
+    │   ├── English_test_voices.csv      # 1,008 × 192
+    │   ├── Bangla_test_faces.csv        # 1,406 × 4,096
+    │   └── Bangla_test_voices.csv       # 1,406 × 192
+    ├── English_test/
+    │   ├── faces/    00000.jpg ... (1,008 files)
+    │   └── voices/   00000.wav ... (1,008 files)
+    └── Bangla_test/
+        ├── faces/    00000.jpg ... (1,406 files)
+        └── voices/   00000.wav ... (1,406 files)</pre>
         </div>
 
         <!-- Baseline Model -->
@@ -438,15 +564,39 @@
                     https://github.com/msaadsaeed/FOP
                 </a>
                 <br>
-                Link to the Baseline code: 
+                Link to the Baseline code:
                 <a href="https://github.com/mavceleb/mavceleb_baseline">
                     https://github.com/mavceleb/mavceleb_baseline
+                </a>
+                <br>
+                Link to the FLAG 2027 repository:
+                <a href="https://github.com/SwapnilKhandoker101/FLAG_2027">
+                    https://github.com/SwapnilKhandoker101/FLAG_2027
                 </a>
             </p>
         </div>
         <div class="figures">
             <img src="./static/images/methodology.png">
             <p>Figure 3: Diagram showing the baseline methodology.</p>
+        </div>
+        <div class="descriptions">
+            <p>
+                <b>Baseline results.</b> Table 2 reports the baseline face-voice association results (EER, %) in the
+                standard and gender-constrained settings, for the heard (English) and unheard (Bengali) languages.
+            </p>
+            <table>
+                <thead>
+                    <tr><th>Method</th><th>Phase</th><th>Config.</th><th>Standard<br>Eng. test</th><th>Standard<br>Bengali test</th><th>Gender-Constrained<br>Eng. test</th><th>Gender-Constrained<br>Bengali test</th><th>Overall Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FOP</td><td>Dev</td><td>Eng. train</td><td>32.54</td><td>38.12</td><td>32.99</td><td>44.01</td><td>36.92</td></tr>
+                    <tr><td>FOP</td><td>Eval</td><td>Eng. train</td><td>29.10</td><td>32.90</td><td>39.40</td><td>39.90</td><td>35.32</td></tr>
+                </tbody>
+            </table>
+            <div class="figures">
+                <p>Table 2: Cross-modal verification between face and voice across the test configurations of the
+                MAV-Celeb v4 dataset.</p>
+            </div>
         </div>
 
         <!-- Evaluation Metrics -->
@@ -469,10 +619,11 @@
                 comparing systems.
             </p>
             <p>
-                Since models are evaluated on different tasks, each model yields several EERs. The overall score used to
+                Since models are evaluated on four different tasks (English heard and Bengali unheard, each in the
+                standard and gender-constrained settings), each model yields four EERs. The overall score used to
                 decide the challenge winners is computed as:
             </p>
-            <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 2</b></code></p>
+            <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
         </div>
 
         <!-- Submission -->
@@ -483,11 +634,8 @@
                 <code>.txt</code> files of the face-voice test pairs, where each line has the following format:
                 <ul>
                 <code>
-                    <li>ysuvkz41 voices/English/00000.wav faces/English/00000.jpg</li>
-                    <li>tog3zj45 voices/English/00001.wav faces/English/00001.jpg</li>
-                    <li>ky5xfj1d voices/English/00002.wav faces/English/00002.jpg</li>
-                    <li>yx4nfa35 voices/English/01062.wav faces/English/01062.jpg</li>
-                    <li>bowsaf5e voices/English/01063.wav faces/English/01063.jpg</li>
+                    <li>ljAnhn41 English_test/voices/00000.wav English_test/faces/00000.jpg</li>
+                    <li>neHzLCeC English_test/voices/00001.wav English_test/faces/00001.jpg</li>
                 </code>
                 </ul>
                 The first entry of each line is the ID of the pair; the remaining two are the local paths of the
@@ -500,23 +648,34 @@
                 the following format:
                 <ul>
                 <code>
-                    <li>ysuvkz41 0.9988</li>
-                    <li>tog3zj45 0.1146</li>
-                    <li>ky5xfj1d 0.6514</li>
-                    <li>yx4nfa35 1.5321</li>
-                    <li>bowsaf5e 1.6578</li>
+                    <li>ljAnhn41 1.162691</li>
+                    <li>neHzLCeC 1.235319</li>
                 </code>
                 </ul>
-                Within the directory containing the submission files, use <code>zip archive.zip *.txt</code> and do not
-                zip the folder. The exact file names expected for each evaluation condition are announced on the
-                CodaBench page at the start of each phase.
+            </p>
+            <p>
+                <b>Submission Format:</b> Participants must submit a ZIP archive containing one score file per protocol
+                cell, placed in two folders named after the tracks. To create the archive, run
+                <code>zip -r submission.zip no_gender gender</code> from within the directory holding the two folders.
+                The expected layout is:
+                <ul>
+                <code>
+                    <li>no_gender/sub_score_v4_English_heard.txt</li>
+                    <li>no_gender/sub_score_v4_Bangla_unheard.txt</li>
+                    <li>gender/sub_score_v4_English_heard.txt</li>
+                    <li>gender/sub_score_v4_Bangla_unheard.txt</li>
+                </code>
+                </ul>
             </p>
             <p>
                 In the <b>progress phase</b>, each team may make a maximum of 150 submissions, with at most 15 per day.
                 In the <b>evaluation phase</b>, the total number of submissions is limited to 15.
+            </p>
+            <p>
+                <b>Submission Platform:</b> Participants will submit their predictions through the CodaBench platform,
+                where their performance will be automatically evaluated and scored.
                 <br><br>
-                Link to CodaBench: <b>to be announced</b> &mdash; the FLAG 2027 competition page will be linked here
-                before the progress phase opens.
+                CodaBench: <a href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">https://www.codabench.org/competitions/18062/</a>
             </p>
         </div>
 
@@ -542,8 +701,7 @@
         <div class="descriptions" id="registration">
             <p class="description-headings">REGISTRATION</p>
             <p>We welcome participants to apply for the &ldquo;FLAG Challenge 2027&rdquo; by expressing their interest
-                via google forms at <span><b>to be announced</b></span> &mdash; the registration form will be linked here
-                at the start of the registration period.</p>
+                via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer"><b>Registration form</b></a>.</p>
             <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
         </div>
 
@@ -552,13 +710,33 @@
             <p class="description-headings">TIMELINE</p>
             <p style="font-size: 14px; font-style: italic;">Tentative &mdash; dates may be updated.</p>
             <ul>
-                <li>Registration Period: 24 August – 7 September 2026</li>
-                <li>Progress Phase: 1 September – 15 October 2026</li>
-                <li>Evaluation Phase: 15 October – 21 October 2026</li>
-                <li>Challenge Results: 27 October 2026</li>
-                <li>Submission of System Descriptions: 30 October 2026</li>
-                <li>Challenge Paper Submission: 07 December 2026</li>
+                <li>Registration Period: 15 September – 15 October 2026</li>
+                <li>Progress Phase: 15 September – 10 November 2026</li>
+                <li>Evaluation Phase: 11 November – 18 November 2026</li>
+                <li>Challenge Results: 23 November 2026</li>
+                <li>Submission of System Descriptions: 27 November 2026</li>
+                <li>Challenge Paper Submission: 10 December 2026</li>
             </ul>
+        </div>
+
+        <!-- Prizes -->
+        <div class="descriptions" id="prizes">
+            <p class="description-headings">PRIZES</p>
+            <p>
+                The FLAG 2027 Challenge has been accepted for support under the IEEE Signal Processing Society Challenge
+                Program. Table 3 summarizes the prize allocation for the top five ranked teams.
+            </p>
+            <table>
+                <thead>
+                    <tr><th>Rank</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Prize</td><td>$2,000</td><td>$1,200</td><td>$800</td><td>$600</td><td>$400</td></tr>
+                </tbody>
+            </table>
+            <div class="figures">
+                <p>Table 3: Prize distribution among the top five ranked teams.</p>
+            </div>
         </div>
 
         <!-- Organizers -->
@@ -584,6 +762,14 @@
                     <img src="./static/images/organizers/shah_nawaz.jpg" alt="Shah Nawaz">
                     <p class="name"><a href="https://shahnawazgrewal.github.io/">Shah Nawaz</a></p>
                     <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria</p>
+                </div>
+                <div class="organizer">
+                    <svg viewBox="0 0 24 24" width="120" height="120" role="img" aria-label="Fatima Noor" style="border-radius: 50%; background-color: #e8eaed; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);">
+                        <circle cx="12" cy="9" r="4" fill="#9aa0a6"/>
+                        <path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8z" fill="#9aa0a6"/>
+                    </svg>
+                    <p class="name">Fatima Noor</p>
+                    <p class="affiliation">University of Engineering and Technology Taxila, Pakistan</p>
                 </div>
                 <div class="organizer">
                     <img src="./static/images/organizers/rohan_kumar.jpg" alt="Rohan Kumar Das">
@@ -613,11 +799,35 @@
                 <div class="organizer">
                     <img src="./static/images/organizers/markus_schedl.jpg" alt="Markus Schedl">
                     <p class="name"><a href="http://www.mschedl.eu/">Markus Schedl</a></p>
-                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Human-centered AI Group, AI Lab, Linz Institute of Technology, Austria</p>
+                    <p class="affiliation">Institute of Computational Perception, Johannes Kepler University Linz, Austria | Linz Institute of Technology, Austria</p>
                 </div>
             </div>
         </div>
-    
+
+        <!-- Collaborating Institutes -->
+        <div class="descriptions" id="institutes">
+            <p class="description-headings">COLLABORATING INSTITUTES</p>
+            <div class="logos-grid">
+                <a href="https://www.jku.at/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/jku.svg" alt="Johannes Kepler University Linz">
+                </a>
+                <a href="https://www.jku.at/lit/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/lit.svg" alt="Linz Institute of Technology">
+                </a>
+                <a href="https://www.umflint.edu/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/umflint.svg" alt="University of Michigan-Flint">
+                </a>
+                <a href="https://www.uettaxila.edu.pk/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/uet_taxila.svg" alt="University of Engineering and Technology Taxila">
+                </a>
+                <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/mbzuai.png" alt="Mohamed bin Zayed University of Artificial Intelligence">
+                </a>
+                <a href="https://www.fortemedia.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="./static/images/logos/fortemedia.png" alt="Fortemedia">
+                </a>
+            </div>
+        </div>
 
         <!-- footer -->
         <div class="footer">
