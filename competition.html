@@ -521,6 +521,227 @@
             }
         }
 
+        /* Evaluation metrics */
+        .ev-metric{
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 24px 0 10px 0;
+            border: 1px solid #c9c9ce;
+            text-align: left;
+        }
+
+        .ev-metric-head{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .ev-metric-name{
+            font-family: montserrat_bold;
+            font-size: 20px;
+        }
+
+        .ev-metric-tag{
+            font-size: 11px;
+            font-family: montserrat_medium;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+        }
+
+        .ev-metric p{
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .ev-matrix{
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 2px;
+            background-color: #c9c9ce;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 14px 0 10px 0;
+        }
+
+        .ev-matrix-cell{
+            background-color: var(--secondary-color);
+            padding: 14px 16px;
+            text-align: center;
+            font-family: montserrat_medium;
+            font-size: 15px;
+        }
+
+        .ev-matrix-head{
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ev-matrix-corner{
+            background-color: var(--main-color);
+        }
+
+        .ev-matrix-row{
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ev-matrix-row small{
+            font-family: montserrat_regular;
+            font-size: 11px;
+            opacity: 0.65;
+        }
+
+        .ev-formula{
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin: 14px 0 10px 0;
+            text-align: center;
+            font-family: montserrat_bold;
+            font-size: 20px;
+        }
+
+        .ev-why{
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .ev-why-item{
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 18px 20px;
+            text-align: left;
+        }
+
+        .ev-why-item b{
+            font-family: montserrat_bold;
+            font-weight: normal;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .ev-why-item p{
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 800px){
+            .ev-why{ grid-template-columns: 1fr; }
+            .ev-formula{ font-size: 16px; }
+        }
+
+        /* Submission */
+        .sub-heading{
+            font-family: montserrat_bold;
+            font-size: 18px;
+            margin: 32px 0 8px 0;
+            text-align: left;
+        }
+
+        .code-block{
+            text-align: left;
+            font-size: 13px;
+            line-height: 1.5;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 14px 18px;
+            overflow-x: auto;
+        }
+
+        .sub-cta{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 22px 28px;
+            margin: 24px 0 10px 0;
+            border-radius: 10px;
+            background-color: var(--tertiary-color);
+            text-align: left;
+            border: 1px solid #c9c9ce;
+        }
+
+        .sub-cta-kicker{
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #b8321f;
+        }
+
+        .sub-cta-title{
+            display: block;
+            font-family: montserrat_bold;
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .sub-cta-note{
+            display: block;
+            font-size: 13px;
+            color: #45454c;
+            margin-top: 6px;
+            max-width: 420px;
+        }
+
+        .sub-limits{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .sub-limit{
+            padding: 18px 22px;
+            border-radius: 10px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            text-align: left;
+        }
+
+        .sub-limit-phase{
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e74c3c;
+        }
+
+        .sub-limit-num{
+            display: block;
+            font-family: montserrat_bold;
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .sub-limit-label{
+            display: block;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 800px){
+            .sub-limits{ grid-template-columns: 1fr; }
+        }
+
         /* Registration */
         .reg-steps{
             display: grid;
@@ -1435,79 +1656,145 @@
             <p class="description-headings">EVALUATION METRICS</p>
             <p>
                 As commonly done for face-voice association tasks, submissions are evaluated with the
-                <b>Equal Error Rate (EER)</b>: the value at which the false acceptance rate (FAR) and the false
-                rejection rate (FRR) are equal. As for FAR and FRR, a low EER indicates good performance. Participants
-                submit a <code>.txt</code> file containing output scores for every pair in the test set, indicating the
-                system's confidence that the face and voice belong to the same person. Within a submission file, a pair
-                with a higher score is interpreted as one the model is more confident about.
+                <b>Equal Error Rate (EER)</b>, computed from the confidence scores a system assigns to every test pair.
+                Within a submission file, a pair with a higher score is interpreted as one the system is more confident
+                about.
             </p>
+
+            <div class="ev-metric">
+                <div class="ev-metric-head">
+                    <span class="ev-metric-name">Equal Error Rate</span>
+                    <span class="ev-metric-tag">Lower is better</span>
+                </div>
+                <p>
+                    The operating point at which the <b>false acceptance rate (FAR)</b> &mdash; wrongly accepting a
+                    non-matching face-voice pair &mdash; equals the <b>false rejection rate (FRR)</b>, that is, wrongly
+                    rejecting a matching one. As for FAR and FRR, a low EER indicates good performance.
+                </p>
+            </div>
+
+            <p class="sub-heading">The four evaluation conditions</p>
             <p>
-                This setup is consistent with the evaluation of the earlier FAME 2024 and FAME 2026 Grand Challenges.
-                Technically, EER does not require confidence scores of different models to span the same range, and it
-                does not depend on a fixed threshold, unlike metrics such as precision or accuracy. In real deployments
-                a system developer would tune that threshold to their own needs &mdash; a high threshold gives a low FAR
-                and a high FRR &mdash; which is precisely why a threshold-independent metric is the fairer basis for
-                comparing systems.
+                Each system is evaluated on two languages and in two settings, which yields four EERs per system.
             </p>
-            <p>
-                Since models are evaluated on four different tasks (English heard and Bengali unheard, each in the
-                standard and gender-constrained settings), each model yields four EERs. The overall score used to
-                decide the challenge winners is computed as:
-            </p>
-            <p style="text-align: center;"><code><b>Overall Score = (Sum of all EERs) / 4</b></code></p>
+            <div class="ev-matrix">
+                <div class="ev-matrix-cell ev-matrix-corner"></div>
+                <div class="ev-matrix-cell ev-matrix-head">Standard</div>
+                <div class="ev-matrix-cell ev-matrix-head">Gender-constrained</div>
+
+                <div class="ev-matrix-cell ev-matrix-row">English<small>heard language</small></div>
+                <div class="ev-matrix-cell">EER<sub>1</sub></div>
+                <div class="ev-matrix-cell">EER<sub>3</sub></div>
+
+                <div class="ev-matrix-cell ev-matrix-row">Bengali<small>unheard language</small></div>
+                <div class="ev-matrix-cell">EER<sub>2</sub></div>
+                <div class="ev-matrix-cell">EER<sub>4</sub></div>
+            </div>
+
+            <p class="sub-heading">Overall score</p>
+            <p>The score used to decide the challenge winners is the mean of those four values:</p>
+            <div class="ev-formula">
+                Overall Score = ( EER<sub>1</sub> + EER<sub>2</sub> + EER<sub>3</sub> + EER<sub>4</sub> ) / 4
+            </div>
+
+            <p class="sub-heading">Why the Equal Error Rate?</p>
+            <div class="ev-why">
+                <div class="ev-why-item">
+                    <b>Comparable across systems</b>
+                    <p>EER does not require the confidence scores of different systems to span the same range, so teams
+                        are free to calibrate their outputs as they wish.</p>
+                </div>
+                <div class="ev-why-item">
+                    <b>Independent of a threshold</b>
+                    <p>Unlike accuracy or precision, EER does not depend on a fixed decision threshold. In a real
+                        deployment that threshold is tuned to the application: a high threshold gives a low FAR and a
+                        high FRR.</p>
+                </div>
+                <div class="ev-why-item">
+                    <b>Consistent with earlier editions</b>
+                    <p>The same metric was used in the FAME 2024 and FAME 2026 Grand Challenges, which keeps results
+                        comparable across editions.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Submission -->
         <div class="descriptions" id="submission">
             <p class="description-headings">SUBMISSION</p>
             <p>
+                Submissions are made through the CodaBench platform, where they are scored automatically against the
+                withheld ground truth. This section describes the test pair files, the score files a system must
+                produce, the archive layout expected by the scorer, and the submission limits of each phase.
+            </p>
+
+            <div class="sub-cta">
+                <div>
+                    <span class="sub-cta-kicker">Submission platform</span>
+                    <span class="sub-cta-title">FLAG 2027 on CodaBench</span>
+                    <span class="sub-cta-note">Predictions are evaluated and scored automatically, and results appear on the public leaderboard.</span>
+                </div>
+                <a class="reg-button" href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">
+                    Open the competition
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h13M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="sub-heading">1. Test pair files</p>
+            <p>
                 Alongside the audio (<code>.wav</code>) and image (<code>.jpg</code>) files, the dataset includes
-                <code>.txt</code> files of the face-voice test pairs, where each line has the following format:
-                <ul>
-                <code>
-                    <li>ljAnhn41 English_test/voices/00000.wav English_test/faces/00000.jpg</li>
-                    <li>neHzLCeC English_test/voices/00001.wav English_test/faces/00001.jpg</li>
-                </code>
-                </ul>
-                The first entry of each line is the ID of the pair; the remaining two are the local paths of the
-                corresponding audio and of a visual frame extracted from the video. The ground-truth files contain the
-                ID of the pair and a 1 or a 0, depending on whether the face and voice correspond to the same speaker.
-                Ground truth is withheld for fair evaluation during the challenge.
+                <code>.txt</code> files of the face-voice test pairs. The first entry of each line is the ID of the
+                pair; the remaining two are the local paths of the corresponding audio and of a visual frame extracted
+                from the video:
             </p>
+            <pre class="code-block">ljAnhn41 English_test/voices/00000.wav English_test/faces/00000.jpg
+neHzLCeC English_test/voices/00001.wav English_test/faces/00001.jpg</pre>
             <p>
-                Participants are expected to compute and submit text files including the ID and the confidence score, in
-                the following format:
-                <ul>
-                <code>
-                    <li>ljAnhn41 1.162691</li>
-                    <li>neHzLCeC 1.235319</li>
-                </code>
-                </ul>
+                The ground-truth files contain the ID of the pair and a 1 or a 0, depending on whether the face and
+                voice correspond to the same speaker. Ground truth is withheld for fair evaluation during the challenge.
             </p>
+
+            <p class="sub-heading">2. Score files</p>
             <p>
-                <b>Submission Format:</b> Participants must submit a ZIP archive containing one score file per protocol
-                cell, placed in two folders named after the tracks. To create the archive, run
-                <code>zip -r submission.zip no_gender gender</code> from within the directory holding the two folders.
-                The expected layout is:
-                <ul>
-                <code>
-                    <li>no_gender/sub_score_v4_English_heard.txt</li>
-                    <li>no_gender/sub_score_v4_Bangla_unheard.txt</li>
-                    <li>gender/sub_score_v4_English_heard.txt</li>
-                    <li>gender/sub_score_v4_Bangla_unheard.txt</li>
-                </code>
-                </ul>
+                For every pair, systems output a confidence score that the face and the voice belong to the same person.
+                Each score file contains one line per pair, with the pair ID followed by the score:
             </p>
+            <pre class="code-block">ljAnhn41 1.162691
+neHzLCeC 1.235319</pre>
             <p>
-                In the <b>progress phase</b>, each team may make a maximum of 150 submissions, with at most 15 per day.
-                In the <b>evaluation phase</b>, the total number of submissions is limited to 15.
+                Scores are not required to lie in a fixed range: only their ordering matters, since evaluation is based
+                on the Equal Error Rate.
             </p>
+
+            <p class="sub-heading">3. Archive layout</p>
             <p>
-                <b>Submission Platform:</b> Participants will submit their predictions through the CodaBench platform,
-                where their performance will be automatically evaluated and scored.
-                <br><br>
-                CodaBench: <a href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">https://www.codabench.org/competitions/18062/</a>
+                Submit a ZIP archive containing one score file per protocol cell, placed in two folders named after the
+                tracks. From within the directory holding the two folders, run:
             </p>
+            <pre class="code-block">zip -r submission.zip no_gender gender</pre>
+            <p>The archive is expected to have the following layout:</p>
+            <pre class="code-block">submission.zip
+├── no_gender/
+│   ├── sub_score_v4_English_heard.txt
+│   └── sub_score_v4_Bangla_unheard.txt
+└── gender/
+    ├── sub_score_v4_English_heard.txt
+    └── sub_score_v4_Bangla_unheard.txt</pre>
+
+            <p class="sub-heading">4. Submission limits</p>
+            <div class="sub-limits">
+                <div class="sub-limit">
+                    <span class="sub-limit-phase">Progress phase</span>
+                    <span class="sub-limit-num">150</span>
+                    <span class="sub-limit-label">submissions in total, at most 15 per day</span>
+                </div>
+                <div class="sub-limit">
+                    <span class="sub-limit-phase">Evaluation phase</span>
+                    <span class="sub-limit-num">15</span>
+                    <span class="sub-limit-label">submissions in total</span>
+                </div>
+            </div>
         </div>
 
         <!-- Rules -->
