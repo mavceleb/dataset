@@ -223,6 +223,71 @@
             overflow-x: auto;
         }
 
+        /* Tracks & Dataset sections */
+        .section-lead{
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Dataset key figures */
+        .stat-grid{
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .stat-card{
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            padding: 16px 18px;
+            text-align: left;
+            box-shadow: 0 5px 10px #e1e1e1;
+        }
+
+        .stat-value{
+            display: block;
+            font-family: montserrat_bold;
+            font-size: 26px;
+            line-height: 1.1;
+        }
+
+        .stat-label{
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #555555;
+            margin-top: 6px;
+        }
+
+        .caption{
+            font-family: montserrat_lightItalic;
+            font-size: 12px;
+            text-align: center;
+            margin-top: -8px;
+        }
+
+        .callout{
+            border-left: 4px solid var(--main-color);
+            background-color: var(--secondary-color);
+            border-radius: 0 6px 6px 0;
+            padding: 14px 18px;
+            margin: 24px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .callout p{
+            margin: 0;
+        }
+
+        @media (max-width: 900px){
+            .stat-grid{
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         /* Timeline */
         .tl-note{
             font-size: 14px;
@@ -519,6 +584,104 @@
             .tl-countdown-clock div{
                 min-width: 48px;
             }
+        }
+
+        .table-wrap{
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .table-wrap table{
+            width: 100%;
+            margin: 0;
+            font-size: 14px;
+            min-width: 680px;
+        }
+
+        .table-wrap th,
+        .table-wrap td{
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        .table-wrap thead tr{
+            text-align: center;
+        }
+
+        /* Baseline starter kit */
+        .kit-grid{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 14px 0 10px 0;
+        }
+
+        .kit-card{
+            display: flex;
+            gap: 14px;
+            padding: 16px 18px;
+            border-radius: 10px;
+            border: 1px solid #d7d7dd;
+            background-color: var(--secondary-color);
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .kit-card:hover{
+            transform: translateY(-3px);
+            border-color: var(--main-color);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .kit-card:focus-visible{
+            outline: 2px solid #e74c3c;
+            outline-offset: 2px;
+        }
+
+        .kit-icon{
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kit-body{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .kit-kicker{
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #b8321f;
+        }
+
+        .kit-title{
+            font-family: montserrat_medium;
+            font-size: 15px;
+            margin: 3px 0;
+            word-break: break-word;
+        }
+
+        .kit-sub{
+            font-size: 12px;
+            color: #55555c;
+        }
+
+        @media (max-width: 800px){
+            .kit-grid{ grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .kit-card{ transition: none; }
         }
 
         /* Evaluation metrics */
@@ -1464,29 +1627,45 @@
         <!-- Dataset -->
         <div class="descriptions" id="dataset" style="background-color: var(--tertiary-color);">
             <p class="description-headings">DATASET</p>
-            <p>
-                Building on the prior FAME 2024 and 2026 Grand Challenges, we extended the MAV-Celeb dataset with one
-                additional language, curating a new split of <b>100 English-Bengali speakers</b> (MAV-Celeb v4). The new
-                split provides both language and gender annotations, which is what makes the two FLAG tracks possible.
-                Alongside it, the earlier splits remain available: MAV-Celeb v1 covers English and Urdu speakers, and v3
-                covers English and German speakers, each with distinct (non-overlapping) speaker identities.
+            <p class="section-lead">
+                Building on the prior FAME 2024 and FAME 2026 Grand Challenges, the MAV-Celeb corpus has been extended
+                with an additional language: a newly curated split of <b>100 English&ndash;Bengali speakers</b>
+                (MAV-Celeb&nbsp;v4). This release provides both language and gender annotations, which is what makes the
+                two FLAG tracks possible.
             </p>
+
+            <div class="stat-grid">
+                <div class="stat-card"><span class="stat-value">100</span><span class="stat-label">Speakers</span></div>
+                <div class="stat-card"><span class="stat-value">2</span><span class="stat-label">Languages</span></div>
+                <div class="stat-card"><span class="stat-value">557</span><span class="stat-label">Videos</span></div>
+                <div class="stat-card"><span class="stat-value">71.5&nbsp;h</span><span class="stat-label">Speech</span></div>
+            </div>
+
+            <p class="sub-heading">Corpus composition</p>
+            <p>
+                Alongside the new split, the earlier releases remain available: MAV-Celeb&nbsp;v1 covers English and
+                Urdu speakers, and MAV-Celeb&nbsp;v3 covers English and German speakers. All splits contain distinct,
+                non-overlapping speaker identities.
+            </p>
+
+            <p class="sub-heading">Data collection and curation</p>
             <p>
                 As in previous releases, the audio-visual samples are obtained from YouTube videos of celebrities
-                appearing in interviews, talk shows, and television debates. The visual data spans a vast range of
-                setups, including different poses, motion blur, background clutter, video quality, occlusions and
-                lighting conditions. Because the videos originate from real-world situations, they reproduce the same
-                difficulties encountered when deploying face-voice association tools in practice: noise, background
-                chatter or music, overlapping voices, and compression artifacts.
+                appearing in interviews, talk shows, and television debates. The visual data spans a wide range of
+                recording setups, including variation in pose, motion blur, background clutter, video quality,
+                occlusion, and lighting. Because the material originates from unconstrained, real-world recordings, it
+                reproduces the conditions encountered when deploying face&ndash;voice association systems in practice:
+                acoustic noise, background chatter and music, overlapping speech, and compression artefacts.
             </p>
             <p>
-                Each speaker appears in more than one video, for a total of 557 videos. Face-voice pairs are curated by
-                sampling one video frame per second of active speaker, paired with the corresponding audio segment.
-                Table 1 summarizes the dataset characteristics.
+                Each speaker appears in more than one video, for a total of 557 videos. Face&ndash;voice pairs are
+                curated by sampling one video frame per second of active speech, paired with the corresponding audio
+                segment. Table 1 summarises the characteristics of the English&ndash;Bengali split.
             </p>
+
             <table>
                 <thead>
-                    <tr><th>Dataset</th><th>Bengali</th><th>English</th></tr>
+                    <tr><th>Statistic</th><th>Bengali</th><th>English</th></tr>
                 </thead>
                 <tbody>
                     <tr><td># of celebrities</td><td>100</td><td>100</td></tr>
@@ -1500,15 +1679,7 @@
                     <tr><td>Avg. length of utterances (in s)</td><td>4.6</td><td>4.7</td></tr>
                 </tbody>
             </table>
-            <div class="figures">
-                <p>Table 1: Summary of the dataset characteristics.</p>
-            </div>
-            <p>
-                The training and development sets are shared with participants on the first day of the progress phase.
-                The input data for the final evaluation phase is released on the first day of the evaluation phase,
-                without ground-truth labels, so that the final evaluation tests the generalization capability of models
-                developed during the progress phase.
-            </p>
+            <p class="caption">Table 1: Characteristics of the MAV-Celeb v4 English&ndash;Bengali split.</p>
 
             <div class="figures">
                 <img src="./static/images/flag_2027_samples.jpg" alt="Audio-visual samples from the English-Bengali split">
@@ -1517,13 +1688,24 @@
                 presents data of the same celebrity in Bengali.</p>
             </div>
 
+            <p class="sub-heading">Release schedule</p>
+            <div class="callout">
+                <p>
+                    The training and development sets are released to participants on the first day of the progress
+                    phase. The evaluation input data is released on the first day of the evaluation phase
+                    <b>without ground-truth labels</b>, so that the final assessment measures the generalisation
+                    capability of systems developed during the progress phase.
+                </p>
+            </div>
+
+            <p class="sub-heading">Access</p>
             <p>
                 The download folder contains the training and development sets, including both the raw data files and
                 the corresponding pre-extracted audio-visual features. The meta file for the training set with gender
-                details can be downloaded separately.
+                annotations is distributed separately.
             </p>
             <ul>
-                <li>MAV-Celeb v4 (English-Bengali, FLAG 2027)
+                <li>MAV-Celeb v4 (English&ndash;Bengali, FLAG 2027)
                     <ul>
                         <li>Download folder (training &amp; development sets, raw files and pre-extracted features):
                             <a href="https://drive.google.com/drive/folders/1YFVLHIWu0yBQYOIgjTvfK7d_M_fsfzn8?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive</a></li>
@@ -1533,7 +1715,7 @@
                 </li>
             </ul>
 
-            <p style="text-align: left;">The download folder is organized as follows:</p>
+            <p class="sub-heading">Directory structure</p>
             <p style="text-align: left;"><b>Training set</b></p>
             <pre class="dir-tree">train_set/
 ├── features/
@@ -1598,33 +1780,18 @@
             <p>
                 To allow participants to benchmark their results, we release a pretrained instance of a competitive
                 multimodal method for the face-voice association task, together with a leaderboard on CodaBench where
-                teams can compare their performance during the progress phase. The model is a two-branch network taking
-                face and voice embeddings as input (see Fig. 3). Face embeddings are obtained with a popular
-                convolutional network pretrained on a large-scale facial recognition dataset; voice embeddings are
-                obtained with an audio encoding network for speaker recognition, trained on the language available in
-                the training set (i.e. the heard language). The multimodal model then combines the face and voice
-                embeddings and is optimized with a loss function that imposes orthogonality constraints on the
-                multimodal embeddings of different speakers.
-                <br> <br>
-                Link to the paper: 
-                <a href="https://ieeexplore.ieee.org/abstract/document/9747704/">
-                    Fusion and Orthogonal Projection for Improved Face-Voice Association
-                </a>
-                <br>
-                Link to the Paper's code: 
-                <a href="https://github.com/msaadsaeed/FOP">
-                    https://github.com/msaadsaeed/FOP
-                </a>
-                <br>
-                Link to the Baseline code:
-                <a href="https://github.com/mavceleb/mavceleb_baseline">
-                    https://github.com/mavceleb/mavceleb_baseline
-                </a>
-                <br>
-                Link to the FLAG 2027 repository:
-                <a href="https://github.com/SwapnilKhandoker101/FLAG_2027">
-                    https://github.com/SwapnilKhandoker101/FLAG_2027
-                </a>
+                teams can compare their performance during the progress phase.
+            </p>
+
+            <p class="sub-heading">The model</p>
+            <p>
+                The baseline is <b>Fusion and Orthogonal Projection (FOP)</b>, a two-branch network taking face and
+                voice embeddings as input (see Fig. 3). Face embeddings are obtained with a popular convolutional
+                network pretrained on a large-scale facial recognition dataset; voice embeddings are obtained with an
+                audio encoding network for speaker recognition, trained on the language available in the training set
+                (i.e. the heard language). The multimodal model then combines the face and voice embeddings and is
+                optimized with a loss function that imposes orthogonality constraints on the multimodal embeddings of
+                different speakers.
             </p>
         </div>
         <div class="figures">
@@ -1632,19 +1799,52 @@
             <p>Figure 3: Diagram showing the baseline methodology.</p>
         </div>
         <div class="descriptions">
+            <p class="sub-heading">Starter kit</p>
+            <div class="kit-grid">
+                <a class="kit-card" href="https://ieeexplore.ieee.org/abstract/document/9747704/" target="_blank" rel="noopener noreferrer">
+                    <span class="kit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h5"></path></svg></span>
+                    <span class="kit-body">
+                        <span class="kit-kicker">Paper</span>
+                        <span class="kit-title">Fusion and Orthogonal Projection for Improved Face-Voice Association</span>
+                        <span class="kit-sub">IEEE ICASSP 2022</span>
+                    </span>
+                </a>
+                <a class="kit-card" href="https://github.com/SwapnilKhandoker101/FLAG_2027" target="_blank" rel="noopener noreferrer">
+                    <span class="kit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3.3 7.5L12 12.5l8.7-5M12 22V12.5"></path></svg></span>
+                    <span class="kit-body">
+                        <span class="kit-kicker">FLAG 2027 repository</span>
+                        <span class="kit-title">SwapnilKhandoker101/FLAG_2027</span>
+                        <span class="kit-sub">Challenge data and evaluation resources</span>
+                    </span>
+                </a>
+                <a class="kit-card" href="https://github.com/msaadsaeed/FOP" target="_blank" rel="noopener noreferrer">
+                    <span class="kit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5M14 4l-4 16"></path></svg></span>
+                    <span class="kit-body">
+                        <span class="kit-kicker">Paper's code</span>
+                        <span class="kit-title">msaadsaeed/FOP</span>
+                        <span class="kit-sub">Reference implementation of FOP</span>
+                    </span>
+                </a>
+            </div>
+
+            <p class="sub-heading">Baseline results</p>
             <p>
-                <b>Baseline results.</b> Table 2 reports the baseline face-voice association results (EER, %) in the
-                standard and gender-constrained settings, for the heard (English) and unheard (Bengali) languages.
+                Table 2 reports the baseline face-voice association results (EER, %, lower is better) in the standard
+                and gender-constrained settings, for the heard (English) and unheard (Bengali) languages. Performance
+                degrades both under the language shift and in the gender-constrained setting &mdash; exactly the gap the
+                challenge invites participants to close.
             </p>
-            <table>
-                <thead>
-                    <tr><th>Method</th><th>Phase</th><th>Config.</th><th>Standard<br>Eng. test</th><th>Standard<br>Bengali test</th><th>Gender-Constrained<br>Eng. test</th><th>Gender-Constrained<br>Bengali test</th><th>Overall Score</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>FOP</td><td>Dev</td><td>Eng. train</td><td>32.54</td><td>38.12</td><td>32.99</td><td>44.01</td><td>36.92</td></tr>
-                    <tr><td>FOP</td><td>Eval</td><td>Eng. train</td><td>29.10</td><td>32.90</td><td>39.40</td><td>39.90</td><td>35.32</td></tr>
-                </tbody>
-            </table>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Method</th><th>Phase</th><th>Config.</th><th>Standard<br>Eng. test</th><th>Standard<br>Bengali test</th><th>Gender-Constrained<br>Eng. test</th><th>Gender-Constrained<br>Bengali test</th><th>Overall Score</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FOP</td><td>Dev</td><td>Eng. train</td><td>32.54</td><td>38.12</td><td>32.99</td><td>44.01</td><td><b>36.92</b></td></tr>
+                        <tr><td>FOP</td><td>Eval</td><td>Eng. train</td><td>29.10</td><td>32.90</td><td>39.40</td><td>39.90</td><td><b>35.32</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="figures">
                 <p>Table 2: Cross-modal verification between face and voice across the test configurations of the
                 MAV-Celeb v4 dataset.</p>
