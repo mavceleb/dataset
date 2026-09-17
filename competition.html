@@ -521,6 +521,120 @@
             }
         }
 
+        /* Registration */
+        .reg-steps{
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .reg-step{
+            display: flex;
+            gap: 14px;
+            padding: 18px;
+            border-radius: 10px;
+            background-color: var(--tertiary-color);
+        }
+
+        .reg-step-num{
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            font-family: montserrat_bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reg-step > div{
+            text-align: left;
+        }
+
+        .reg-step b{
+            font-family: montserrat_bold;
+            font-weight: normal;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .reg-step p{
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .reg-cta{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 22px 28px;
+            border-radius: 10px;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            text-align: left;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .reg-cta-kicker{
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e74c3c;
+        }
+
+        .reg-cta-title{
+            display: block;
+            font-family: montserrat_medium;
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .reg-button{
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 8px;
+            background-color: #e74c3c;
+            color: #fff;
+            font-family: montserrat_medium;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .reg-button:hover{
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .reg-button:focus-visible{
+            outline: 3px solid #f5cf57;
+            outline-offset: 2px;
+        }
+
+        .reg-contact{
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 800px){
+            .reg-steps{ grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .reg-button{ transition: none; }
+        }
+
         /* Prizes */
         .prize-pool{
             display: flex;
@@ -830,6 +944,7 @@
     <nav>
         <div>
             <a href="./index.html">Home</a>
+            <a href="#timeline">Timeline</a>
             <a href="#tracks">Tracks</a>
             <a href="#dataset">Dataset</a>
             <a href="#baseline">Baseline</a>
@@ -879,6 +994,222 @@
                 Signal Processing Society Challenge Program</a>.
             </p>
         </div>
+
+        <!-- Timeline -->
+        <div class="descriptions" id="timeline" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
+            <p class="description-headings">TIMELINE</p>
+            <p class="tl-note">Tentative &mdash; dates may be updated.</p>
+
+            <!-- Countdown to the next milestone (filled in by script) -->
+            <div class="tl-countdown" id="tl-countdown" hidden>
+                <div class="tl-countdown-label">
+                    <span class="tl-countdown-kicker" id="tl-countdown-kicker">Next milestone</span>
+                    <span class="tl-countdown-title" id="tl-countdown-title"></span>
+                </div>
+                <div class="tl-countdown-clock" aria-live="polite">
+                    <div><span id="tl-d">0</span><small>days</small></div>
+                    <div><span id="tl-h">00</span><small>hours</small></div>
+                    <div><span id="tl-m">00</span><small>min</small></div>
+                    <div><span id="tl-s">00</span><small>sec</small></div>
+                </div>
+            </div>
+
+            <!-- Overall progress (filled in by script) -->
+            <div class="tl-progress" id="tl-progress" hidden>
+                <div class="tl-progress-track">
+                    <div class="tl-progress-fill" id="tl-progress-fill"></div>
+                    <div class="tl-progress-today" id="tl-progress-today"><span>Today</span></div>
+                </div>
+                <div class="tl-progress-ends">
+                    <span>15 Sep 2026</span>
+                    <span>10 Dec 2026</span>
+                </div>
+            </div>
+
+            <ol class="tl">
+                <li class="tl-item" data-start="2026-09-15" data-end="2026-10-15">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">15 Sep – 15 Oct 2026</span>
+                        <span class="tl-title">Registration Period</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Teams register for the challenge via the
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer">registration form</a>.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-09-15" data-end="2026-11-10">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">15 Sep – 10 Nov 2026</span>
+                        <span class="tl-title">Progress Phase</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Training and development sets, pre-extracted features and the baseline model are available.
+                            Teams compare results on the <a href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">CodaBench</a>
+                            leaderboard &mdash; up to 150 submissions, at most 15 per day.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-11" data-end="2026-11-18">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">11 Nov – 18 Nov 2026</span>
+                        <span class="tl-title">Evaluation Phase</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Evaluation inputs are released on the first day, without ground-truth labels. The total number
+                            of submissions is limited to 15.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-23" data-end="2026-11-23">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">23 Nov 2026</span>
+                        <span class="tl-title">Challenge Results</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Final rankings are announced, based on the overall score (sum of the four EERs divided by 4).</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-11-27" data-end="2026-11-27">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">27 Nov 2026</span>
+                        <span class="tl-title">Submission of System Descriptions</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Teams submit a 2-page system description in the ICASSP template, together with a link to a
+                            working version of their code. Teams without a system description will be disqualified.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+                <li class="tl-item" data-start="2026-12-10" data-end="2026-12-10">
+                    <button class="tl-head" type="button" aria-expanded="false">
+                        <span class="tl-dot"></span>
+                        <span class="tl-date">10 Dec 2026</span>
+                        <span class="tl-title">Challenge Paper Submission</span>
+                        <span class="tl-status"></span>
+                    </button>
+                    <div class="tl-body">
+                        <p>Deadline for challenge paper submission.</p>
+                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <script>
+        (function () {
+            var DAY = 86400000;
+            var items = Array.prototype.slice.call(document.querySelectorAll('#timeline .tl-item'));
+            if (!items.length) return;
+
+            // Dates are interpreted in the viewer's local time; a milestone lasts until the end of its last day.
+            function parse(s) { var p = s.split('-'); return new Date(+p[0], p[1] - 1, +p[2]); }
+            function ymd(d) { return d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2); }
+
+            var milestones = items.map(function (el) {
+                var start = parse(el.dataset.start);
+                var end = new Date(parse(el.dataset.end).getTime() + DAY);
+                return { el: el, start: start, end: end, title: el.querySelector('.tl-title').textContent };
+            });
+
+            function status(m, now) {
+                if (now >= m.end) return 'done';
+                if (now >= m.start) return 'ongoing';
+                return 'upcoming';
+            }
+            var LABELS = { done: 'Completed', ongoing: 'Ongoing', upcoming: 'Upcoming' };
+
+            // Calendar links and expand/collapse
+            milestones.forEach(function (m) {
+                var cal = m.el.querySelector('.tl-cal');
+                if (cal) {
+                    cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+                        '&text=' + encodeURIComponent('FLAG 2027: ' + m.title) +
+                        '&dates=' + ymd(m.start) + '/' + ymd(m.end) +
+                        '&details=' + encodeURIComponent('https://mavceleb.github.io/dataset/competition.html#timeline');
+                }
+                var head = m.el.querySelector('.tl-head');
+                head.addEventListener('click', function () {
+                    var open = m.el.classList.toggle('open');
+                    head.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            });
+
+            var first = milestones[0].start;
+            var last = milestones[milestones.length - 1].end;
+            var countdown = document.getElementById('tl-countdown');
+            var progress = document.getElementById('tl-progress');
+            var initialized = false;
+
+            function pad(n) { return ('0' + n).slice(-2); }
+
+            function update() {
+                var now = new Date();
+
+                milestones.forEach(function (m) {
+                    var s = status(m, now);
+                    m.el.classList.remove('done', 'ongoing', 'upcoming');
+                    m.el.classList.add(s);
+                    m.el.querySelector('.tl-status').textContent = LABELS[s];
+                });
+
+                // Progress bar
+                var frac = Math.min(1, Math.max(0, (now - first) / (last - first)));
+                document.getElementById('tl-progress-fill').style.width = (frac * 100) + '%';
+                document.getElementById('tl-progress-today').style.left = (frac * 100) + '%';
+                progress.hidden = false;
+
+                // Next event: the nearest upcoming start or ongoing end
+                var next = null;
+                milestones.forEach(function (m) {
+                    var single = m.end - m.start <= DAY;
+                    // [moment, label, date shown]; a phase "closes" at the end of its last day
+                    var lastDay = new Date(m.end.getTime() - DAY);
+                    var cands = single ? [[m.start, m.title, m.start]] : [[m.start, m.title + ' opens', m.start], [m.end, m.title + ' closes', lastDay]];
+                    cands.forEach(function (c) {
+                        if (c[0] > now && (!next || c[0] < next[0])) next = c;
+                    });
+                });
+
+                if (next) {
+                    var diff = Math.max(0, next[0] - now);
+                    document.getElementById('tl-countdown-title').textContent = next[1] + ' — ' +
+                        next[2].toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+                    document.getElementById('tl-d').textContent = Math.floor(diff / DAY);
+                    document.getElementById('tl-h').textContent = pad(Math.floor(diff / 3600000) % 24);
+                    document.getElementById('tl-m').textContent = pad(Math.floor(diff / 60000) % 60);
+                    document.getElementById('tl-s').textContent = pad(Math.floor(diff / 1000) % 60);
+                    countdown.hidden = false;
+                } else {
+                    countdown.hidden = true;
+                }
+
+                // Open the current (or next) milestone once on load
+                if (!initialized) {
+                    initialized = true;
+                    var focus = milestones.filter(function (m) { return status(m, now) !== 'done'; })[0];
+                    if (focus) {
+                        focus.el.classList.add('open');
+                        focus.el.querySelector('.tl-head').setAttribute('aria-expanded', 'true');
+                    }
+                }
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+        </script>
 
         <!-- Tracks -->
         <div class="descriptions" id="tracks">
@@ -1218,226 +1549,57 @@
         <!-- Registration -->
         <div class="descriptions" id="registration">
             <p class="description-headings">REGISTRATION</p>
-            <p>We welcome participants to apply for the &ldquo;FLAG Challenge 2027&rdquo; by expressing their interest
-                via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer"><b>Registration form</b></a>.</p>
-            <p>For any queries please contact us at our email <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.</p>
-        </div>
+            <p>
+                Participation in the FLAG 2027 Challenge is open to teams from academia and industry, and there is no
+                registration fee. One team member registers on behalf of the whole team using the form below.
+                Registration closes on <b>15 October 2026</b>.
+            </p>
 
-        <!-- Timeline -->
-        <div class="descriptions" id="timeline" style="background-color: var(--tertiary-color); padding-bottom: 2vh;">
-            <p class="description-headings">TIMELINE</p>
-            <p class="tl-note">Tentative &mdash; dates may be updated.</p>
-
-            <!-- Countdown to the next milestone (filled in by script) -->
-            <div class="tl-countdown" id="tl-countdown" hidden>
-                <div class="tl-countdown-label">
-                    <span class="tl-countdown-kicker" id="tl-countdown-kicker">Next milestone</span>
-                    <span class="tl-countdown-title" id="tl-countdown-title"></span>
+            <div class="reg-steps">
+                <div class="reg-step">
+                    <span class="reg-step-num">1</span>
+                    <div>
+                        <b>Register your team</b>
+                        <p>Submit the registration form with your team name, affiliation and the contact details of the
+                            corresponding member.</p>
+                    </div>
                 </div>
-                <div class="tl-countdown-clock" aria-live="polite">
-                    <div><span id="tl-d">0</span><small>days</small></div>
-                    <div><span id="tl-h">00</span><small>hours</small></div>
-                    <div><span id="tl-m">00</span><small>min</small></div>
-                    <div><span id="tl-s">00</span><small>sec</small></div>
+                <div class="reg-step">
+                    <span class="reg-step-num">2</span>
+                    <div>
+                        <b>Access the data</b>
+                        <p>Download the training and development sets, the pre-extracted features and the baseline, and
+                            create an account on CodaBench.</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Overall progress (filled in by script) -->
-            <div class="tl-progress" id="tl-progress" hidden>
-                <div class="tl-progress-track">
-                    <div class="tl-progress-fill" id="tl-progress-fill"></div>
-                    <div class="tl-progress-today" id="tl-progress-today"><span>Today</span></div>
-                </div>
-                <div class="tl-progress-ends">
-                    <span>15 Sep 2026</span>
-                    <span>10 Dec 2026</span>
+                <div class="reg-step">
+                    <span class="reg-step-num">3</span>
+                    <div>
+                        <b>Submit your systems</b>
+                        <p>Upload your score files to CodaBench during the progress and evaluation phases, then send a
+                            2-page system description and a link to your code.</p>
+                    </div>
                 </div>
             </div>
 
-            <ol class="tl">
-                <li class="tl-item" data-start="2026-09-15" data-end="2026-10-15">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">15 Sep – 15 Oct 2026</span>
-                        <span class="tl-title">Registration Period</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Teams register for the challenge via the
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer">registration form</a>.</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-                <li class="tl-item" data-start="2026-09-15" data-end="2026-11-10">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">15 Sep – 10 Nov 2026</span>
-                        <span class="tl-title">Progress Phase</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Training and development sets, pre-extracted features and the baseline model are available.
-                            Teams compare results on the <a href="https://www.codabench.org/competitions/18062/" target="_blank" rel="noopener noreferrer">CodaBench</a>
-                            leaderboard &mdash; up to 150 submissions, at most 15 per day.</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-                <li class="tl-item" data-start="2026-11-11" data-end="2026-11-18">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">11 Nov – 18 Nov 2026</span>
-                        <span class="tl-title">Evaluation Phase</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Evaluation inputs are released on the first day, without ground-truth labels. The total number
-                            of submissions is limited to 15.</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-                <li class="tl-item" data-start="2026-11-23" data-end="2026-11-23">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">23 Nov 2026</span>
-                        <span class="tl-title">Challenge Results</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Final rankings are announced, based on the overall score (sum of the four EERs divided by 4).</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-                <li class="tl-item" data-start="2026-11-27" data-end="2026-11-27">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">27 Nov 2026</span>
-                        <span class="tl-title">Submission of System Descriptions</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Teams submit a 2-page system description in the ICASSP template, together with a link to a
-                            working version of their code. Teams without a system description will be disqualified.</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-                <li class="tl-item" data-start="2026-12-10" data-end="2026-12-10">
-                    <button class="tl-head" type="button" aria-expanded="false">
-                        <span class="tl-dot"></span>
-                        <span class="tl-date">10 Dec 2026</span>
-                        <span class="tl-title">Challenge Paper Submission</span>
-                        <span class="tl-status"></span>
-                    </button>
-                    <div class="tl-body">
-                        <p>Deadline for challenge paper submission.</p>
-                        <a class="tl-cal" target="_blank" rel="noopener noreferrer">+ Add to Google Calendar</a>
-                    </div>
-                </li>
-            </ol>
+            <div class="reg-cta">
+                <div>
+                    <span class="reg-cta-kicker">Registration is open</span>
+                    <span class="reg-cta-title">Join the FLAG 2027 Challenge</span>
+                </div>
+                <a class="reg-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeJH4uvcWNjqSi7CssNthIv80GdrszjIvuNp4UN77-KMNzgZg/viewform?usp=sharing&amp;ouid=112056064502733681727" target="_blank" rel="noopener noreferrer">
+                    Register your team
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h13M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="reg-contact">
+                Questions about the challenge, the data or the submission process are welcome at
+                <a href="mailto:mavceleb@gmail.com">mavceleb@gmail.com</a>.
+            </p>
         </div>
-
-        <script>
-        (function () {
-            var DAY = 86400000;
-            var items = Array.prototype.slice.call(document.querySelectorAll('#timeline .tl-item'));
-            if (!items.length) return;
-
-            // Dates are interpreted in the viewer's local time; a milestone lasts until the end of its last day.
-            function parse(s) { var p = s.split('-'); return new Date(+p[0], p[1] - 1, +p[2]); }
-            function ymd(d) { return d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2); }
-
-            var milestones = items.map(function (el) {
-                var start = parse(el.dataset.start);
-                var end = new Date(parse(el.dataset.end).getTime() + DAY);
-                return { el: el, start: start, end: end, title: el.querySelector('.tl-title').textContent };
-            });
-
-            function status(m, now) {
-                if (now >= m.end) return 'done';
-                if (now >= m.start) return 'ongoing';
-                return 'upcoming';
-            }
-            var LABELS = { done: 'Completed', ongoing: 'Ongoing', upcoming: 'Upcoming' };
-
-            // Calendar links and expand/collapse
-            milestones.forEach(function (m) {
-                var cal = m.el.querySelector('.tl-cal');
-                if (cal) {
-                    cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-                        '&text=' + encodeURIComponent('FLAG 2027: ' + m.title) +
-                        '&dates=' + ymd(m.start) + '/' + ymd(m.end) +
-                        '&details=' + encodeURIComponent('https://mavceleb.github.io/dataset/competition.html#timeline');
-                }
-                var head = m.el.querySelector('.tl-head');
-                head.addEventListener('click', function () {
-                    var open = m.el.classList.toggle('open');
-                    head.setAttribute('aria-expanded', open ? 'true' : 'false');
-                });
-            });
-
-            var first = milestones[0].start;
-            var last = milestones[milestones.length - 1].end;
-            var countdown = document.getElementById('tl-countdown');
-            var progress = document.getElementById('tl-progress');
-            var initialized = false;
-
-            function pad(n) { return ('0' + n).slice(-2); }
-
-            function update() {
-                var now = new Date();
-
-                milestones.forEach(function (m) {
-                    var s = status(m, now);
-                    m.el.classList.remove('done', 'ongoing', 'upcoming');
-                    m.el.classList.add(s);
-                    m.el.querySelector('.tl-status').textContent = LABELS[s];
-                });
-
-                // Progress bar
-                var frac = Math.min(1, Math.max(0, (now - first) / (last - first)));
-                document.getElementById('tl-progress-fill').style.width = (frac * 100) + '%';
-                document.getElementById('tl-progress-today').style.left = (frac * 100) + '%';
-                progress.hidden = false;
-
-                // Next event: the nearest upcoming start or ongoing end
-                var next = null;
-                milestones.forEach(function (m) {
-                    var single = m.end - m.start <= DAY;
-                    // [moment, label, date shown]; a phase "closes" at the end of its last day
-                    var lastDay = new Date(m.end.getTime() - DAY);
-                    var cands = single ? [[m.start, m.title, m.start]] : [[m.start, m.title + ' opens', m.start], [m.end, m.title + ' closes', lastDay]];
-                    cands.forEach(function (c) {
-                        if (c[0] > now && (!next || c[0] < next[0])) next = c;
-                    });
-                });
-
-                if (next) {
-                    var diff = Math.max(0, next[0] - now);
-                    document.getElementById('tl-countdown-title').textContent = next[1] + ' — ' +
-                        next[2].toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-                    document.getElementById('tl-d').textContent = Math.floor(diff / DAY);
-                    document.getElementById('tl-h').textContent = pad(Math.floor(diff / 3600000) % 24);
-                    document.getElementById('tl-m').textContent = pad(Math.floor(diff / 60000) % 60);
-                    document.getElementById('tl-s').textContent = pad(Math.floor(diff / 1000) % 60);
-                    countdown.hidden = false;
-                } else {
-                    countdown.hidden = true;
-                }
-
-                // Open the current (or next) milestone once on load
-                if (!initialized) {
-                    initialized = true;
-                    var focus = milestones.filter(function (m) { return status(m, now) !== 'done'; })[0];
-                    if (focus) {
-                        focus.el.classList.add('open');
-                        focus.el.querySelector('.tl-head').setAttribute('aria-expanded', 'true');
-                    }
-                }
-            }
-
-            update();
-            setInterval(update, 1000);
-        })();
-        </script>
 
         <!-- Prizes -->
         <div class="descriptions" id="prizes">
